@@ -1,0 +1,8 @@
+.home {}
+
+.home__hero-link {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 12rem;
+}
