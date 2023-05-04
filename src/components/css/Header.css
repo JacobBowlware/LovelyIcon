@@ -1,21 +1,27 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 #navbar {
-    max-width: 1400px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 30rem;
+    width: 100%;
 }
 
 .navbar-brand {
-    padding: 0;
     font-size: 1.4rem;
     font-weight: 700;
 }
 
 .container-fluid {
     padding: 0;
+    max-width: 1345px;
 }
 
 .navbar-toggler {
@@ -52,6 +58,10 @@
     }
 
     #navbar {
-        padding: 1rem 4rem;
+        padding: 1rem 2rem;
+    }
+
+    .navbar-brand {
+        padding: 0 0 0 2rem;
     }
 }

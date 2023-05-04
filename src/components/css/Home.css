@@ -1,4 +1,6 @@
-.home {}
+.home {
+    padding-top: 10rem;
+}
 
 .home__hero-link {
     color: #fff;
@@ -10,6 +12,8 @@
 /* Features */
 .features {
     margin-top: 4rem;
+    background: var(--var-background-dark);
+    width: 100%;
 }
 
 .features-p {
@@ -20,3 +24,15 @@
 .features__list-item {
     font-size: 1.1rem;
 }
+
+/* Showcase */
+.showcase {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.showcase__item {}

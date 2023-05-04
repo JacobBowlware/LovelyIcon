@@ -20,7 +20,7 @@ function App() {
   const Root = () => {
     return <>
       <Header />
-      <div>
+      <div className="web-container">
         <Outlet />
       </div>
       <Footer />
