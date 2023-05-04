@@ -36,3 +36,24 @@
 }
 
 .showcase__item {}
+
+/* C-T-A (call to action) */
+.cta {
+    margin-top: 4rem;
+    background: var(--var-background-dark);
+    width: 100%;
+}
+
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.cta__header {
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 70%;
+}

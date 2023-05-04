@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import friends from '../../assets/friends.svg';
+// Icons / Images
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import friends from '../../assets/friends.svg';
+
+// Custom Components
 import Icon from '../common/Icon';
+import TextHighlight from '../common/TextHighlight';
+
 
 
 const iconList = [
@@ -49,7 +54,7 @@ const Home = () => {
             <div className="grid-2 container" id="home">
                 <div className="grid-item hero">
                     <h1 className="header-1 text-secondary">
-                        Personalize Your Online Presence with <span className="text-highlight">Lovely Icons</span>
+                        Personalize Your Online Presence with <TextHighlight>Lovely Icons</TextHighlight>
                     </h1>
                     <p className="text-secondary p">
                         Create beautiful, customized icons that look professional and lovely for any purpose with our easy-to-use icon generator.
@@ -69,13 +74,13 @@ const Home = () => {
                     <div className="grid-item grid-reverse">
                         <h2 className="header-2 text-secondary">Customizable Icons for Any Purpose</h2>
                         <p className="p features-p">
-                            Customize icons to your heart's content <span className='text-highlight'>
+                            Customize icons to your heart's content <TextHighlight>
                                 without any design experience
-                            </span>. Our <span className='text-highlight'>AI-powered</span> tool
-                            generates <span className='text-highlight'>beautiful</span> icons based on your
-                            preferences in <span className="text-highlight">  just a few clicks
-                            </span>. Choose the style, size, and color of
-                            your icons and make them fully <span className="text-highlight">personalized</span> for your needs.
+                            </TextHighlight>. Our <TextHighlight>AI-powered</TextHighlight> tool
+                            generates <TextHighlight>beautiful</TextHighlight> icons based on your
+                            preferences in <TextHighlight>  just a few clicks
+                            </TextHighlight>. Choose the style, size, and color of
+                            your icons and make them fully <TextHighlight>personalized</TextHighlight> for your needs.
                         </p>
                         <ul className="list features-list">
                             <li className="list-item features__list-item">
@@ -95,7 +100,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="showcase container" id="showcase">
-                <h3 className="header-2 text-secondary"><span className="text-highlight">Stunning</span> Icons Made <span className="text-highlight">Easy</span>: See What Our Users Have Created</h3>
+                <h3 className="header-2 text-secondary"><TextHighlight>Stunning</TextHighlight> Icons Made <TextHighlight>Easy</TextHighlight>: See What Our Users Have Created</h3>
                 <div className="grid-3 showcase__container">
                     {iconList.map((icon, index) => {
                         return (
@@ -104,6 +109,15 @@ const Home = () => {
                             </div>
                         )
                     })}
+                </div>
+            </div>
+            <div className="cta">
+                <div className="container cta-container">
+                    <h3 className="header-2 text-secondary cta__header">
+                        Looking for a <TextHighlight>simple</TextHighlight> way to <TextHighlight>create stunning icons</TextHighlight>?
+                        Our tool has got you covered. <TextHighlight>Start designing now!</TextHighlight>
+                    </h3>
+                    <Link to="/login" className="btn btn-primary cta__btn">Get Started Now</Link>
                 </div>
             </div>
         </div>
