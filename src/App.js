@@ -14,6 +14,7 @@ import Footer from './components/common/Footer.jsx';
 // CSS
 import './components/css/App.css';
 import './components/css/Home.css';
+import './components/css/Header.css';
 
 function App() {
   const Root = () => {

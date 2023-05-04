@@ -1,0 +1,41 @@
+#navbar {
+    max-width: 1400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    font-size: .8rem;
+}
+
+.navbar-nav {
+    justify-content: flex-end;
+    width: 90%;
+}
+
+
+
+@media screen and (min-width: 1024px) {}
