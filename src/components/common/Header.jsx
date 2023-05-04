@@ -20,19 +20,19 @@ const Header = () => {
                 <div class={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarNav" collapsed>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/#home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="/#features">Features</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Showcase</a>
+                            <a class="nav-link" href="/#showcase">Showcase</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="/#pricing">Pricing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="mailto:Support@LovelyIcon.com">Contact</a>
                         </li>
                     </ul>
                 </div>

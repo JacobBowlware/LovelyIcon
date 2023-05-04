@@ -6,3 +6,17 @@
     font-weight: 700;
     width: 12rem;
 }
+
+/* Features */
+.features {
+    margin-top: 4rem;
+}
+
+.features-p {
+    border-bottom: 1px solid var(--var-light);
+    padding-bottom: 2rem;
+}
+
+.features__list-item {
+    font-size: 1.1rem;
+}
