@@ -100,7 +100,10 @@ const Home = () => {
                 </div>
             </div>
             <div className="showcase container" id="showcase">
-                <h3 className="header-2 text-secondary"><TextHighlight>Stunning</TextHighlight> Icons Made <TextHighlight>Easy</TextHighlight>: See What Our Users Have Created</h3>
+                <h3 className="header-2 text-secondary">
+                    <TextHighlight>Stunning</TextHighlight> Icons
+                    Made <TextHighlight>Easy</TextHighlight>: See What Our Users Have Created
+                </h3>
                 <div className="grid-3 showcase__container">
                     {iconList.map((icon, index) => {
                         return (
@@ -114,8 +117,9 @@ const Home = () => {
             <div className="cta">
                 <div className="container cta-container">
                     <h3 className="header-2 text-secondary cta__header">
-                        Looking for a <TextHighlight>simple</TextHighlight> way to <TextHighlight>create stunning icons</TextHighlight>?
-                        Our tool has got you covered. <TextHighlight>Start designing now!</TextHighlight>
+                        Looking for a <TextHighlight>simple</TextHighlight> way to <TextHighlight>create stunning
+                            icons? </TextHighlight> Our tool has got you covered.
+                        <TextHighlight> Start designing now!</TextHighlight>
                     </h3>
                     <Link to="/login" className="btn btn-primary cta__btn">Get Started Now</Link>
                 </div>
