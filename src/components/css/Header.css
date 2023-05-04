@@ -10,6 +10,7 @@
 
 .navbar-brand {
     padding: 0;
+    font-size: 1.4rem;
 }
 
 .container-fluid {
@@ -36,6 +37,18 @@
     width: 90%;
 }
 
+.nav-item {
+    border-bottom: 1px solid var(--var-light);
+}
+
+.nav-item:last-child {
+    border-bottom: none;
+}
 
 
-@media screen and (min-width: 1024px) {}
+
+@media screen and (min-width: 1024px) {
+    .nav-item {
+        border-bottom: none;
+    }
+}

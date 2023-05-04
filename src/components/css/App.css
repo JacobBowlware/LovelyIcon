@@ -1,8 +1,9 @@
 :root {
-  --var-primary: #FBBF24;
-  --var-secondary: #4B5563;
-  --var-background: #F9FAFB;
-  --var-text: #1F2937;
+  --var-primary: #5D3FD3;
+  --var-secondary: #8E44AD;
+  --var-background: #F7F7F7;
+  --var-text: #171C23;
+  --var-light: #E8E8E8;
 }
 
 body {
