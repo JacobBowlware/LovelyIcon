@@ -14,6 +14,7 @@
     margin-top: 4rem;
     background: var(--var-background-dark);
     width: 100%;
+    padding-top: 2rem;
 }
 
 .features-p {
@@ -86,6 +87,84 @@
     .cta__btn {
         width: 20rem;
         font-size: 1.5rem;
+    }
+}
+
+/* Pricing */
+.pricing__header {
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.pricing__container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.pricing-card {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    height: 100%;
+}
+
+.pricing-card__header {
+    text-align: left;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.pricing-card:hover {
+    cursor: pointer;
+}
+
+.pricing-card__price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.pricing-card__list {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.pricing-card__list-icon {
+    color: var(--var-secondary);
+    margin-right: .5rem;
+    font-size: 1rem;
+}
+
+.pricing-card__list-item {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 1000px) {
+    .pricing__header {
+        font-size: 2rem;
+    }
+
+    .pricing__container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .pricing__card-price {
+        font-size: 1.8rem;
+    }
+
+    .pricing-card__list-item {
+        font-size: 1.1rem;
+    }
+
+    .pricing-card__header {
+        font-size: 1.7rem;
     }
 }
 

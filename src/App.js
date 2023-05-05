@@ -32,7 +32,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
-        <Route path="*" element={<Home />} />
+        <Route path="/*" element={<Home />} />
       </Route >
     )
   )

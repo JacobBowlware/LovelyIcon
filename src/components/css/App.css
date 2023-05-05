@@ -43,6 +43,10 @@ body {
 .container {
   max-width: 1400px;
   padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid {
@@ -153,6 +157,25 @@ body {
 /* Links */
 a {
   text-decoration: none;
+}
+
+#features,
+#pricing,
+#showcase,
+#faq,
+#contact {
+  scroll-margin-top: 180px;
+}
+
+@media screen and (min-width: 1000px) {
+
+  #features,
+  #pricing,
+  #showcase,
+  #faq,
+  #contact {
+    scroll-margin-top: 100px;
+  }
 }
 
 /* Images */

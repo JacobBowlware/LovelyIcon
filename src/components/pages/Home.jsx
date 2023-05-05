@@ -11,6 +11,7 @@ import Icon from '../common/Icon';
 import TextHighlight from '../common/TextHighlight';
 import AccordianItem from '../common/AccordianItem';
 import FAQAccordian from '../other/FAQAccordian';
+import PricingCard from '../other/PricingCard';
 
 const iconList = [
     {
@@ -122,9 +123,62 @@ const Home = () => {
                     <Link to="/login" className="btn btn-primary cta__btn">Get Started Now</Link>
                 </div>
             </div>
-            <div className="container faq" id="faq">
-                <h3 className="header-2 text-secondary-c faq__header">Frequently Asked Questions</h3>
-                <FAQAccordian />
+            <div className="container pricing" id="pricing">
+                <h3 className="header-2 text-secondary-c pricing__header">
+                    Pricing and Credits
+                </h3>
+                <div className="pricing__container">
+                    <div className="grid-item">
+                        <PricingCard
+                            title="50 Credits"
+                            price="$5"
+                            listItems={
+                                [
+                                    "Generate up to 5 icons",
+                                    "Access to all customization options",
+                                    "6 icon designs to choose from",
+                                    "High quality PNG file downloads",
+                                    "Commercial use"
+                                ]
+                            }
+                        />
+                    </div>
+                    <div className="grid-item">
+                        <PricingCard
+                            title="120 Credits"
+                            price="$10"
+                            listItems={
+                                [
+                                    "Generate up to 12 icons",
+                                    "Access to all customization options",
+                                    "6 icon designs to choose from",
+                                    "High quality PNG file downloads",
+                                    "Commercial use"
+                                ]
+                            }
+                        />
+                    </div>
+                    <div className="grid-item">
+                        <PricingCard
+                            title="300 Credits"
+                            price="$25"
+                            listItems={
+                                [
+                                    "Generate up to 30 icons",
+                                    "Access to all customization options",
+                                    "6 icon designs to choose from",
+                                    "High quality PNG file downloads",
+                                    "Commercial use"
+                                ]
+                            }
+                        />
+                    </div>
+
+                </div>
+                <div className="container faq" id="faq">
+                    <h3 className="header-2 text-secondary-c faq__header">Frequently Asked Questions</h3>
+                    <FAQAccordian />
+                </div>
             </div>
         </div>
     );
