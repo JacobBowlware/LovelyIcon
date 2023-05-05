@@ -7,19 +7,33 @@
 
 .footer-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 0;
 }
 
 .footer-item__link {
-    text-decoration: none;
     color: var(--var-text);
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 .footer-item__link-main {
     font-weight: 700;
+}
+
+.footer-item {
+    margin-bottom: .3rem;
+}
+
+@media screen and (min-width: 1000px) {
+    .footer-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 2rem;
+
+    }
 }

@@ -39,6 +39,12 @@
     display: none;
 }
 
+@media screen and (min-width: 1000px) {
+    .showcase__item:last-child {
+        display: block;
+    }
+}
+
 /* C-T-A (call to action) */
 .cta {
     margin-top: 4rem;
@@ -74,11 +80,83 @@
     }
 
     .cta__header {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .cta__btn {
         width: 20rem;
         font-size: 1.5rem;
+    }
+}
+
+/* FAQ */
+.faq {
+    margin-top: 4rem;
+    width: 100%;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.faq__header {
+    text-align: left;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.accordian-item-header:hover {
+    cursor: pointer;
+}
+
+.accordian-item-p {
+    font-size: 1.1rem;
+}
+
+.faq-accordian__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+}
+
+.accordian-item {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--var-light);
+}
+
+.accordian-item__header {
+    padding: 1rem 0rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+@media screen and (min-width: 1000px) {
+    .faq__header {
+        font-size: 1.8rem;
+    }
+
+    .faq-accordian__container {
+        padding: 0;
+        width: 70%;
+    }
+
+    .faq__header {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .accordian-item-p {
+        font-size: 1.1rem;
+    }
+
+    .accordian-item__header {
+        font-size: 1.3rem;
     }
 }

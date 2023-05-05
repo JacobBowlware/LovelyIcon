@@ -9,8 +9,8 @@ import friends from '../../assets/friends.svg';
 // Custom Components
 import Icon from '../common/Icon';
 import TextHighlight from '../common/TextHighlight';
-
-
+import AccordianItem from '../common/AccordianItem';
+import FAQAccordian from '../other/FAQAccordian';
 
 const iconList = [
     {
@@ -45,18 +45,16 @@ const iconList = [
     },
 ]
 
-
 const Home = () => {
-
 
     return (
         <div className="page home">
             <div className="grid-2 container" id="home">
                 <div className="grid-item hero">
-                    <h1 className="header-1 text-secondary">
+                    <h1 className="header-1 text-secondary-c">
                         Personalize Your Online Presence with <TextHighlight>Lovely Icons</TextHighlight>
                     </h1>
-                    <p className="text-secondary p">
+                    <p className="text-secondary-c p">
                         Create beautiful, customized icons that look professional and lovely for any purpose with our easy-to-use icon generator.
                     </p>
                     <Link to="/login" className="btn btn-primary home__hero-link">Get Started</Link>
@@ -72,7 +70,7 @@ const Home = () => {
                         <img className="img home__hero-img" src={friends} />
                     </div>
                     <div className="grid-item grid-reverse">
-                        <h2 className="header-2 text-secondary">Customizable Icons for Any Purpose</h2>
+                        <h2 className="header-2 text-secondary-c">Customizable Icons for Any Purpose</h2>
                         <p className="p features-p">
                             Customize icons to your heart's content <TextHighlight>
                                 without any design experience
@@ -100,7 +98,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="showcase container" id="showcase">
-                <h3 className="header-2 text-secondary">
+                <h3 className="header-2 text-secondary-c">
                     <TextHighlight>Stunning</TextHighlight> Icons
                     Made <TextHighlight>Easy</TextHighlight>: See What Our Users Have Created
                 </h3>
@@ -116,13 +114,17 @@ const Home = () => {
             </div>
             <div className="cta">
                 <div className="container cta-container">
-                    <h3 className="header-2 text-secondary cta__header">
+                    <h3 className="header-2 text-secondary-c cta__header">
                         Looking for a <TextHighlight>simple</TextHighlight> way to <TextHighlight>create stunning
                             icons? </TextHighlight> Our tool has got you covered.
                         <TextHighlight> Start designing now!</TextHighlight>
                     </h3>
                     <Link to="/login" className="btn btn-primary cta__btn">Get Started Now</Link>
                 </div>
+            </div>
+            <div className="container faq" id="faq">
+                <h3 className="header-2 text-secondary-c faq__header">Frequently Asked Questions</h3>
+                <FAQAccordian />
             </div>
         </div>
     );

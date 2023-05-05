@@ -33,6 +33,9 @@ const Header = () => {
                                 <a class="nav-link" href="/#pricing">Pricing</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="/#faq">FAQ</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="mailto:Support@LovelyIcon.com">Contact</a>
                             </li>
                         </ul>

@@ -1,9 +1,9 @@
 :root {
   --var-primary: #5D3FD3;
-  --var-secondary: #8E44AD;
+  --var-secondary: #252525;
   --var-background: #F7F7F7;
   --var-background-dark: #ECECEC;
-  --var-text: #171C23;
+  --var-text: #101C23;
   --var-light: #E8E8E8;
 }
 
@@ -109,7 +109,7 @@ body {
 .btn:hover {
   opacity: 0.8;
   transform: scale(1.03);
-  background: var(--var-secondary);
+  background: var(--var-primary);
 }
 
 /* Typography */
@@ -117,7 +117,7 @@ body {
   color: var(--var-primary);
 }
 
-.text-secondary {
+.text-secondary-c {
   color: var(--var-secondary);
 }
 
