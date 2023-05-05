@@ -112,6 +112,11 @@
     border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.pricing-card:hover {
+    scale: 1.03;
 }
 
 .pricing-card__header {
@@ -186,6 +191,13 @@
     width: 100%;
 }
 
+.accordian-item-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .accordian-item-header:hover {
     cursor: pointer;
 }
@@ -213,6 +225,7 @@
     padding: 1rem 0rem;
     font-size: 1.1rem;
     font-weight: 700;
+    display: inline;
 }
 
 @media screen and (min-width: 1000px) {

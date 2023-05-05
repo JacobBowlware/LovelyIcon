@@ -17,6 +17,9 @@ import './components/css/Home.css';
 import './components/css/Header.css';
 import './components/css/Footer.css';
 
+
+//TODO: 
+// Add chevron to accordion items.
 function App() {
   const Root = () => {
     return <>

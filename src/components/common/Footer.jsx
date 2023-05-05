@@ -13,7 +13,7 @@ const Footer = () => {
                     <a className="link footer-item__link footer-item__link-main" href="/#home">Lovely<TextHighlight>Icon</TextHighlight></a>
                 </li>
                 <li className="footer-item">
-                    <Link className="link footer-item__link" to="/create-account">Contact</Link>
+                    <a className="link footer-item__link" href="mailto:support@lovelyicon.com">Contact</a>
                 </li>
             </ul>
         </div>
