@@ -11,13 +11,14 @@ import Home from './components/pages/Home.jsx';
 import Header from './components/common/Header.jsx';
 import Footer from './components/common/Footer.jsx';
 import Login from './components/pages/Login.jsx';
+import Signup from './components/pages/Signup.jsx';
+
 
 // CSS
 import './components/css/App.css';
 import './components/css/Home.css';
 import './components/css/Header.css';
 import './components/css/Footer.css';
-import './components/css/Login.css';
 
 
 //TODO: 
@@ -44,6 +45,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/*" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<Signup />} />
       </Route >
     )
   )

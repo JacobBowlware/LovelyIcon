@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import app from '../../firebase/config';
+
 
 // Custom Components
 import TextHighlight from '../common/TextHighlight';
 import { Link } from 'react-router-dom';
+
+const auth = getAuth(app);
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -15,14 +20,18 @@ const Login = () => {
     }
 
     return (
-        <div className="container login">
+        <div className="container form-container">
             <form
-                className="login-form"
+                className="form"
                 onSubmit={(e) => handleLogin(e)}
             >
                 <h1 className="header-1 login__header">Login to Lovely<TextHighlight>Icon</TextHighlight></h1>
+                <button className="btn btn-primary form__btn-google">
+                    Login with <TextHighlight>Google</TextHighlight>
+                </button>
+                <p>OR</p>
                 <input
-                    className="login-form__input"
+                    className="form__input"
                     type="email"
                     id="email"
                     placeholder="Email"
@@ -31,7 +40,7 @@ const Login = () => {
                     }}
                 />
                 <input
-                    className="login-form__input"
+                    className="form__input"
                     type="password"
                     id="password"
                     placeholder="Password"
@@ -39,9 +48,9 @@ const Login = () => {
                         setPassword(e.target.value);
                     }}
                 />
-                <button type="submit" className="btn btn-primary login-form__btn">Login</button>
-                <p className="p login-form__p">
-                    Don't have an account? <Link className="link login-form__link" to="/signup">Sign up</Link>
+                <button type="submit" className="btn btn-primary form__btn">Login</button>
+                <p>
+                    Don't have an account? <Link className="link login-form__link" to="/sign-up">Sign up</Link>
                 </p>
             </form>
         </div>
