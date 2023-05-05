@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { getAuth } from 'firebase/auth';
-import auth from '../../firebase/config';
+import { getAuth, signOut } from 'firebase/auth';
+import app from '../../firebase/config';
 
 // Custom Components
 import TextHighlight from '../common/TextHighlight';
 
-const auth = getAuth(auth);
+const auth = getAuth(app);
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -18,7 +18,6 @@ const Profile = () => {
 
         signOut(auth).then(() => {
             navigate('/login');
-
         }).catch((error) => {
             // An error happened.
             alert(error);
