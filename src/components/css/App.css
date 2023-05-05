@@ -159,23 +159,13 @@ a {
   text-decoration: none;
 }
 
+#home,
 #features,
 #pricing,
 #showcase,
 #faq,
 #contact {
-  scroll-margin-top: 180px;
-}
-
-@media screen and (min-width: 1000px) {
-
-  #features,
-  #pricing,
-  #showcase,
-  #faq,
-  #contact {
-    scroll-margin-top: 100px;
-  }
+  scroll-margin-top: 80px;
 }
 
 /* Images */

@@ -3,6 +3,23 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
+const navLinks = document.querySelectorAll('.navbar-nav a');
+
+// Add an event listener to each link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        // Check if the navbar is open on mobile devices
+        console.log("HERERERER");
+        if (window.innerWidth < 1000) {
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarToggler.classList.contains('show')) {
+                // Close the navbar
+                navbarToggler.click();
+            }
+        }
+    });
+});
+
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -10,33 +27,64 @@ const Header = () => {
         setIsOpen(!isOpen);
     }
 
+    const closeNavBar = () => {
+        setIsOpen(false);
+    }
+
     return (
         <div className="header">
-            <nav id="navbar" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <Link class="navbar-brand" to="/">Lovely<span className="text-highlight">Icon</span></Link>
-                    <button class="navbar-toggler" type="button" onClick={handleToggle}>
-                        <FontAwesomeIcon class="navbar-toggler-icon" icon={isOpen ? faTimes : faBars} />
+            <nav id="navbar" className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+                <div className="container-fluid">
+                    <Link className="navbar-brand" to="/">Lovely<span className="text-highlight">Icon</span></Link>
+                    <button className="navbar-toggler" type="button" onClick={handleToggle}>
+                        <FontAwesomeIcon className="navbar-toggler-icon" icon={isOpen ? faTimes : faBars} />
                     </button>
-                    <div class={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarNav" collapsed>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/#home">Home</a>
+                    <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarNav" collapsed>
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <a
+                                    className="nav-link active"
+                                    aria-current="page"
+                                    href="/#home"
+                                    onClick={closeNavBar}
+                                >
+                                    Home
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/#features">Features</a>
+                            <li className="nav-item">
+                                <a
+                                    className="nav-link"
+                                    href="/#features"
+                                    onClick={closeNavBar}
+                                >Features</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/#showcase">Showcase</a>
+                            <li className="nav-item">
+                                <a
+                                    className="nav-link"
+                                    href="/#showcase"
+                                    onClick={closeNavBar}
+                                >Showcase</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/#pricing">Pricing</a>
+                            <li className="nav-item">
+                                <a
+                                    className="nav-link"
+                                    href="/#pricing"
+                                    onClick={closeNavBar}
+                                >Pricing</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/#faq">FAQ</a>
+                            <li className="nav-item">
+                                <a
+                                    className="nav-link"
+                                    href="/#faq"
+                                    onClick={closeNavBar}
+                                >FAQ</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="mailto:Support@LovelyIcon.com">Contact</a>
+                            <li className="nav-item">
+                                <a
+                                    className="nav-link"
+                                    href="mailto:Support@LovelyIcon.com"
+                                    onClick={closeNavBar}
+                                >Contact</a>
                             </li>
                         </ul>
                     </div>
