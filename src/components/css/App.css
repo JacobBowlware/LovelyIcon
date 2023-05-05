@@ -5,6 +5,7 @@
   --var-background-dark: #ECECEC;
   --var-text: #101C23;
   --var-light: #E8E8E8;
+  --var-white: #FFFFFF;
 }
 
 html {
@@ -111,9 +112,13 @@ body {
 }
 
 .btn:hover {
-  opacity: 0.8;
-  transform: scale(1.03);
+  opacity: 0.9;
+  transform: scale(1.02);
   background: var(--var-primary);
+}
+
+.btn-primary {
+  font-weight: 600;
 }
 
 /* Typography */

@@ -9,7 +9,6 @@ const navLinks = document.querySelectorAll('.navbar-nav a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         // Check if the navbar is open on mobile devices
-        console.log("HERERERER");
         if (window.innerWidth < 1000) {
             const navbarToggler = document.querySelector('.navbar-toggler');
             if (navbarToggler.classList.contains('show')) {
@@ -37,7 +36,7 @@ const Header = () => {
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">Lovely<span className="text-highlight">Icon</span></Link>
                     <button className="navbar-toggler" type="button" onClick={handleToggle}>
-                        <FontAwesomeIcon className="navbar-toggler-icon" icon={isOpen ? faTimes : faBars} />
+                        <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
                     </button>
                     <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarNav" collapsed>
                         <ul className="navbar-nav">
