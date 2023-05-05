@@ -12,6 +12,7 @@ import Header from './components/common/Header.jsx';
 import Footer from './components/common/Footer.jsx';
 import Login from './components/pages/Login.jsx';
 import Signup from './components/pages/Signup.jsx';
+import Profile from './components/pages/Profile.jsx';
 
 
 // CSS
@@ -19,6 +20,7 @@ import './components/css/App.css';
 import './components/css/Home.css';
 import './components/css/Header.css';
 import './components/css/Footer.css';
+import ProtectedRoutes from './components/common/ProtectedRoutes.js';
 
 
 //TODO: 
@@ -42,10 +44,14 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
         <Route index element={<Home />} />
         <Route path="/*" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
+
       </Route >
     )
   )
