@@ -43,12 +43,11 @@ const Login = () => {
             navigate('/profile');
         }
         ).catch((error) => {
-            // Handle Errors here.
             const errorMessage = error.message;
             alert(errorMessage);
-        }
-        );
+        });
     }
+
 
     return (
         <div className="container form-container">

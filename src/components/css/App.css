@@ -113,7 +113,7 @@ body {
 
 .btn:hover {
   opacity: 0.9;
-  transform: scale(1.02);
+  transform: scale(1.015);
   background: var(--var-primary);
 }
 
@@ -241,7 +241,6 @@ a {
 
 .form__btn-google:hover {
   opacity: 0.9;
-  transform: scale(1.02);
   background: var(--var-light);
   color: var(--var-text);
 }
@@ -249,7 +248,7 @@ a {
 .form__input {
   width: 100%;
   height: 3rem;
-  margin-bottom: 1rem;
+  margin-top: .3rem;
   border: 1px solid var(--var-primary);
   border-radius: 5px;
   padding: 0 1rem;
@@ -259,9 +258,28 @@ a {
 .form__btn {
   width: 100%;
   height: 3rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   font-size: 1.1rem;
   text-align: center;
+}
+
+.form__btn:disabled {
+  background: var(--var-primary);
+}
+
+.form__error {
+  color: var(--var-text);
+  font-size: .9rem;
+  padding: .5rem;
+  background: var(--var-light);
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 500;
+  margin: 0 0 .3rem 0;
+}
+
+.form__splitter {
+  margin: 0;
 }
 
 @media screen and (min-width: 1000px) {
