@@ -20,16 +20,20 @@ import './components/css/App.css';
 import './components/css/Home.css';
 import './components/css/Header.css';
 import './components/css/Footer.css';
+import './components/css/Profile.css';
 import ProtectedRoutes from './components/common/ProtectedRoutes.js';
 
 
 //TODO: 
-// 1. Add a login page
-// 2. Add a register page
-// 3. Add a profile page
-// 4. Add a logout button
-// 5. Add a dashboard page
-// 6. Add a settings page
+// 1. Add a profile page
+// 2. Add a logout button
+// 3. Add a dashboard page
+// 4. Add a settings page
+// 5. Add a forgot password page
+// 6. Implement reset-password email
+// 7. Add a 404 page
+
+
 function App() {
   const Root = () => {
     return <>
@@ -40,6 +44,8 @@ function App() {
       <Footer />
     </>
   }
+
+  console.log(localStorage.getItem('user'));
 
   const router = createBrowserRouter(
     createRoutesFromElements(

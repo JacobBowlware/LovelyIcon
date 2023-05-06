@@ -1,39 +1,53 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import app from '../../firebase/config';
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, provider } from '../../firebase/config';
 
-
-// Custom Components
 import TextHighlight from '../common/TextHighlight';
 
-const auth = getAuth(app);
-
+/**
+ * Login page
+ * @returns Login page
+ */
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
 
+    /**
+     * Handle login with email and password
+     */
     const handleLogin = (e) => {
         e.preventDefault();
 
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user);
                 navigate('/profile');
             })
             .catch((error) => {
-                const errorCode = error.code;
                 const errorMessage = error.message;
                 alert(errorMessage);
             });
     }
 
+    /**
+     * Handle login with Google
+     */
     const handleLoginWithGoogle = (e) => {
         e.preventDefault();
+
+        signInWithPopup(auth, provider).then((result) => {
+            // const user = result.user;
+            navigate('/profile');
+        }
+        ).catch((error) => {
+            // Handle Errors here.
+            const errorMessage = error.message;
+            alert(errorMessage);
+        }
+        );
     }
 
     return (

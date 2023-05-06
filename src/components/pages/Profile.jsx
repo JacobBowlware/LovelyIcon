@@ -2,16 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { getAuth, signOut } from 'firebase/auth';
-import app from '../../firebase/config';
+import { auth } from '../../firebase/config';
 
 // Custom Components
 import TextHighlight from '../common/TextHighlight';
 
-const auth = getAuth(app);
-
 const Profile = () => {
     const navigate = useNavigate();
-
 
     const handleLogout = (e) => {
         e.preventDefault();

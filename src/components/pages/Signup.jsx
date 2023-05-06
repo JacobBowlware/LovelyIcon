@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import app from '../../firebase/config';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, provider } from '../../firebase/config';
 
 // Custom Components
 import TextHighlight from '../common/TextHighlight';
-
-const auth = getAuth(app);
 
 const Signup = () => {
     const [email, setEmail] = useState('');
