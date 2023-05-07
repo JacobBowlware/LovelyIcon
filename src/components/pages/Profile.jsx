@@ -1,6 +1,6 @@
 // React
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLoaderData } from 'react-router-dom';
 
 // Firebase
 import { signOut } from 'firebase/auth';
@@ -9,7 +9,9 @@ import { auth } from '../../firebase/config';
 // Components
 import TextHighlight from '../common/TextHighlight';
 
-const Profile = () => {
+const Profile = ({ email, UID }) => {
+    const [user, setUser] = useState(null);;
+
     const navigate = useNavigate();
 
     const handleLogout = (e) => {
@@ -22,15 +24,29 @@ const Profile = () => {
         });
     }
 
+    console.log(email)
     return (
         <div className="container profile">
-            <h1 className="header-1 profile__header">Profile</h1>
-            <button
-                className="btn btn-primary logout__btn"
-                onClick={(e) => handleLogout(e)}
-            >
-                Logout
-            </button>
+            <div className="profile__card">
+                <h1 className="header-1  profile__card-header">
+                    Profile Details
+                </h1>
+                <p className="p profile__card-text">
+                    <TextHighlight>Email:</TextHighlight> {email}
+                </p>
+                <p className="p profile__card-text">
+                    <TextHighlight>Available Credits:</TextHighlight> 10
+                </p>
+                <button className="btn btn-primary logout__btn">
+                    Add Credits
+                </button>
+                <button
+                    className="btn btn-primary logout__btn"
+                    onClick={(e) => handleLogout(e)}
+                >
+                    Logout
+                </button>
+            </div>
         </div>
     );
 }
