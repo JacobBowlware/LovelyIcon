@@ -6,6 +6,7 @@ import { auth, provider } from '../../firebase/config';
 
 import TextHighlight from '../common/TextHighlight';
 import { validateProperty } from '../common/WebJoi';
+import { validateProperty } from '../common/WebJoi';
 
 /**
  * Login page
