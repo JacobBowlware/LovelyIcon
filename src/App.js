@@ -14,6 +14,9 @@ import Home from './components/pages/Home.jsx';
 import Login from './components/pages/Login.jsx';
 import Signup from './components/pages/Signup.jsx';
 import Profile from './components/pages/Profile.jsx';
+import IconGenerator from './components/pages/IconGenerator.jsx';
+import YourIcons from './components/pages/YourIcons.jsx';
+import AddCredits from './components/pages/AddCredits.jsx';
 
 // Data Loaders
 
@@ -28,6 +31,9 @@ import './components/css/Home.css';
 import './components/css/Header.css';
 import './components/css/Footer.css';
 import './components/css/Profile.css';
+import './components/css/IconGenerator.css';
+import './components/css/YourIcons.css';
+import './components/css/AddCredits.css';
 
 
 
@@ -69,6 +75,9 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route element={<ProtectedRoutes />}>
           <Route path="/profile" element={<Profile email={email} UID={UID} />} />
+          <Route path="/icon-generator" element={<IconGenerator email={email} UID={UID} />} />
+          <Route path="/your-icons" element={<YourIcons email={email} UID={UID} />} />
+          <Route path="/add-credits" element={<AddCredits email={email} UID={UID} />} />
         </Route>
         <Route index element={<Home />} />
         <Route path="/*" element={<Home />} />

@@ -83,20 +83,11 @@ const Header = ({ email }) => {
     const loggedInHeaderItems = (
         <ul className="navbar-nav">
             <li className="nav-item">
-                <a
-                    className="nav-link active"
-                    aria-current="page"
-                    href="/#home"
-                    onClick={closeNavBar}>
-                    Home
-                </a>
-            </li>
-            <li className="nav-item">
                 <Link
                     className="nav-link nav-link-important"
                     to="/icon-generator"
                     onClick={closeNavBar}>
-                    Icon-Generator
+                    Icon Generator
                 </Link>
             </li>
             <li className="nav-item">
@@ -104,7 +95,15 @@ const Header = ({ email }) => {
                     className="nav-link nav-link-important"
                     to="/your-icons"
                     onClick={closeNavBar}>
-                    Your-Icons
+                    My Icons
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link
+                    className="nav-link nav-link-important"
+                    to="/add-credits"
+                    onClick={closeNavBar} >
+                    Add Credits
                 </Link>
             </li>
             <li className="nav-item">
@@ -114,14 +113,6 @@ const Header = ({ email }) => {
                     onClick={closeNavBar}>
                     Profile
                 </Link>
-            </li>
-            <li className="nav-item">
-                <a
-                    className="nav-link"
-                    href="mailto:Support@LovelyIcon.com"
-                    onClick={closeNavBar} >
-                    Contact
-                </a>
             </li>
         </ul>
     );
