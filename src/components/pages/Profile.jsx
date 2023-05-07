@@ -1,6 +1,6 @@
 // React
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useLoaderData } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Firebase
 import { signOut } from 'firebase/auth';
@@ -10,8 +10,6 @@ import { auth } from '../../firebase/config';
 import TextHighlight from '../common/TextHighlight';
 
 const Profile = ({ email, UID }) => {
-    const [user, setUser] = useState(null);;
-
     const navigate = useNavigate();
 
     const handleLogout = (e) => {
@@ -19,6 +17,7 @@ const Profile = ({ email, UID }) => {
 
         signOut(auth).then(() => {
             navigate('/login');
+            window.location.reload();
         }).catch((error) => {
             alert(error);
         });

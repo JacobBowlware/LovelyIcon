@@ -19,7 +19,7 @@ navLinks.forEach(link => {
     });
 });
 
-const Header = () => {
+const Header = ({ email }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleToggle = () => {
@@ -30,6 +30,103 @@ const Header = () => {
         setIsOpen(false);
     }
 
+    const loggedOutHeaderItems = (
+        <ul className="navbar-nav">
+            <li className="nav-item">
+                <a
+                    className="nav-link active"
+                    aria-current="page"
+                    href="/#home"
+                    onClick={closeNavBar}
+                >
+                    Home
+                </a>
+            </li>
+            <li className="nav-item">
+                <a
+                    className="nav-link"
+                    href="/#features"
+                    onClick={closeNavBar}
+                >Features</a>
+            </li>
+            <li className="nav-item">
+                <a
+                    className="nav-link"
+                    href="/#showcase"
+                    onClick={closeNavBar}
+                >Showcase</a>
+            </li>
+            <li className="nav-item">
+                <a
+                    className="nav-link"
+                    href="/#pricing"
+                    onClick={closeNavBar}
+                >Pricing</a>
+            </li>
+            <li className="nav-item">
+                <a
+                    className="nav-link"
+                    href="/#faq"
+                    onClick={closeNavBar}
+                >FAQ</a>
+            </li>
+            <li className="nav-item">
+                <a
+                    className="nav-link"
+                    href="mailto:Support@LovelyIcon.com"
+                    onClick={closeNavBar}
+                >Contact</a>
+            </li>
+        </ul>
+    );
+
+    const loggedInHeaderItems = (
+        <ul className="navbar-nav">
+            <li className="nav-item">
+                <a
+                    className="nav-link active"
+                    aria-current="page"
+                    href="/#home"
+                    onClick={closeNavBar}>
+                    Home
+                </a>
+            </li>
+            <li className="nav-item">
+                <Link
+                    className="nav-link nav-link-important"
+                    to="/icon-generator"
+                    onClick={closeNavBar}>
+                    Icon-Generator
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link
+                    className="nav-link nav-link-important"
+                    to="/your-icons"
+                    onClick={closeNavBar}>
+                    Your-Icons
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link
+                    className="nav-link nav-link-important"
+                    to="/profile"
+                    onClick={closeNavBar}>
+                    Profile
+                </Link>
+            </li>
+            <li className="nav-item">
+                <a
+                    className="nav-link"
+                    href="mailto:Support@LovelyIcon.com"
+                    onClick={closeNavBar} >
+                    Contact
+                </a>
+            </li>
+        </ul>
+    );
+
+
     return (
         <div className="header">
             <nav id="navbar" className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
@@ -39,53 +136,7 @@ const Header = () => {
                         <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
                     </button>
                     <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarNav" collapsed>
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link active"
-                                    aria-current="page"
-                                    href="/#home"
-                                    onClick={closeNavBar}
-                                >
-                                    Home
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link"
-                                    href="/#features"
-                                    onClick={closeNavBar}
-                                >Features</a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link"
-                                    href="/#showcase"
-                                    onClick={closeNavBar}
-                                >Showcase</a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link"
-                                    href="/#pricing"
-                                    onClick={closeNavBar}
-                                >Pricing</a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link"
-                                    href="/#faq"
-                                    onClick={closeNavBar}
-                                >FAQ</a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    className="nav-link"
-                                    href="mailto:Support@LovelyIcon.com"
-                                    onClick={closeNavBar}
-                                >Contact</a>
-                            </li>
-                        </ul>
+                        {email ? loggedInHeaderItems : loggedOutHeaderItems}
                     </div>
                 </div>
             </nav>

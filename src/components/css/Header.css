@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+.nav-link {
+    transition: all .3s;
+}
+
 #navbar {
     display: flex;
     flex-direction: row;
@@ -50,6 +54,11 @@
 
 .nav-item:last-child {
     border-bottom: none;
+}
+
+.nav-link-important {
+    color: var(--var-primary);
+    font-weight: 600;
 }
 
 @media screen and (min-width: 1000px) {

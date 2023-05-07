@@ -56,7 +56,7 @@ function App() {
 
   const Root = () => {
     return <>
-      <Header />
+      <Header email={email} />
       <div className="web-container">
         <Outlet />
       </div>
