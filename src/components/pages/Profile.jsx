@@ -1,10 +1,12 @@
+// React
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { getAuth, signOut } from 'firebase/auth';
+// Firebase
+import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 
-// Custom Components
+// Components
 import TextHighlight from '../common/TextHighlight';
 
 const Profile = () => {
@@ -16,7 +18,6 @@ const Profile = () => {
         signOut(auth).then(() => {
             navigate('/login');
         }).catch((error) => {
-            // An error happened.
             alert(error);
         });
     }

@@ -1,15 +1,15 @@
+// React
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Icons / Images
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import friends from '../../assets/friends.svg';
 
-// Custom Components
+// Components
 import Icon from '../common/Icon';
 import TextHighlight from '../common/TextHighlight';
-import AccordianItem from '../common/AccordianItem';
 import FAQAccordian from '../other/FAQAccordian';
 import PricingCard from '../other/PricingCard';
 

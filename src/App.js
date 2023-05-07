@@ -1,19 +1,19 @@
+// React
 import React from 'react';
-
-// React Router
 import {
   Route, RouterProvider, createBrowserRouter,
   createRoutesFromElements, Outlet
 } from 'react-router-dom';
 
-// Components
+// Pages
 import Home from './components/pages/Home.jsx';
-import Header from './components/common/Header.jsx';
-import Footer from './components/common/Footer.jsx';
 import Login from './components/pages/Login.jsx';
 import Signup from './components/pages/Signup.jsx';
 import Profile from './components/pages/Profile.jsx';
 
+// Components
+import Footer from './components/common/Footer.jsx';
+import Header from './components/common/Header.jsx';
 
 // CSS
 import './components/css/App.css';
@@ -25,13 +25,12 @@ import ProtectedRoutes from './components/common/ProtectedRoutes.js';
 
 
 //TODO: 
-// 1. Add a profile page
-// 2. Add a logout button
-// 3. Add a dashboard page
-// 4. Add a settings page
-// 5. Add a forgot password page
-// 6. Implement reset-password email
-// 7. Add a 404 page
+// 0. Advance the profile page
+// 1. Add a dashboard page
+// 2. Add a settings page
+// 3. Add a forgot password page
+// 4. Implement reset-password email
+// 5. Add a 404 page
 
 
 function App() {
@@ -44,8 +43,6 @@ function App() {
       <Footer />
     </>
   }
-
-  console.log(localStorage.getItem('user'));
 
   const router = createBrowserRouter(
     createRoutesFromElements(

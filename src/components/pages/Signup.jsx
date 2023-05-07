@@ -1,9 +1,12 @@
+// React
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+// Firebase
 import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../firebase/config';
 
+// Components
 import TextHighlight from '../common/TextHighlight';
 import { validateChange } from '../common/WebJoi';
 
@@ -20,7 +23,8 @@ const Signup = () => {
     const navigate = useNavigate();
 
     const handleChange = ({ currentTarget: Input }) => {
-        validateChange(Input, setErrors, password, confirmPassword);
+        console.log(password, confirmPassword)
+        validateChange(Input, setErrors, false, password, confirmPassword);
     };
 
     const handleSignup = (e) => {

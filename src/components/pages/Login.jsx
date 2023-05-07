@@ -1,11 +1,13 @@
+// React
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+// Firebase
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider } from '../../firebase/config';
 
+// Components
 import TextHighlight from '../common/TextHighlight';
-import { validateProperty } from '../common/WebJoi';
 import { validateProperty } from '../common/WebJoi';
 
 /**
@@ -24,9 +26,6 @@ const Login = () => {
         setEmailError(error);
     };
 
-    /**
-     * Handle login with email and password
-     */
     const handleLogin = (e) => {
         e.preventDefault();
 
@@ -40,14 +39,10 @@ const Login = () => {
             });
     }
 
-    /**
-     * Handle login with Google
-     */
     const handleLoginWithGoogle = (e) => {
         e.preventDefault();
 
         signInWithPopup(auth, provider).then((result) => {
-            // const user = result.user;
             navigate('/profile');
         }
         ).catch((error) => {
@@ -69,7 +64,7 @@ const Login = () => {
                 >
                     Login with <TextHighlight>Google</TextHighlight>
                 </button>
-                <p>OR</p>
+                <p className="form__splitter">OR</p>
                 <input
                     className="form__input"
                     type="email"

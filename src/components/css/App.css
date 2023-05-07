@@ -126,7 +126,7 @@ body {
 }
 
 .btn-primary {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Typography */
@@ -289,7 +289,7 @@ a {
 }
 
 .form__splitter {
-  margin: 0;
+  margin: 0 0 .6rem 0;
 }
 
 @media screen and (min-width: 1000px) {
