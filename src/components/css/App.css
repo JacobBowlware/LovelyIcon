@@ -45,8 +45,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
   align-items: center;
-  padding: 1rem 0rem;
+  justify-content: flex-start;
   width: 100%;
+  margin: 8rem 0 6rem 0;
 }
 
 .container {
@@ -102,6 +103,10 @@ body {
 
   .grid-3 {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .page {
+    margin: 6rem 0 6rem 0;
   }
 }
 

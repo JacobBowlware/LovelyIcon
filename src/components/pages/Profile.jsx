@@ -9,13 +9,13 @@ import { auth } from '../../firebase/config';
 // Components
 import TextHighlight from '../common/TextHighlight';
 
+//TODO:
+// 1. Add stripe payment info button to profile page so user can add/remove payment info (stripe)
 const Profile = ({ email, UID }) => {
-
     const navigate = useNavigate();
 
     const handleLogout = (e) => {
         e.preventDefault();
-
         signOut(auth).then(() => {
             navigate('/login');
             window.location.reload();
@@ -24,10 +24,8 @@ const Profile = ({ email, UID }) => {
         });
     }
 
-
     const handlePasswordChange = (e) => {
         e.preventDefault();
-
         sendPasswordResetEmail(auth, email).then(() => {
             alert('Password reset email sent!');
         }).catch((error) => {
@@ -41,7 +39,7 @@ const Profile = ({ email, UID }) => {
     }
 
     return (
-        <div className="container profile">
+        <div className="container page">
             <div className="profile__card">
                 <h1 className="header-1  profile__card-header">
                     Profile Details

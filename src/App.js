@@ -38,12 +38,9 @@ import './components/css/AddCredits.css';
 
 
 //TODO: 
-// 0. Advance the profile page
-// 1. Add a dashboard page
-// 2. Add a settings page
-// 3. Add a forgot password page
-// 4. Implement reset-password email
-// 5. Add a 404 page
+// 1. Implement Add Credits page - Basic UI
+// 2. Implement My Icons page - Basic UI
+// 3. Implement Icon Generator page - Basic UI
 
 
 function App() {
@@ -52,7 +49,6 @@ function App() {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in
       setUID(user.uid);
       setEmail(user.email);
     } else {

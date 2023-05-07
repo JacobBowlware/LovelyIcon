@@ -173,7 +173,6 @@ const Home = () => {
                             }
                         />
                     </div>
-
                 </div>
                 <div className="container faq" id="faq">
                     <h3 className="header-2 text-secondary-c faq__header">Frequently Asked Questions</h3>

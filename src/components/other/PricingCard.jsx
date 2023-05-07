@@ -4,9 +4,17 @@ import { Link } from 'react-router-dom';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const PricingCard = ({ price, title, listItems }) => {
+//TODO:
+// Implement top right corner badge displaying the % discount
+const PricingCard = ({ price, title, listItems, onAdd, creditAmount }) => {
+    let containerClassName = "pricing-card";
+
+    if (onAdd) {
+        containerClassName += " pricing-card--add";
+    }
+
     return (
-        <div className="pricing-card">
+        <div className={containerClassName}>
             <h2 className="header-3 text-secondary-c pricing-card__header">
                 {title} <span className="pricing-card__price"> - {price}</span>
             </h2>
@@ -19,6 +27,7 @@ const PricingCard = ({ price, title, listItems }) => {
                     )
                 })}
             </ul>
+            {onAdd ? <button className="btn btn--primary pricing-card__add-btn" onClick={onAdd}>Add {creditAmount} Credits</button> : null}
         </div>
     );
 }

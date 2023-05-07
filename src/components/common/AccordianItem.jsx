@@ -4,7 +4,7 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 
 //TODO: Add chevron icon to the right of the title
-const AccordianItem = ({ title, content, onPress, isOpen }) => {
+const AccordianItem = ({ title, content, onPress, isOpen, onAdd }) => {
     return (
         <div className="accordian-item">
             <div className="accordian-item-header" onClick={onPress}>
