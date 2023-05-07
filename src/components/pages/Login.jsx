@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider } from '../../firebase/config';
 
 import TextHighlight from '../common/TextHighlight';
+import { validateProperty } from '../common/WebJoi';
 
 /**
  * Login page
@@ -13,8 +14,14 @@ import TextHighlight from '../common/TextHighlight';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState();
 
     const navigate = useNavigate();
+
+    const handleEmailChange = ({ currentTarget: Input }) => {
+        const error = validateProperty(Input);
+        setEmailError(error);
+    };
 
     /**
      * Handle login with email and password
@@ -48,7 +55,6 @@ const Login = () => {
         });
     }
 
-
     return (
         <div className="container form-container">
             <form
@@ -67,11 +73,14 @@ const Login = () => {
                     className="form__input"
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="Email"
                     onChange={(e) => {
                         setEmail(e.target.value);
+                        handleEmailChange(e);
                     }}
                 />
+                {emailError && <p className="form__error">{emailError}</p>}
                 <input
                     className="form__input"
                     type="password"
@@ -83,7 +92,8 @@ const Login = () => {
                 />
                 <button
                     type="submit"
-                    className="btn btn-primary form__btn">
+                    className="btn btn-primary form__btn"
+                    disabled={emailError || !password || !email}>
                     Login
                 </button>
                 <p>
