@@ -6,6 +6,7 @@
   --var-text: #101C23;
   --var-light: #E8E8E8;
   --var-white: #FFFFFF;
+  --var-success: #15ab51;
 }
 
 html {
@@ -48,6 +49,10 @@ body {
   justify-content: flex-start;
   width: 100%;
   margin: 8rem 0 6rem 0;
+}
+
+.page-padding {
+  padding: 0 2rem;
 }
 
 .container {
@@ -108,6 +113,10 @@ body {
   .page {
     margin: 6rem 0 6rem 0;
   }
+
+  .page-padding {
+    padding: 0 4rem;
+  }
 }
 
 /* Buttons */
@@ -135,6 +144,10 @@ body {
 }
 
 /* Typography */
+.text-semi-bold {
+  font-weight: 600;
+}
+
 .text-primary {
   color: var(--var-primary);
 }

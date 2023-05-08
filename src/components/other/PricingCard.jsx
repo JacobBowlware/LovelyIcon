@@ -15,18 +15,20 @@ const PricingCard = ({ price, title, listItems, onAdd, creditAmount }) => {
 
     return (
         <div className={containerClassName}>
-            <h2 className="header-3 text-secondary-c pricing-card__header">
-                {title} <span className="pricing-card__price"> - {price}</span>
-            </h2>
-            <ul className="list pricing-card__list">
-                {listItems.map((item, index) => {
-                    return (
-                        <li className="list-item pricing-card__list-item" key={index}>
-                            <FontAwesomeIcon icon={faCheckCircle} className="pricing-card__list-icon" />{item}
-                        </li>
-                    )
-                })}
-            </ul>
+            <div>
+                <h2 className="header-3 text-secondary-c pricing-card__header">
+                    {title} <span className="pricing-card__price"> - {price}</span>
+                </h2>
+                <ul className="list pricing-card__list">
+                    {listItems.map((item, index) => {
+                        return (
+                            <li className="list-item pricing-card__list-item" key={index}>
+                                <FontAwesomeIcon icon={faCheckCircle} className="pricing-card__list-icon" />{item}
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
             {onAdd ? <button className="btn btn--primary pricing-card__add-btn" onClick={onAdd}>Add {creditAmount} Credits</button> : null}
         </div>
     );

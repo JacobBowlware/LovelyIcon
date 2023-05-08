@@ -1,3 +1,121 @@
-.generator {
-    min-height: 100vh;
+.icon-generator__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.icon-generator__header {
+    width: 100%;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.icon-generator__container-p {
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.icon-generator__container__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.icon-generator__container__form-input {
+    margin: .5rem 0 0 0;
+    width: 100%;
+}
+
+.icon-generator__container__form-btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 100%;
+    margin-left: 0;
+    border-radius: 9px;
+    margin: .5rem 0 .7rem 0;
+}
+
+.icon-generator__container__form-btn:hover {
+    transform: none !important;
+}
+
+.icon-generator__container-info {
+    width: 100%;
+    text-align: left;
+    font-size: .95rem;
+}
+
+/* Rules */
+.icon-generator__rules-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.icon-generator__rules {
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.icon-generator__rules-header {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 .5rem 0;
+}
+
+.icon-generator__rules-item {
+    margin: 0 0 .3rem 0;
+    padding: 0;
+    list-style: none;
+    font-size: .95rem;
+}
+
+@media screen and (min-width: 768px) {
+    .icon-generator__container__form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon-generator__container__form-btn {
+        width: 12rem;
+        margin-left: .5rem;
+        margin-bottom: .6rem;
+    }
+
+    .icon-generator__container__form-input {
+        margin: 0;
+    }
+
+    .icon-generator__header {
+        font-size: 1.8rem;
+    }
+
+    .icon-generator__container-p {
+        font-size: 1.2rem;
+    }
+
+    .icon-generator__container-info {
+        font-size: 1rem;
+    }
+
+    .icon-generator__rules-item {
+        font-size: 1rem;
+    }
+
+    .icon-generator__rules-header {
+        font-size: 1.5rem;
+    }
 }

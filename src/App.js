@@ -34,13 +34,15 @@ import './components/css/Profile.css';
 import './components/css/IconGenerator.css';
 import './components/css/YourIcons.css';
 import './components/css/AddCredits.css';
+import './components/css/ProgressBar.css'
+import IconGeneratorStep2 from './components/pages/IconGeneratorStep2.jsx';
+import IconGeneratorStep3 from './components/pages/IconGeneratorStep3.jsx';
 
 
 
 //TODO: 
-// 1. Implement Add Credits page - Basic UI
+// 1. Implement Icon Generator page - Basic UI
 // 2. Implement My Icons page - Basic UI
-// 3. Implement Icon Generator page - Basic UI
 
 
 function App() {
@@ -62,7 +64,7 @@ function App() {
       <div className="web-container">
         <Outlet />
       </div>
-      <Footer />
+      <Footer email={email} />
     </>
   }
 
@@ -71,7 +73,9 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route element={<ProtectedRoutes />}>
           <Route path="/profile" element={<Profile email={email} UID={UID} />} />
-          <Route path="/icon-generator" element={<IconGenerator email={email} UID={UID} />} />
+          <Route path="/icon-generator/step-1" element={<IconGenerator email={email} UID={UID} />} />
+          <Route path="/icon-generator/step-2" element={<IconGeneratorStep2 email={email} UID={UID} />} />
+          <Route path="/icon-generator/step-3" element={<IconGeneratorStep3 email={email} UID={UID} />} />
           <Route path="/your-icons" element={<YourIcons email={email} UID={UID} />} />
           <Route path="/add-credits" element={<AddCredits email={email} UID={UID} />} />
         </Route>
@@ -79,7 +83,6 @@ function App() {
         <Route path="/*" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
-
       </Route >
     )
   )

@@ -107,6 +107,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     height: 100%;
     transition: all 0.3s ease-in-out;
+    justify-content: space-between;
 }
 
 .pricing-card:hover:not(.pricing-card--add) {
@@ -149,6 +150,24 @@
 
 .pricing-card__add-btn:hover {
     color: var(--var-white);
+}
+
+.pricing-card__header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pricing-card__header-discount {
+    background: var(--var-primary);
+    color: var(--var-white);
+    padding: 0.5rem;
+    position: relative;
+    top: -32px;
+    right: -32px;
+    border-radius: 9px;
+    font-weight: 700;
 }
 
 

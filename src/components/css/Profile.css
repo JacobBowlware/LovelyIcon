@@ -20,12 +20,8 @@
     font-size: 1.8rem;
 }
 
-.logout__btn {
+.profile__btn {
     width: 100%;
-    margin-top: 1rem;
-}
-
-.logout__btn:nth-of-type(1) {
     margin-top: .5rem;
 }
 
@@ -33,13 +29,10 @@
     width: 100%;
     text-align: left;
     font-size: 1.2rem;
-    margin-top: .1rem;
+    margin: .1rem 0 0 0;
 }
 
-.profile__card-text:nth-of-type(1) {
-    margin-top: 1rem;
-}
-
-@media screen and (min-width: 1000px) {
-    .profile__card {}
+.profile__card-group {
+    width: 100%;
+    margin: 1rem 0 0 0;
 }

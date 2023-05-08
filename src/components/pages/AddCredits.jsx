@@ -1,3 +1,4 @@
+// React
 import React from 'react';
 
 // Components
@@ -18,7 +19,6 @@ const AddCredits = () => {
                         listItems={
                             [
                                 "Generate up to 5 icons",
-                                "Access to all customization options",
                                 "6 icon designs to choose from",
                                 "High quality PNG file downloads",
                                 "Commercial use"
@@ -34,8 +34,8 @@ const AddCredits = () => {
                         price="$10"
                         listItems={
                             [
+                                "20% discount on credits",
                                 "Generate up to 12 icons",
-                                "Access to all customization options",
                                 "6 icon designs to choose from",
                                 "High quality PNG file downloads",
                                 "Commercial use"
@@ -51,8 +51,8 @@ const AddCredits = () => {
                         price="$25"
                         listItems={
                             [
+                                "30% discount on credits",
                                 "Generate up to 30 icons",
-                                "Access to all customization options",
                                 "6 icon designs to choose from",
                                 "High quality PNG file downloads",
                                 "Commercial use"
@@ -62,7 +62,7 @@ const AddCredits = () => {
                     />
                 </div>
             </div>
-            <p>
+            <p className="add-credits__p">
                 Note: Credits are non-refundable and do not expire. You can use them to generate icons at any time.
             </p>
         </div>
