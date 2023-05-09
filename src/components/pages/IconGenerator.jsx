@@ -2,13 +2,38 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
+// OpenAI
+import { Configuration, OpenAIApi } from "openai";
+
 import ProgressBar from '../other/ProgressBar';
 
-const IconGenerator = () => {
+const IconGenerator = ({ selectedImage }) => {
     const [iconDetails, setIconDetails] = useState();
+    const [generatedIcons, setGeneratedIcons] = useState();
+
+    const apiKey = process.env.REACT_APP_DALLE_API_KEY;
+    const configuration = new Configuration({
+        apiKey: process.env.REACT_APP_DALLE_API_KEY,
+        headers: {
+            'User-Agent': 'OpenAI-Client'
+        }
+    });
+
+    const openai = new OpenAIApi(configuration);
+    const generateImage = async () => {
+
+        const res = await openai.createImage({
+            prompt: iconDetails,
+            n: 1,
+            size: "512x512",
+        });
+
+        setGeneratedIcons(res.data[0].url)
+    }
 
     //TODO: 
     // 1. Implement the generate icon functionality
+
     return (
         <div className="container page page-padding">
             <ProgressBar />
@@ -17,14 +42,21 @@ const IconGenerator = () => {
                 <p className="p icon-generator__container-p">
                     Enter details on your desired icon design, style, and colors.
                 </p>
-                <form className="icon-generator__container__form">
+                <form className="icon-generator__container__form"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        generateImage();
+                    }}
+                >
                     <input
                         className='form__input icon-generator__container__form-input'
                         type="text"
                         placeholder="blue cactus in the shape of a square, 3D, white background"
                         onChange={(e) => setIconDetails(e.target.value)}
                     />
-                    <button className="btn btn-primary form__btn icon-generator__container__form-btn">
+                    <button
+                        disabled={!iconDetails}
+                        className="btn btn-primary form__btn icon-generator__container__form-btn">
                         generate
                     </button>
                 </form>
@@ -32,6 +64,12 @@ const IconGenerator = () => {
                     <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> You currently have <span className="text-highlight">0</span> credits
                     remaining. Each generate costs <span className="text-highlight">10</span>.
                 </p>
+            </div>
+            <div className="icon-generator__icon-display">
+                <div className="icon-generator__icon-display__icon">
+                    {/* Render the generated icons here */}
+                    {generatedIcons > 0 ? <img className="icon-generator__icon-display__icon-img" src={generatedIcons} /> : <></>}
+                </div>
             </div>
             <div className="icon-generator__rules-container">
                 <ul className="list icon-generator__rules">

@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import ProgressBar from '../other/ProgressBar';
 
-const IconGeneratorStep3 = () => {
+//TODO:
+// 1. Render the selected/edited icon from step 2.
+// 2. Allow the user to download the icon.
+
+const IconGeneratorStep3 = ({ image }) => {
     return (
         <div className="container page page-padding">
             <ProgressBar step1Complete={true} step2Complete={true} />

@@ -46,9 +46,9 @@ const AddCredits = () => {
                 </div>
                 <div className="grid-item">
                     <PricingCard
-                        title="300 Credits"
-                        creditAmount={300}
-                        price="$25"
+                        title="250 Credits"
+                        creditAmount={250}
+                        price="$20"
                         listItems={
                             [
                                 "30% discount on credits",
@@ -58,7 +58,7 @@ const AddCredits = () => {
                                 "Commercial use"
                             ]
                         }
-                        onAdd={() => console.log("Add 300 credits")}
+                        onAdd={() => console.log("Add 250 credits")}
                     />
                 </div>
             </div>

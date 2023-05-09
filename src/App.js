@@ -41,13 +41,18 @@ import IconGeneratorStep3 from './components/pages/IconGeneratorStep3.jsx';
 
 
 //TODO: 
-// 1. Implement Icon Generator page - Basic UI
-// 2. Implement My Icons page - Basic UI
+// 1. Implement the icon generator functionality
+//    - Look at Dalle API for generating images from user-input
+//    - When user clicks "Generate", send the user-input to the Dalle API
+//    - When the Dalle API returns the images, send them to the users firebase icon storage (and display them to the user)
+//    - When the user selects an image, allow them to edit it
+//    - When the user is done editing, allow them to download the image
 
 
 function App() {
   const [email, setEmail] = useState("");
   const [UID, setUID] = useState("");
+
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
