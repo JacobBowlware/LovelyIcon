@@ -47,9 +47,9 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        prompt: prompt,
-                        n: 1,
-                        size: "512x512",
+                        prompt: "Vibrant, dramatic backligting, 300mm lens, professional, vector art, " + prompt,
+                        n: 3,
+                        size: "1024x1024",
                         model: "image-alpha-001"
                     })
                 };

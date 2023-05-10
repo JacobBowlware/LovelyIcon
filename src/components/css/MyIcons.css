@@ -1,0 +1,31 @@
+.your-icons {
+    min-height: 100vh;
+}
+
+.my-icons__container {
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    gap: 1rem;
+    padding: 0rem;
+}
+
+.my-icons__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+.my-icons__icon {
+    width: 100%;
+    border-radius: 9px;
+}
+
+@media screen and (min-width: 1000px) {
+    .my-icons__container {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        padding: 1rem;
+    }
+}

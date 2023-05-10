@@ -16,7 +16,7 @@ import Home from './components/pages/Home.jsx';
 import Login from './components/pages/Login.jsx';
 import Signup from './components/pages/Signup.jsx';
 import Profile from './components/pages/Profile.jsx';
-import YourIcons from './components/pages/YourIcons.jsx';
+import MyIcons, { MyIconsLoader } from './components/pages/MyIcons.jsx';
 import AddCredits from './components/pages/AddCredits.jsx';
 import IconGenerator from './components/pages/IconGenerator.jsx';
 import IconGeneratorStep2 from './components/pages/IconGeneratorStep2.jsx';
@@ -36,7 +36,7 @@ import './components/css/Header.css';
 import './components/css/Footer.css';
 import './components/css/Profile.css';
 import './components/css/IconGenerator.css';
-import './components/css/YourIcons.css';
+import './components/css/MyIcons.css';
 import './components/css/AddCredits.css';
 import './components/css/ProgressBar.css'
 
@@ -102,7 +102,7 @@ function App() {
           <Route path="/icon-generator/step-1" element={<IconGenerator UID={UID} creditAmount={creditAmount} />} />
           <Route path="/icon-generator/step-2" element={<IconGeneratorStep2 creditAmount={creditAmount} UID={UID} />} />
           <Route path="/icon-generator/step-3" element={<IconGeneratorStep3 creditAmount={creditAmount} UID={UID} />} />
-          <Route path="/your-icons" element={<YourIcons email={email} UID={UID} />} />
+          <Route path="/icons" element={<MyIcons email={email} UID={UID} />} loader={() => MyIconsLoader(UID)} />
           <Route path="/add-credits" element={<AddCredits creditAmount={creditAmount} UID={UID} />} />
         </Route>
         <Route index element={<Home />} />

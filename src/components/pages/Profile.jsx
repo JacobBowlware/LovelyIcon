@@ -12,7 +12,7 @@ import Logout from '../common/Logout';
 
 //TODO:
 // 1. When user pressed 'Manage Payment Info' button, redirect to payment info page (not yet created) - Stripe
-const Profile = ({ email, UID }) => {
+const Profile = ({ email, UID, creditAmount }) => {
     const navigate = useNavigate();
 
     const handleLogout = (e) => {
@@ -52,7 +52,7 @@ const Profile = ({ email, UID }) => {
                 </div>
                 <div className="profile__card-group">
                     <p className="p profile__card-text">
-                        <TextHighlight>Available Credits:</TextHighlight> 10
+                        <TextHighlight>Available Credits:</TextHighlight> {creditAmount}
                     </p>
                     <button className="btn btn-primary profile__btn"
                         onClick={(e) => handleAddCredits(e)}>

@@ -77,9 +77,9 @@ const Header = ({ email }) => {
             <li className="nav-item">
                 <Link
                     className="nav-link nav-link-important"
-                    to="/your-icons"
+                    to="/icons"
                     onClick={closeNavBar}>
-                    My Icons
+                    Icons
                 </Link>
             </li>
             <li className="nav-item">
