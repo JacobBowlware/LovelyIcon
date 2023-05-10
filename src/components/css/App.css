@@ -48,7 +48,6 @@ body {
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  margin: 8rem 0 6rem 0;
 }
 
 .page-padding {
@@ -108,14 +107,6 @@ body {
 
   .grid-3 {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
-
-  .page {
-    margin: 6rem 0 6rem 0;
-  }
-
-  .page-padding {
-    padding: 0 4rem;
   }
 }
 

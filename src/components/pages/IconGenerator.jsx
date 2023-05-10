@@ -1,39 +1,54 @@
-import React, { useState } from 'react';
+// React
+import React, { useEffect, useState } from 'react';
+
+// Font Awesome & Images
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import friends from '../../assets/friends.svg';
 
-// OpenAI
-import { Configuration, OpenAIApi } from "openai";
-
+// Components
 import ProgressBar from '../other/ProgressBar';
+import { generateImages } from '../../firebase/generateImages';
 
-const IconGenerator = ({ selectedImage }) => {
+const testImages = (
+    <>
+        <div className="icon-generator__icon-display__icon">
+            <img className="icon-generator__icon-display__icon-img" src={friends} />
+        </div>
+        <div className="icon-generator__icon-display__icon">
+            <img className="icon-generator__icon-display__icon-img" src={friends} />
+        </div>
+        <div className="icon-generator__icon-display__icon">
+            <img className="icon-generator__icon-display__icon-img" src={friends} />
+        </div>
+        <div className="icon-generator__icon-display__icon">
+            <img className="icon-generator__icon-display__icon-img" src={friends} />
+        </div>
+        <div className="icon-generator__icon-display__icon">
+            <img className="icon-generator__icon-display__icon-img" src={friends} />
+        </div>
+        <div className="icon-generator__icon-display__icon">
+            <img className="icon-generator__icon-display__icon-img" src={friends} />
+        </div>
+    </>
+);
+
+const IconGenerator = ({ UID }) => {
     const [iconDetails, setIconDetails] = useState();
     const [generatedIcons, setGeneratedIcons] = useState();
 
-    const apiKey = process.env.REACT_APP_DALLE_API_KEY;
-    const configuration = new Configuration({
-        apiKey: process.env.REACT_APP_DALLE_API_KEY,
-        headers: {
-            'User-Agent': 'OpenAI-Client'
-        }
-    });
-
-    const openai = new OpenAIApi(configuration);
     const generateImage = async () => {
+        const imageURL = await generateImages(iconDetails, UID);
 
-        const res = await openai.createImage({
-            prompt: iconDetails,
-            n: 1,
-            size: "512x512",
-        });
-
-        setGeneratedIcons(res.data[0].url)
+        setGeneratedIcons(imageURL.data);
     }
 
-    //TODO: 
-    // 1. Implement the generate icon functionality
 
+    //TODO:
+    // 1. Add a loading spinner while the image is being generated
+    // 2. Implement credits system
+    // 3. Display message if user has no credits -- "You have no credits remaining. Add credits to your account here."
+    // 4. Allow user to select an image to proceed to step 2 -- Edit/Crop image
     return (
         <div className="container page page-padding">
             <ProgressBar />
@@ -66,10 +81,14 @@ const IconGenerator = ({ selectedImage }) => {
                 </p>
             </div>
             <div className="icon-generator__icon-display">
-                <div className="icon-generator__icon-display__icon">
-                    {/* Render the generated icons here */}
-                    {generatedIcons > 0 ? <img className="icon-generator__icon-display__icon-img" src={generatedIcons} /> : <></>}
-                </div>
+                {/* {generatedIcons ? generatedIcons.map((icon) => {
+                    return (
+                        <div className="icon-generator__icon-display__icon">
+                            <img className="icon-generator__icon-display__icon-img" src={icon.url} />
+                        </div>
+                    )
+                }) : <></>} */}
+                {testImages}
             </div>
             <div className="icon-generator__rules-container">
                 <ul className="list icon-generator__rules">
@@ -95,7 +114,7 @@ const IconGenerator = ({ selectedImage }) => {
                     </li>
                 </ul>
             </div>
-        </div>
+        </div >
     );
 }
 
