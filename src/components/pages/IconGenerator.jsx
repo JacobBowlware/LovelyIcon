@@ -1,5 +1,5 @@
 // React
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 // Font Awesome & Images
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,26 +9,39 @@ import friends from '../../assets/friends.svg';
 // Components
 import ProgressBar from '../other/ProgressBar';
 import { generateImages } from '../../firebase/generateImages';
+import LoadingSpinner from '../common/LoadingSpinner';
 
 const testImages = (
     <>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={friends} />
+            <img className="icon-generator__icon-display__icon-img" src={friends}
+                alt="Icon created by OpenAI API"
+            />
         </div>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={friends} />
+            <img className="icon-generator__icon-display__icon-img" src={friends}
+                alt="Icon created by OpenAI API"
+            />
         </div>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={friends} />
+            <img className="icon-generator__icon-display__icon-img" src={friends}
+                alt="Icon created by OpenAI API"
+            />
         </div>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={friends} />
+            <img className="icon-generator__icon-display__icon-img" src={friends}
+                alt="Icon created by OpenAI API"
+            />
         </div>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={friends} />
+            <img className="icon-generator__icon-display__icon-img" src={friends}
+                alt="Icon created by OpenAI API"
+            />
         </div>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={friends} />
+            <img className="icon-generator__icon-display__icon-img" src={friends}
+                alt="Icon created by OpenAI API"
+            />
         </div>
     </>
 );
@@ -37,10 +50,14 @@ const IconGenerator = ({ UID }) => {
     const [iconDetails, setIconDetails] = useState();
     const [generatedIcons, setGeneratedIcons] = useState();
 
+    const [loading, setLoading] = useState(false);
+
     const generateImage = async () => {
+        setLoading(true);
         const imageURL = await generateImages(iconDetails, UID);
 
         setGeneratedIcons(imageURL.data);
+        setLoading(false);
     }
 
 
@@ -70,9 +87,9 @@ const IconGenerator = ({ UID }) => {
                         onChange={(e) => setIconDetails(e.target.value)}
                     />
                     <button
-                        disabled={!iconDetails}
+                        disabled={true}
                         className="btn btn-primary form__btn icon-generator__container__form-btn">
-                        generate
+                        <LoadingSpinner title="GENERATE" loading={loading} color="light" />
                     </button>
                 </form>
                 <p className="p icon-generator__container-info">
@@ -81,14 +98,15 @@ const IconGenerator = ({ UID }) => {
                 </p>
             </div>
             <div className="icon-generator__icon-display">
-                {/* {generatedIcons ? generatedIcons.map((icon) => {
+                {generatedIcons ? generatedIcons.map((icon) => {
                     return (
                         <div className="icon-generator__icon-display__icon">
-                            <img className="icon-generator__icon-display__icon-img" src={icon.url} />
+                            <img className="icon-generator__icon-display__icon-img" src={icon.url}
+                                alt="Icon created by OpenAI API"
+                            />
                         </div>
                     )
-                }) : <></>} */}
-                {testImages}
+                }) : testImages}
             </div>
             <div className="icon-generator__rules-container">
                 <ul className="list icon-generator__rules">

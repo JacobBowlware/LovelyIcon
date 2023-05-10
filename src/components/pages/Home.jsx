@@ -61,14 +61,14 @@ const Home = () => {
                     <Link to="/login" className="btn btn-primary home__hero-link">Get Started</Link>
                 </div>
                 <div className="img-wrapper">
-                    <img className="img home__hero-img" src={friends} />
+                    <img className="img home__hero-img" src={friends} alt="Icon created by OpenAI API" />
                 </div>
             </div>
             <div className="features" id="features">
                 <div className="container grid-2">
                     <div className="img-wrapper">
                         {/* TODO: Change this image to layers of three images of our product working */}
-                        <img className="img home__hero-img" src={friends} />
+                        <img className="img home__hero-img" src={friends} alt="Icon created by OpenAI API" />
                     </div>
                     <div className="grid-item grid-reverse">
                         <h2 className="header-2 text-secondary-c">Customizable Icons for Any Purpose</h2>

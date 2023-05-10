@@ -197,7 +197,7 @@
 .faq {
     margin-top: 4rem;
     width: 100%;
-    padding: 4rem 2rem;
+    padding: 3rem 0rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -249,6 +249,10 @@
 }
 
 @media screen and (min-width: 1000px) {
+    .faq {
+        padding: 4rem 2rem;
+    }
+
     .faq__header {
         font-size: 1.8rem;
     }

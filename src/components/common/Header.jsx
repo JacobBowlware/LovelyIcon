@@ -3,22 +3,6 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const navLinks = document.querySelectorAll('.navbar-nav a');
-
-// Add an event listener to each link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        // Check if the navbar is open on mobile devices
-        if (window.innerWidth < 1000) {
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            if (navbarToggler.classList.contains('show')) {
-                // Close the navbar
-                navbarToggler.click();
-            }
-        }
-    });
-});
-
 const Header = ({ email }) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -122,7 +106,9 @@ const Header = ({ email }) => {
         <div className="header">
             <nav id="navbar" className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Lovely<span className="text-highlight">Icon</span></Link>
+                    <Link className="nav-link navbar-brand" to="/"
+                        onClick={closeNavBar}
+                    >Lovely<span className="text-highlight">Icon</span></Link>
                     <button className="navbar-toggler" type="button" onClick={handleToggle}>
                         <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
                     </button>

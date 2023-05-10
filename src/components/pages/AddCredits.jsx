@@ -24,7 +24,7 @@ const AddCredits = () => {
                                 "Commercial use"
                             ]
                         }
-                        onAdd={() => console.log("Add 50 credits")}
+                        purchasable={() => console.log("Add 50 credits")}
                     />
                 </div>
                 <div className="grid-item">
@@ -41,7 +41,7 @@ const AddCredits = () => {
                                 "Commercial use"
                             ]
                         }
-                        onAdd={() => console.log("Add 120 credits")}
+                        purchasable={() => console.log("Add 120 credits")}
                     />
                 </div>
                 <div className="grid-item">
@@ -58,7 +58,7 @@ const AddCredits = () => {
                                 "Commercial use"
                             ]
                         }
-                        onAdd={() => console.log("Add 250 credits")}
+                        purchasable={() => console.log("Add 250 credits")}
                     />
                 </div>
             </div>

@@ -69,7 +69,7 @@
 }
 
 .icon-generator__rules-header {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.2rem;
     margin: 0 0 .5rem 0;
 }
@@ -146,6 +146,10 @@
 
 .icon-generator__icon-display__icon-img {
     max-width: 15rem;
+}
+
+.icon-generator__icon-display__icon-img:hover {
+    cursor: pointer;
 }
 
 @media screen and (min-width: 1000px) {
