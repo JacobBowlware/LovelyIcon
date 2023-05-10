@@ -1,5 +1,5 @@
 // React
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Font Awesome & Images
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -50,9 +50,13 @@ const testImages = (
 const IconGenerator = ({ UID, creditAmount }) => {
     const [iconDetails, setIconDetails] = useState();
     const [generatedIcons, setGeneratedIcons] = useState();
-    const [userCreditAmount, setUserCreditAmount] = useState(creditAmount);
+    const [userCreditAmount, setUserCreditAmount] = useState(0);
 
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setUserCreditAmount(creditAmount);
+    }, [creditAmount]);
 
     const generateImage = async () => {
         setLoading(true);
@@ -74,9 +78,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
 
     //TODO:
-    // 2. Check if user has atleast 10 credits to preform generate action - if not, disable button and render warning message below.
-    // 3. Display message if user has no credits -- "You have no credits remaining. Add credits to your account here."
-    // 4. Allow user to select an image to proceed to step 2 -- Edit/Crop image
+    // 1. Allow user to select an image to proceed to step 2 -- Edit/Crop image
     return (
         <div className="container page page-padding">
             <ProgressBar />
@@ -105,8 +107,8 @@ const IconGenerator = ({ UID, creditAmount }) => {
                 </form>
                 <p className="p icon-generator__container-info">
                     <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> You currently have <span className="text-highlight">{userCreditAmount}</span> credits
-                    remaining. Each generate costs <span className="text-highlight">10</span>. To purchase more
-                    credits, visit <Link className="link login-form__link" to="/add-credits">Add Credits</Link>
+                    remaining. Each generate costs <span className="text-highlight">10</span>. {userCreditAmount < 10 ? <span className="">Add more credits to your
+                        account  <Link to="/add-credits" className="text-link text-highlight">here.</Link> </span> : null}
                 </p>
             </div>
             <div className="icon-generator__icon-display">

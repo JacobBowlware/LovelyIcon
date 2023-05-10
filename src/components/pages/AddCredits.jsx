@@ -51,7 +51,7 @@ const AddCredits = () => {
                         price="$20"
                         listItems={
                             [
-                                "30% discount on credits",
+                                "25% discount on credits",
                                 "Generate up to 30 icons",
                                 "6 icon designs to choose from",
                                 "High quality PNG file downloads",
