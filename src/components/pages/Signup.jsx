@@ -4,11 +4,15 @@ import { Link, useNavigate } from 'react-router-dom';
 
 // Firebase
 import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { auth, provider } from '../../firebase/config';
+import { auth, provider, app } from '../../firebase/config';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 // Components
 import TextHighlight from '../common/TextHighlight';
 import { validateChange } from '../common/WebJoi';
+
+
+const db = getFirestore(app);
 
 /**
  * Signup Page
@@ -36,7 +40,10 @@ const Signup = () => {
 
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                navigate('/profile');
+                // Add the default credits to the user account - 10
+                addNewUserCredits(userCredential.user.uid);
+
+                // navigate('/profile');
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -44,14 +51,37 @@ const Signup = () => {
             });
     }
 
-    const handleSignupWthGoogle = (e) => {
+    const handleSignupWthGoogle = async (e) => {
         e.preventDefault();
         signInWithPopup(auth, provider).then((result) => {
-            navigate('/profile');
+            if (isNewUser(result.user.metadata.creationTime)) {
+                console.log("I AM NEW!")
+                addNewUserCredits(result.user.uid);
+            }
+
+            // navigate('/icon-generator/step-1');
         }
         ).catch((error) => {
             const errorMessage = error.message;
             alert(errorMessage);
+        });
+    }
+
+    const isNewUser = (creationTime) => {
+        const now = new Date();
+        const creationDate = new Date(creationTime);
+        const diff = now - creationDate;
+
+        // If the user was created less than 1 minute ago, they are a new user
+        if (diff < 60000) {
+            return true;
+        }
+        return false;
+    }
+
+    const addNewUserCredits = async (UID) => {
+        await setDoc(doc(db, "users", UID), {
+            credits: 10
         });
     }
 
