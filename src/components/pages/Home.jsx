@@ -47,7 +47,6 @@ const iconList = [
 ]
 
 const Home = () => {
-
     return (
         <div className="page home">
             <div className="grid-2 container" id="home">

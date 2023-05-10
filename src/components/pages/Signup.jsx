@@ -11,7 +11,6 @@ import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import TextHighlight from '../common/TextHighlight';
 import { validateChange } from '../common/WebJoi';
 
-
 const db = getFirestore(app);
 
 /**
@@ -40,10 +39,8 @@ const Signup = () => {
 
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Add the default credits to the user account - 10
                 addNewUserCredits(userCredential.user.uid);
-
-                // navigate('/profile');
+                navigate('/profile');
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -59,7 +56,7 @@ const Signup = () => {
                 addNewUserCredits(result.user.uid);
             }
 
-            // navigate('/icon-generator/step-1');
+            navigate('/icon-generator/step-1');
         }
         ).catch((error) => {
             const errorMessage = error.message;

@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-import firebase from 'firebase/app';
-import { getFirestore, addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { getFirestore, addDoc, collection } from "firebase/firestore";
 import { app } from '../firebase/config.js'
 
 // Initialize Firebase
@@ -10,6 +9,7 @@ const db = getFirestore(app);
 const generateImages = async (prompt, UID) => {
     const response = await axios.post('https://us-central1-lovelyicon-f3ad1.cloudfunctions.net/generateImage', {
         prompt: prompt,
+        userId: UID,
     });
 
     console.log(response.data);

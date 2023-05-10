@@ -6,17 +6,21 @@ import {
 } from 'react-router-dom';
 
 // Firebase
-import { auth } from './firebase/config.js';
+import { app, auth } from './firebase/config.js';
 import { onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
+
 
 // Pages
 import Home from './components/pages/Home.jsx';
 import Login from './components/pages/Login.jsx';
 import Signup from './components/pages/Signup.jsx';
 import Profile from './components/pages/Profile.jsx';
-import IconGenerator from './components/pages/IconGenerator.jsx';
 import YourIcons from './components/pages/YourIcons.jsx';
 import AddCredits from './components/pages/AddCredits.jsx';
+import IconGenerator from './components/pages/IconGenerator.jsx';
+import IconGeneratorStep2 from './components/pages/IconGeneratorStep2.jsx';
+import IconGeneratorStep3 from './components/pages/IconGeneratorStep3.jsx';
 
 // Data Loaders
 
@@ -35,8 +39,7 @@ import './components/css/IconGenerator.css';
 import './components/css/YourIcons.css';
 import './components/css/AddCredits.css';
 import './components/css/ProgressBar.css'
-import IconGeneratorStep2 from './components/pages/IconGeneratorStep2.jsx';
-import IconGeneratorStep3 from './components/pages/IconGeneratorStep3.jsx';
+
 
 
 
@@ -49,19 +52,37 @@ import IconGeneratorStep3 from './components/pages/IconGeneratorStep3.jsx';
 //    - When the user is done editing, allow them to download the image
 
 
+const db = getFirestore(app);
+
 function App() {
   const [email, setEmail] = useState("");
   const [UID, setUID] = useState("");
+  const [creditAmount, setCreditAmount] = useState(0);
 
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setUID(user.uid);
       setEmail(user.email);
+      getCreditAmount(user.uid);
+
     } else {
       // User is signed out
     }
   });
+
+  const getCreditAmount = async (UID) => {
+    const docRef = doc(db, "users", UID);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      setCreditAmount(docSnap.data().credits);
+    }
+    else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  }
 
   const Root = () => {
     return <>
@@ -77,12 +98,12 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route element={<ProtectedRoutes />}>
-          <Route path="/profile" element={<Profile email={email} UID={UID} />} />
-          <Route path="/icon-generator/step-1" element={<IconGenerator email={email} UID={UID} />} />
-          <Route path="/icon-generator/step-2" element={<IconGeneratorStep2 email={email} UID={UID} />} />
-          <Route path="/icon-generator/step-3" element={<IconGeneratorStep3 email={email} UID={UID} />} />
+          <Route path="/profile" element={<Profile email={email} UID={UID} creditAmount={creditAmount} />} />
+          <Route path="/icon-generator/step-1" element={<IconGenerator UID={UID} creditAmount={creditAmount} />} />
+          <Route path="/icon-generator/step-2" element={<IconGeneratorStep2 creditAmount={creditAmount} UID={UID} />} />
+          <Route path="/icon-generator/step-3" element={<IconGeneratorStep3 creditAmount={creditAmount} UID={UID} />} />
           <Route path="/your-icons" element={<YourIcons email={email} UID={UID} />} />
-          <Route path="/add-credits" element={<AddCredits email={email} UID={UID} />} />
+          <Route path="/add-credits" element={<AddCredits creditAmount={creditAmount} UID={UID} />} />
         </Route>
         <Route index element={<Home />} />
         <Route path="/*" element={<Home />} />

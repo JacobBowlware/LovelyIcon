@@ -10,6 +10,7 @@ import friends from '../../assets/friends.svg';
 import ProgressBar from '../other/ProgressBar';
 import { generateImages } from '../../firebase/generateImages';
 import LoadingSpinner from '../common/LoadingSpinner';
+import { Link } from 'react-router-dom';
 
 const testImages = (
     <>
@@ -46,15 +47,26 @@ const testImages = (
     </>
 );
 
-const IconGenerator = ({ UID }) => {
+const IconGenerator = ({ UID, creditAmount }) => {
     const [iconDetails, setIconDetails] = useState();
     const [generatedIcons, setGeneratedIcons] = useState();
+    const [userCreditAmount, setUserCreditAmount] = useState(creditAmount);
 
     const [loading, setLoading] = useState(false);
 
     const generateImage = async () => {
         setLoading(true);
+        setUserCreditAmount(userCreditAmount - 10);
+
+
+        // Cloud function will check if user has enough credits to generate image, if not, will return error.
         const imageURL = await generateImages(iconDetails, UID);
+
+        if (imageURL.error) {
+            alert(imageURL.error);
+            setLoading(false);
+            return;
+        }
 
         setGeneratedIcons(imageURL.data);
         setLoading(false);
@@ -62,8 +74,7 @@ const IconGenerator = ({ UID }) => {
 
 
     //TODO:
-    // 1. Add a loading spinner while the image is being generated
-    // 2. Implement credits system
+    // 2. Check if user has atleast 10 credits to preform generate action - if not, disable button and render warning message below.
     // 3. Display message if user has no credits -- "You have no credits remaining. Add credits to your account here."
     // 4. Allow user to select an image to proceed to step 2 -- Edit/Crop image
     return (
@@ -87,14 +98,15 @@ const IconGenerator = ({ UID }) => {
                         onChange={(e) => setIconDetails(e.target.value)}
                     />
                     <button
-                        disabled={true}
+                        disabled={userCreditAmount < 10 || !iconDetails}
                         className="btn btn-primary form__btn icon-generator__container__form-btn">
                         <LoadingSpinner title="GENERATE" loading={loading} color="light" />
                     </button>
                 </form>
                 <p className="p icon-generator__container-info">
-                    <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> You currently have <span className="text-highlight">0</span> credits
-                    remaining. Each generate costs <span className="text-highlight">10</span>.
+                    <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> You currently have <span className="text-highlight">{userCreditAmount}</span> credits
+                    remaining. Each generate costs <span className="text-highlight">10</span>. To purchase more
+                    credits, visit <Link className="link login-form__link" to="/add-credits">Add Credits</Link>
                 </p>
             </div>
             <div className="icon-generator__icon-display">
