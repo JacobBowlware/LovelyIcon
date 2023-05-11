@@ -1,11 +1,18 @@
 // React
 import React, { useEffect, useState } from 'react';
 
-// Font Awesome & Images
+// Font Awesome 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+
+//  Images & Icons
 import friends from '../../assets/friends.svg';
-import neonIcon from '../../assets/neonIcon.jpg';
+import neonIcon from '../../assets/icons/neonIcon.jpg';
+import cityIcon from '../../assets/icons/cityIcon.png';
+import coolCarIcon from '../../assets/icons/coolCarIcon.png';
+import gorillaIcon from '../../assets/icons/gorillaIcon.png';
+import greenIcon from '../../assets/icons/greenIcon.png';
+import paintIcon from '../../assets/icons/paintIcon.png';
 
 // Components
 import ProgressBar from '../other/ProgressBar';

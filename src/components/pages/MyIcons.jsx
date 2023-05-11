@@ -51,14 +51,8 @@ export default MyIcons;
 
 const MyIconsLoader = async (UID) => {
     let userIcons = [];
-    const q = query(collection(db, 'users', UID, 'icons'));
+    // Get all icons from the firebase storage and return them
 
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-        userIcons.push(doc.data().images.data);
-    });
-
-    return userIcons;
 };
 
 export { MyIconsLoader };

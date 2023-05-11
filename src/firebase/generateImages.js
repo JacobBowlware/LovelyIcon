@@ -19,15 +19,18 @@ const generateImages = async (prompt, UID) => {
 
         const images = response.data; // [{b64_json: 'base64'}, {b64_json: 'base64'}]
 
-
         try {
             for (let i = 0; i < images.data.length; i++) {
                 const base64Data = images.data[i].b64_json;
                 const blob = b64toBlob(base64Data, 'image/png'); // Convert base64 to Blob
-                const file = new File([blob], `${UID}_${i}.png`, { type: 'image/png' }); // Create File object
+
+                // Generate a unique filename using a combination of user ID, random string, and timestamp
+                const timestamp = Date.now();
+                const randomString = generateRandomString(8);
+                const filename = `${UID}_${randomString}_${timestamp}_${i}.png`;
 
                 // Upload the file to Firebase Storage
-                const storageRef = ref(storage, `users/${UID}/icons/${file.name}`);
+                const storageRef = ref(storage, `users/${UID}/icons/${filename}`);
                 const snapshot = await uploadString(storageRef, base64Data, 'base64');
 
                 // Get the download URL of the uploaded file
@@ -66,6 +69,16 @@ function b64toBlob(base64Data, contentType = '', sliceSize = 512) {
 
     const blob = new Blob(byteArrays, { type: contentType });
     return blob;
+}
+
+function generateRandomString(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
 }
 
 export { generateImages };

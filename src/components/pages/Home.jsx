@@ -2,11 +2,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Icons / Images
+// Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+
+// Images & Icons
 import friends from '../../assets/friends.svg';
-import neonIcon from '../../assets/neonIcon.jpg';
+import neonIcon from '../../assets/icons/neonIcon.jpg';
+import cityIcon from '../../assets/icons/cityIcon.png';
+import coolCarIcon from '../../assets/icons/coolCarIcon.png';
+import gorillaIcon from '../../assets/icons/gorillaIcon.png';
+import greenIcon from '../../assets/icons/greenIcon.png';
+import paintIcon from '../../assets/icons/paintIcon.png';
+import swordIcon from '../../assets/icons/swordIcon.png';
+import lionIcon from '../../assets/icons/lionIcon.png';
+import cactus1 from '../../assets/icons/cactus1.png';
+import cactus2 from '../../assets/icons/cactus2.png';
+import bunkerIcon from '../../assets/icons/bunkerIcon.png';
+import sunsetIcon from '../../assets/icons/sunsetIcon.png';
+import suitIcon from '../../assets/icons/suitIcon.png';
 
 // Components
 import Icon from '../common/Icon';
@@ -19,31 +33,46 @@ const iconList = [
         image: neonIcon,
     },
     {
-        image: neonIcon,
+        image: gorillaIcon,
     },
     {
-        image: neonIcon,
+        image: swordIcon,
     },
     {
-        image: neonIcon,
+        image: greenIcon,
     },
     {
-        image: neonIcon,
+        image: suitIcon,
     },
     {
-        image: neonIcon,
+        image: paintIcon,
     },
     {
-        image: neonIcon,
+        image: cactus1,
     },
     {
-        image: neonIcon,
+        image: gorillaIcon,
     },
     {
-        image: neonIcon,
+        image: lionIcon,
     },
     {
-        image: neonIcon,
+        image: coolCarIcon,
+    },
+    {
+        image: bunkerIcon,
+    },
+    {
+        image: sunsetIcon,
+    },
+    {
+        image: cityIcon,
+    },
+    {
+        image: cactus2,
+    },
+    {
+        image: cityIcon,
     },
 ]
 
@@ -61,17 +90,17 @@ const Home = () => {
                     <Link to="/login" className="btn btn-primary home__hero-link">Get Started</Link>
                 </div>
                 <div className="img-wrapper">
-                    <img className="img home__hero-img" src={neonIcon} alt="Icon created by OpenAI API" />
+                    <img className="img home__hero-img" src={coolCarIcon} alt="Icon created by OpenAI API" />
                 </div>
             </div>
             <div className="features" id="features">
                 <div className="container grid-2">
                     <div className="img-wrapper">
                         {/* TODO: Change this image to layers of three images of our product working */}
-                        <img className="img home__hero-img" src={neonIcon} alt="Icon created by OpenAI API" />
+                        <img className="img home__hero-img" src={gorillaIcon} alt="Icon created by OpenAI API" />
                     </div>
                     <div className="grid-item grid-reverse">
-                        <h2 className="header-2 text-secondary-c">Customizable Icons for Any Purpose</h2>
+                        <h2 className="header-2 text-secondary-c features__header">Customizable Icons for Any Purpose</h2>
                         <p className="p features-p">
                             Customize icons to your heart's content <TextHighlight>
                                 without any design experience
@@ -149,6 +178,7 @@ const Home = () => {
                             price="$10"
                             listItems={
                                 [
+                                    "20% discount on credits",
                                     "Generate up to 12 icons",
                                     "Access to all customization options",
                                     "6 icon designs to choose from",
@@ -160,10 +190,11 @@ const Home = () => {
                     </div>
                     <div className="grid-item">
                         <PricingCard
-                            title="300 Credits"
-                            price="$25"
+                            title="250 Credits"
+                            price="$20"
                             listItems={
                                 [
+                                    "25% discount on credits",
                                     "Generate up to 30 icons",
                                     "Access to all customization options",
                                     "6 icon designs to choose from",
