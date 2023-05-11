@@ -145,9 +145,9 @@ const Home = () => {
             <div className="cta">
                 <div className="container cta-container">
                     <h3 className="header-2 text-secondary-c cta__header">
-                        Looking for a <TextHighlight>simple</TextHighlight> way to <TextHighlight>create stunning
-                            icons? </TextHighlight> Our tool has got you covered.
-                        <TextHighlight> Start designing now!</TextHighlight>
+                        Unlock your <TextHighlight>creativity</TextHighlight> with our <TextHighlight>user-friendly</TextHighlight> icon
+                        generator. <TextHighlight>No graphic design experience required.
+                        </TextHighlight> Start designing beautiful icons effortlessly <TextHighlight>today!</TextHighlight>
                     </h3>
                     <Link to="/login" className="btn btn-primary cta__btn">Get Started Now</Link>
                 </div>

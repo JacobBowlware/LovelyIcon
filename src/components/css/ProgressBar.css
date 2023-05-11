@@ -1,6 +1,7 @@
 .progress-container {
     width: 100%;
     margin-bottom: 4rem;
+    padding: 0;
 }
 
 .progressbar {
@@ -65,5 +66,9 @@
 @media screen and (min-width: 1000px) {
     .progressbar li {
         font-size: 1.5rem;
+    }
+
+    .progress-container {
+        padding: 0 2rem;
     }
 }
