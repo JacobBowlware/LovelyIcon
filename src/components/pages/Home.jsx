@@ -154,7 +154,7 @@ const Home = () => {
             </div>
             <div className="container pricing" id="pricing">
                 <h3 className="header-2 text-secondary-c pricing__header">
-                    Pricing and Credits
+                    <TextHighlight>Boost Your Account with Credits:</TextHighlight> Flexible Options for Icon Creation
                 </h3>
                 <div className="pricing__container">
                     <div className="grid-item">
@@ -170,15 +170,16 @@ const Home = () => {
                                     "Commercial use"
                                 ]
                             }
+                            badge={neonIcon}
                         />
                     </div>
                     <div className="grid-item">
                         <PricingCard
-                            title="120 Credits"
+                            title="110 Credits"
                             price="$10"
                             listItems={
                                 [
-                                    "20% discount on credits",
+                                    "10% more credits",
                                     "Generate up to 12 icons",
                                     "Access to all customization options",
                                     "6 icon designs to choose from",
@@ -186,15 +187,16 @@ const Home = () => {
                                     "Commercial use"
                                 ]
                             }
+                            badge={greenIcon}
                         />
                     </div>
                     <div className="grid-item">
                         <PricingCard
-                            title="250 Credits"
+                            title="240 Credits"
                             price="$20"
                             listItems={
                                 [
-                                    "25% discount on credits",
+                                    "20% more credits",
                                     "Generate up to 30 icons",
                                     "Access to all customization options",
                                     "6 icon designs to choose from",
@@ -202,6 +204,7 @@ const Home = () => {
                                     "Commercial use"
                                 ]
                             }
+                            badge={swordIcon}
                         />
                     </div>
                 </div>

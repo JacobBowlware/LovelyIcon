@@ -3,12 +3,18 @@ import React from 'react';
 
 // Components
 import PricingCard from '../other/PricingCard';
+import TextHighlight from '../common/TextHighlight';
 
-const AddCredits = () => {
+// Images
+import neonIcon from '../../assets/icons/neonIcon.jpg';
+import gorillaIcon from '../../assets/icons/gorillaIcon.png';
+import swordIcon from '../../assets/icons/swordIcon.png';
+
+const AddCredits = ({ creditAmount }) => {
     return (
         <div className="container page">
             <h1 className="header-1 add-credits__header">
-                Add Credits to Your Account
+                <TextHighlight>Boost Your Account with Credits:</TextHighlight> Flexible Options for Icon Creation
             </h1>
             <div className="pricing__container">
                 <div className="grid-item">
@@ -25,40 +31,43 @@ const AddCredits = () => {
                             ]
                         }
                         purchasable={() => console.log("Add 50 credits")}
+                        badge={neonIcon}
                     />
                 </div>
                 <div className="grid-item">
                     <PricingCard
-                        title="120 Credits"
-                        creditAmount={120}
+                        title="110 Credits"
+                        creditAmount={110}
                         price="$10"
                         listItems={
                             [
-                                "20% discount on credits",
-                                "Generate up to 12 icons",
+                                "10% more credits",
+                                "Generate up to 11 icons",
                                 "6 icon designs to choose from",
                                 "High quality PNG file downloads",
                                 "Commercial use"
                             ]
                         }
                         purchasable={() => console.log("Add 120 credits")}
+                        badge={gorillaIcon}
                     />
                 </div>
                 <div className="grid-item">
                     <PricingCard
-                        title="250 Credits"
-                        creditAmount={250}
+                        title="240 Credits"
+                        creditAmount={240}
                         price="$20"
                         listItems={
                             [
-                                "25% discount on credits",
-                                "Generate up to 30 icons",
+                                "20% more credits",
+                                "Generate up to 24 icons",
                                 "6 icon designs to choose from",
                                 "High quality PNG file downloads",
                                 "Commercial use"
                             ]
                         }
                         purchasable={() => console.log("Add 250 credits")}
+                        badge={swordIcon}
                     />
                 </div>
             </div>

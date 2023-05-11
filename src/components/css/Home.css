@@ -1,6 +1,6 @@
 .home__hero-link {
     color: var(--var-white);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     width: 12rem;
 }
 
@@ -9,7 +9,7 @@
     margin-top: 4rem;
     background: var(--var-background-dark);
     width: 100%;
-    padding-top: 2rem;
+    padding: 2rem 0;
 }
 
 .features-p {
@@ -68,14 +68,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 4rem 0rem;
+    align-items: flex-start;
+    padding: 4rem 2rem;
 }
 
 .cta__header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 2rem;
-    max-width: 70%;
     font-size: 1.5rem;
 }
 
@@ -88,10 +87,13 @@
 @media screen and (min-width: 1000px) {
     .cta-container {
         padding: 4rem 2rem;
+        align-items: center;
+
     }
 
     .cta__header {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        text-align: center;
     }
 
     .cta__btn {
@@ -103,21 +105,20 @@
 /* Pricing */
 .pricing__header {
     margin-top: 5rem;
-    text-align: center;
-    font-size: 1.5rem;
+    text-align: left;
+    font-size: 1.6rem;
 }
 
 .pricing__container {
-    margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr;
+    width: 100%;
 }
 
 .pricing-card {
     width: 100%;
     padding: 2rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
     border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -186,10 +187,48 @@
     font-weight: 700;
 }
 
+.pricing-card__badge {
+    display: none;
+    max-width: 14rem;
+}
+
+.pricing-card__body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pricing-card__body {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .pricing-card__badge {
+        display: block;
+    }
+
+    .pricing-card__body {
+        width: auto;
+    }
+
+    .pricing__header {
+        text-align: center;
+    }
+}
+
 
 @media screen and (min-width: 1000px) {
+    .pricing-card__badge {
+        display: none;
+    }
+
+    .pricing-card__body {
+        width: 100%;
+    }
+
     .pricing__header {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .pricing__container {

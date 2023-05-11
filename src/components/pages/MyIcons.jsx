@@ -52,6 +52,7 @@ export default MyIcons;
 const MyIconsLoader = async (UID) => {
     let userIcons = [];
     // Get all icons from the firebase storage and return them
+    return userIcons;
 
 };
 

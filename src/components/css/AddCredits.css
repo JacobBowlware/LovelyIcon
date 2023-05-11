@@ -1,24 +1,31 @@
 .add-credits__header {
     font-weight: 700;
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-size: 1.5rem;
+    margin-bottom: 0;
+    margin: 1rem 0 0 0;
 }
 
 .add-credits__p {
     text-align: left;
     margin: 0;
     font-size: 1rem;
-    width: 325px;
     text-align: center;
 }
+
 
 @media screen and (min-width: 1000px) {
     .add-credits__header {
         font-size: 1.8rem;
+        text-align: center;
     }
 
     .add-credits__p {
         width: 100%;
+    }
+
+    .add-credits__header {
+        margin: 0 0 1rem 0;
     }
 }

@@ -157,6 +157,11 @@ const IconGenerator = ({ UID, creditAmount }) => {
                         Stick to the theme or subject of your image. Avoid including unrelated or unnecessary information.
                         <span className="text-semi-bold"> For example</span> "A red rose with dew drops on its petals" instead of "A flower with water drops on it"
                     </li>
+                    <li className="list__item icon-generator__rules-item">
+                        <FontAwesomeIcon icon={faCheckCircle} className="icon-primary" /> <strong>Include Your Style - </strong>
+                        Feel free to express your unique style preferences for the image. Whether it's a specific artistic approach, a particular aesthetic, or a desired mood, let us know how you envision your ideal image.
+
+                    </li>
                 </ul>
             </div>
         </div >

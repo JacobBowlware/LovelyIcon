@@ -6,7 +6,7 @@ import LoadingSpinner from '../common/LoadingSpinner';
 
 //TODO:
 // Implement top right corner badge displaying the % discount
-const PricingCard = ({ price, title, listItems, purchasable, creditAmount }) => {
+const PricingCard = ({ price, title, listItems, purchasable, creditAmount, badge }) => {
     const [loading, setLoading] = useState(false);
     let containerClassName = "pricing-card";
 
@@ -26,23 +26,28 @@ const PricingCard = ({ price, title, listItems, purchasable, creditAmount }) => 
 
     return (
         <div className={containerClassName}>
-            <div>
-                <h2 className="header-3 text-secondary-c pricing-card__header">
-                    {title} <span className="pricing-card__price"> - {price}</span>
-                </h2>
-                <ul className="list pricing-card__list">
-                    {listItems.map((item, index) => {
-                        return (
-                            <li className="list-item pricing-card__list-item" key={index}>
-                                <FontAwesomeIcon icon={faCheckCircle} className="pricing-card__list-icon" />{item}
-                            </li>
-                        )
-                    })}
-                </ul>
+            <div className="pricing-card__body">
+                <div className="pricing-card__body-text">
+                    <h2 className="header-3 text-secondary-c pricing-card__header">
+                        {title} <span className="pricing-card__price"> - {price}</span>
+                    </h2>
+                    <ul className="list pricing-card__list">
+                        {listItems.map((item, index) => {
+                            return (
+                                <li className="list-item pricing-card__list-item" key={index}>
+                                    <FontAwesomeIcon icon={faCheckCircle} className="pricing-card__list-icon" />{item}
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+                {purchasable ? <button className="btn btn--primary pricing-card__add-btn" onClick={(e) => purchasableHandler(e)}>
+                    <LoadingSpinner title={"Add " + creditAmount + " Credits"} loading={loading} color="light" />
+                </button> : null}
             </div>
-            {purchasable ? <button className="btn btn--primary pricing-card__add-btn" onClick={(e) => purchasableHandler(e)}>
-                <LoadingSpinner title={"Add " + creditAmount + " Credits"} loading={loading} color="light" />
-            </button> : null}
+            <div className="pricing-card__badge">
+                <img className="img" src={badge} />
+            </div>
         </div>
     );
 }

@@ -84,7 +84,7 @@
 .icon-generator__icon-display__icon-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: fill;
 }
 
 @media screen and (min-width: 768px) {
@@ -128,24 +128,21 @@
 
 /* Icon Generator Step 2 */
 .icon-generator__icon-display {
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
-    margin: 2rem 0;
+    padding: 2rem 0;
 }
 
 .icon-generator__icon-display__icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
 }
 
 .icon-generator__icon-display__icon-img {
     border-radius: 9px;
-
+    object-fit: cover;
 }
 
 .icon-generator__icon-display__icon-img:hover {
