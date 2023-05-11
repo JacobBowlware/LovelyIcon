@@ -39,6 +39,7 @@ import './components/css/IconGenerator.css';
 import './components/css/MyIcons.css';
 import './components/css/AddCredits.css';
 import './components/css/ProgressBar.css'
+import './components/css/Icon.css';
 
 
 
@@ -98,10 +99,10 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route element={<ProtectedRoutes />}>
-          <Route path="/profile" element={<Profile email={email} UID={UID} creditAmount={creditAmount} />} />
-          <Route path="/icon-generator/step-1" element={<IconGenerator UID={UID} creditAmount={creditAmount} />} />
-          <Route path="/icon-generator/step-2" element={<IconGeneratorStep2 creditAmount={creditAmount} UID={UID} />} />
-          <Route path="/icon-generator/step-3" element={<IconGeneratorStep3 creditAmount={creditAmount} UID={UID} />} />
+          <Route path="/profile/" element={<Profile email={email} UID={UID} creditAmount={creditAmount} />} />
+          <Route path="/icon-generator/step-1/" element={<IconGenerator UID={UID} creditAmount={creditAmount} />} />
+          <Route path="/icon-generator/step-2/" element={<IconGeneratorStep2 creditAmount={creditAmount} UID={UID} />} />
+          <Route path="/icon-generator/step-3/" element={<IconGeneratorStep3 creditAmount={creditAmount} UID={UID} />} />
           <Route path="/icons" element={<MyIcons email={email} UID={UID} />} loader={() => MyIconsLoader(UID)} />
           <Route path="/add-credits" element={<AddCredits creditAmount={creditAmount} UID={UID} />} />
         </Route>

@@ -30,14 +30,15 @@ const MyIcons = ({ UID }) => {
     // }, [userIcons, data])
 
     return (
-        <div className="container page">
+        <div className="page page-padding">
             <h1 className="header-1">Your Icons</h1>
             <div className="grid my-icons__container">
                 {userIcons.map((icon, index) => {
-                    console.log(icon.url)
+                    const imageSrc = `data:image/jpeg;base64,${icon.image}`;
+
                     return (
                         <div className="my-icons__item" key={index}>
-                            <img className="my-icons__icon" src={icon.url} alt="icon" />
+                            <img className="my-icons__icon" src={imageSrc} alt="icon" />
                         </div>
                     )
                 })}
@@ -50,16 +51,14 @@ export default MyIcons;
 
 const MyIconsLoader = async (UID) => {
     let userIcons = [];
-    const q = query(collection(db, "users", UID, "icons"));
+    const q = query(collection(db, 'users', UID, 'icons'));
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
         userIcons.push(doc.data().images.data);
-        // console.log(`${doc.id} => ${doc.data().images.data}`);
-    }
-    );
+    });
 
     return userIcons;
-}
+};
 
 export { MyIconsLoader };

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import friends from '../../assets/friends.svg';
+import neonIcon from '../../assets/neonIcon.jpg';
 
 // Components
 import Icon from '../common/Icon';
@@ -15,34 +16,34 @@ import PricingCard from '../other/PricingCard';
 
 const iconList = [
     {
-        image: friends,
+        image: neonIcon,
     },
     {
-        image: friends,
+        image: neonIcon,
     },
     {
-        image: friends,
+        image: neonIcon,
     },
     {
-        image: friends,
+        image: neonIcon,
     },
     {
-        image: friends,
+        image: neonIcon,
     },
     {
-        image: friends,
+        image: neonIcon,
     },
     {
-        image: friends,
+        image: neonIcon,
     },
     {
-        image: friends,
+        image: neonIcon,
     },
     {
-        image: friends,
+        image: neonIcon,
     },
     {
-        image: friends,
+        image: neonIcon,
     },
 ]
 
@@ -60,14 +61,14 @@ const Home = () => {
                     <Link to="/login" className="btn btn-primary home__hero-link">Get Started</Link>
                 </div>
                 <div className="img-wrapper">
-                    <img className="img home__hero-img" src={friends} alt="Icon created by OpenAI API" />
+                    <img className="img home__hero-img" src={neonIcon} alt="Icon created by OpenAI API" />
                 </div>
             </div>
             <div className="features" id="features">
                 <div className="container grid-2">
                     <div className="img-wrapper">
                         {/* TODO: Change this image to layers of three images of our product working */}
-                        <img className="img home__hero-img" src={friends} alt="Icon created by OpenAI API" />
+                        <img className="img home__hero-img" src={neonIcon} alt="Icon created by OpenAI API" />
                     </div>
                     <div className="grid-item grid-reverse">
                         <h2 className="header-2 text-secondary-c">Customizable Icons for Any Purpose</h2>

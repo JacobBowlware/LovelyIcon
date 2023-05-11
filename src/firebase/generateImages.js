@@ -1,26 +1,71 @@
 import axios from 'axios';
-
-import { getFirestore, addDoc, collection } from "firebase/firestore";
-import { app } from '../firebase/config.js'
+import { getFirestore, addDoc, collection } from 'firebase/firestore';
+import { getStorage, ref, uploadString, getDownloadURL } from 'firebase/storage';
+import { app } from '../firebase/config.js';
 
 // Initialize Firebase
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 const generateImages = async (prompt, UID) => {
-    const response = await axios.post('https://us-central1-lovelyicon-f3ad1.cloudfunctions.net/generateImage', {
-        prompt: prompt,
-        userId: UID,
-    });
+    try {
+        const response = await axios.post(
+            'https://us-central1-lovelyicon-f3ad1.cloudfunctions.net/generateImage',
+            {
+                prompt: prompt,
+                userId: UID,
+            }
+        );
 
-    console.log(response.data);
-    const images = await response.data; // [ {url: ...}, {url: ...}, {url: ...} ]
+        const images = response.data; // [{b64_json: 'base64'}, {b64_json: 'base64'}]
 
-    // Store the generated images in the user's firebase storage
-    await addDoc(collection(db, "users", UID, "icons"), {
-        images: images,
-    });
 
-    return images;
+        try {
+            for (let i = 0; i < images.data.length; i++) {
+                const base64Data = images.data[i].b64_json;
+                const blob = b64toBlob(base64Data, 'image/png'); // Convert base64 to Blob
+                const file = new File([blob], `${UID}_${i}.png`, { type: 'image/png' }); // Create File object
+
+                // Upload the file to Firebase Storage
+                const storageRef = ref(storage, `users/${UID}/icons/${file.name}`);
+                const snapshot = await uploadString(storageRef, base64Data, 'base64');
+
+                // Get the download URL of the uploaded file
+                const downloadURL = await getDownloadURL(snapshot.ref);
+
+                // Save the download URL in the Firestore document
+                const docRef = await addDoc(collection(db, 'users', UID, 'icons'), {
+                    image: downloadURL,
+                });
+            }
+        } catch (e) {
+            return images;
+        }
+
+        return images;
+    } catch (e) {
+        return null;
+    }
 };
+
+function b64toBlob(base64Data, contentType = '', sliceSize = 512) {
+    const byteCharacters = atob(base64Data);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+        const byteNumbers = new Array(slice.length);
+        for (let i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+        }
+
+        const byteArray = new Uint8Array(byteNumbers);
+        byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+}
 
 export { generateImages };

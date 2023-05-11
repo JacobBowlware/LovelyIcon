@@ -69,7 +69,7 @@ const Header = ({ email }) => {
             <li className="nav-item">
                 <Link
                     className="nav-link nav-link-important"
-                    to="/icon-generator/step-1"
+                    to="/icon-generator/step-1/"
                     onClick={closeNavBar}>
                     Icon Generator
                 </Link>
@@ -77,7 +77,7 @@ const Header = ({ email }) => {
             <li className="nav-item">
                 <Link
                     className="nav-link nav-link-important"
-                    to="/icons"
+                    to="/icons/"
                     onClick={closeNavBar}>
                     Icons
                 </Link>
@@ -85,7 +85,7 @@ const Header = ({ email }) => {
             <li className="nav-item">
                 <Link
                     className="nav-link nav-link-important"
-                    to="/add-credits"
+                    to="/add-credits/"
                     onClick={closeNavBar} >
                     Add Credits
                 </Link>
@@ -93,7 +93,7 @@ const Header = ({ email }) => {
             <li className="nav-item">
                 <Link
                     className="nav-link nav-link-important"
-                    to="/profile"
+                    to="/profile/"
                     onClick={closeNavBar}>
                     Profile
                 </Link>

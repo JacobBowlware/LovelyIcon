@@ -48,14 +48,16 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
                     },
                     body: JSON.stringify({
                         prompt: "Vibrant, dramatic backligting, 300mm lens, professional, vector art, " + prompt,
-                        n: 3,
-                        size: "1024x1024",
-                        model: "image-alpha-001"
+                        n: 1,
+                        size: "512x512",
+                        model: "image-alpha-001",
+                        response_format: "b64_json"
                     })
                 };
 
                 const response = await fetch.default('https://api.openai.com/v1/images/generations', options);
                 const data = await response.json();
+                console.log(data);
 
                 // Return the generated image URL in the response
                 res.status(200).send(data);

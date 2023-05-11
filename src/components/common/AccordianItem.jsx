@@ -9,7 +9,7 @@ const AccordianItem = ({ title, content, onPress, isOpen, onAdd }) => {
         <div className="accordian-item">
             <div className="accordian-item-header" onClick={onPress}>
                 <h3 className="header-3 accordian-item__header">{title}</h3>
-                <FontAwesomeIcon className="icon accordian-item__icon" icon={isOpen ? faChevronUp : faChevronDown} />
+                <FontAwesomeIcon className="accordian-item__icon" icon={isOpen ? faChevronUp : faChevronDown} />
             </div>
             {
                 isOpen && <div className="accordian-item-content">

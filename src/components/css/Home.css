@@ -31,6 +31,22 @@
     padding: 2rem;
 }
 
+.showcase__container {
+    padding: 2rem;
+    gap: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.showcase__item {
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .showcase__item:last-child {
     display: none;
 }
@@ -38,6 +54,10 @@
 @media screen and (min-width: 1000px) {
     .showcase__item:last-child {
         display: block;
+    }
+
+    .showcase__container {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 }
 

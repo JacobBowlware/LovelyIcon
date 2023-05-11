@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%;
     margin-bottom: 10rem;
+    background: var(--var-light) !important;
 }
 
 .nav-link {

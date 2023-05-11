@@ -132,6 +132,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
+    margin: 2rem 0;
 }
 
 .icon-generator__icon-display__icon {
@@ -140,11 +141,9 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 1rem;
 }
 
 .icon-generator__icon-display__icon-img {
-    max-width: 15rem;
     border-radius: 9px;
 
 }
