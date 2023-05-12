@@ -23,9 +23,11 @@
     width: 100%;
     border-radius: 9px;
     overflow: hidden;
+    transition: all 0.3s ease-in-out;
 }
 
-.my-icons__item:hover {
+.my-icons__icon:hover {
+    transform: scale(1.02);
     cursor: pointer;
 }
 

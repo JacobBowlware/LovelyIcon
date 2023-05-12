@@ -46,7 +46,7 @@ const PricingCard = ({ price, title, listItems, purchasable, creditAmount, badge
                 </button> : null}
             </div>
             <div className="pricing-card__badge">
-                <img className="img" src={badge} />
+                <img alt="" className="img" src={badge} />
             </div>
         </div>
     );

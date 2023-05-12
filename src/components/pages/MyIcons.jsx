@@ -53,6 +53,9 @@ const MyIcons = ({ UID }) => {
                 setSelectedIconIndex(index);
             }
         }
+        else {
+            navigate('/icon-generator/step-2/', { state: { icon: imageUrls[index] } });
+        }
     }
 
     return (

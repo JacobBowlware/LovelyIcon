@@ -36,6 +36,7 @@ import './components/css/Header.css';
 import './components/css/Footer.css';
 import './components/css/Profile.css';
 import './components/css/IconGenerator.css';
+import './components/css/IconGenerator2.css';
 import './components/css/MyIcons.css';
 import './components/css/AddCredits.css';
 import './components/css/ProgressBar.css'

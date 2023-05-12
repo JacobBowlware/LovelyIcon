@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 // Images & Icons
-import friends from '../../assets/friends.svg';
 import neonIcon from '../../assets/icons/neonIcon.jpg';
 import cityIcon from '../../assets/icons/cityIcon.png';
 import coolCarIcon from '../../assets/icons/coolCarIcon.png';

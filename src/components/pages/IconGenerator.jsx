@@ -1,5 +1,6 @@
 // React
 import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Font Awesome 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,7 +18,6 @@ import paintIcon from '../../assets/icons/paintIcon.png';
 import ProgressBar from '../other/ProgressBar';
 import { generateImages } from '../../firebase/generateImages';
 import LoadingSpinner from '../common/LoadingSpinner';
-import { Link } from 'react-router-dom';
 
 const testImages = (
     <>
@@ -61,6 +61,8 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
     const [loading, setLoading] = useState(false);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         setUserCreditAmount(creditAmount);
     }, [creditAmount]);
@@ -81,6 +83,11 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
         setGeneratedIcons(imageData.data);
         setLoading(false);
+    }
+
+    const handleIconSelect = (icon) => {
+        console.log(icon);
+        navigate('/icon-generator/step-2', { state: { icon: icon } });
     }
 
 
@@ -121,12 +128,12 @@ const IconGenerator = ({ UID, creditAmount }) => {
             </div>
             <div className="icon-generator__samples">
                 <h2 className="header-2 icon-generator__samples-header">
-                    {generatedIcons.length > 0 ? "Your Generated Icons" : "Sample of Generated Icons"}
+                    {generatedIcons.length > 0 ? "Your Generated Icons; Click on an icon to edit" : "Sample of Generated Icons"}
                 </h2>
                 <div className="icon-generator__icon-display">
                     {generatedIcons.length > 0 ? (
                         generatedIcons.map((image, index) => (
-                            <div className="icon-generator__icon-display__icon" key={index}>
+                            <div onClick={() => handleIconSelect(image)} className="icon-generator__icon-display__icon" key={index}>
                                 <img
                                     className="icon-generator__icon-display__icon-img"
                                     src={`data:image/png;base64,${image.b64_json}`}
