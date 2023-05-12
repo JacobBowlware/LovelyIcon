@@ -6,9 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 //  Images & Icons
-import friends from '../../assets/friends.svg';
 import neonIcon from '../../assets/icons/neonIcon.jpg';
-import cityIcon from '../../assets/icons/cityIcon.png';
+import heartIcon from '../../assets/icons/heartIcon.png';
 import coolCarIcon from '../../assets/icons/coolCarIcon.png';
 import gorillaIcon from '../../assets/icons/gorillaIcon.png';
 import greenIcon from '../../assets/icons/greenIcon.png';
@@ -28,27 +27,27 @@ const testImages = (
             />
         </div>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={neonIcon}
+            <img className="icon-generator__icon-display__icon-img" src={gorillaIcon}
                 alt="Icon created by OpenAI API"
             />
         </div>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={neonIcon}
+            <img className="icon-generator__icon-display__icon-img" src={heartIcon}
                 alt="Icon created by OpenAI API"
             />
         </div>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={neonIcon}
+            <img className="icon-generator__icon-display__icon-img" src={paintIcon}
                 alt="Icon created by OpenAI API"
             />
         </div>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={neonIcon}
+            <img className="icon-generator__icon-display__icon-img" src={coolCarIcon}
                 alt="Icon created by OpenAI API"
             />
         </div>
         <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={neonIcon}
+            <img className="icon-generator__icon-display__icon-img" src={greenIcon}
                 alt="Icon created by OpenAI API"
             />
         </div>
@@ -80,7 +79,6 @@ const IconGenerator = ({ UID, creditAmount }) => {
             return;
         }
 
-        console.log(imageData.data);
         setGeneratedIcons(imageData.data);
         setLoading(false);
     }
@@ -103,6 +101,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
                     }}
                 >
                     <input
+                        maxLength={400}
                         className='form__input icon-generator__container__form-input'
                         type="text"
                         placeholder="blue cactus in the shape of a square, 3D, white background"
@@ -115,25 +114,30 @@ const IconGenerator = ({ UID, creditAmount }) => {
                     </button>
                 </form>
                 <p className="p icon-generator__container-info">
-                    <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> You currently have <span className="text-highlight">{userCreditAmount}</span> credits
-                    remaining. Each generate costs <span className="text-highlight">10</span>. {userCreditAmount < 10 ? <span className="">Add more credits to your
+                    <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> You currently have <span className="text-highlight text-semi-bold">{userCreditAmount}</span> credits
+                    remaining. Each generate costs <span className="text-highlight text-semi-bold">10</span>. {userCreditAmount < 10 ? <span className="">Add more credits to your
                         account  <Link to="/add-credits" className="text-link text-highlight">here.</Link> </span> : null}
                 </p>
             </div>
-            <div className="icon-generator__icon-display">
-                {generatedIcons.length > 0 ? (
-                    generatedIcons.map((image, index) => (
-                        <div className="icon-generator__icon-display__icon" key={index}>
-                            <img
-                                className="icon-generator__icon-display__icon-img"
-                                src={`data:image/png;base64,${image.b64_json}`}
-                                alt="Icon created by OpenAI API"
-                            />
-                        </div>
-                    ))
-                ) : (
-                    testImages
-                )}
+            <div className="icon-generator__samples">
+                <h2 className="header-2 icon-generator__samples-header">
+                    {generatedIcons.length > 0 ? "Your Generated Icons" : "Sample of Generated Icons"}
+                </h2>
+                <div className="icon-generator__icon-display">
+                    {generatedIcons.length > 0 ? (
+                        generatedIcons.map((image, index) => (
+                            <div className="icon-generator__icon-display__icon" key={index}>
+                                <img
+                                    className="icon-generator__icon-display__icon-img"
+                                    src={`data:image/png;base64,${image.b64_json}`}
+                                    alt="Icon created by OpenAI API"
+                                />
+                            </div>
+                        ))
+                    ) : (
+                        testImages
+                    )}
+                </div>
             </div>
             <div id="tips" className="icon-generator__rules-container">
                 <ul className="list icon-generator__rules">

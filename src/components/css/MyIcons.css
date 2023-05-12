@@ -1,4 +1,4 @@
-.your-icons {
+.my-icons {
     min-height: 100vh;
 }
 
@@ -6,7 +6,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     display: grid;
     gap: 1rem;
-    padding: 0rem;
+    padding: 0rem !important;
+    margin-top: 2rem;
 }
 
 .my-icons__item {
@@ -23,9 +24,46 @@
     border-radius: 9px;
 }
 
+.my-icons__item:hover {
+    cursor: pointer;
+}
+
+.my-icons__header {
+    text-align: left;
+    width: 100%;
+}
+
+.my-icons__desc {
+    font-weight: 500;
+}
+
+.my-icons__header-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.my-icons__operations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.my-icons__operations-btn {
+    width: 100%;
+    margin-top: .5rem;
+}
+
 @media screen and (min-width: 1000px) {
     .my-icons__container {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         padding: 1rem;
+    }
+
+    .my-icons__header-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
     }
 }

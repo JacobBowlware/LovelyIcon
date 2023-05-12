@@ -32,7 +32,7 @@
 }
 
 .showcase__container {
-    gap: 1rem;
+    gap: .5rem;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -54,6 +54,7 @@
     .showcase__container {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         padding: 2rem;
+        gap: 1rem;
     }
 }
 
@@ -129,7 +130,7 @@
 
 .pricing-card:hover:not(.pricing-card--add) {
     scale: 1.03;
-    cursor: pointer;
+    cursor: default;
 }
 
 .pricing-card__header {

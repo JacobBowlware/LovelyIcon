@@ -108,8 +108,8 @@ function App() {
         </Route>
         <Route index element={<Home />} />
         <Route path="/*" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/sign-up" element={<Signup />} />
+        <Route path="/login" element={<Login UID={UID} />} />
+        <Route path="/sign-up" element={<Signup UID={UID} />} />
       </Route >
     )
   )

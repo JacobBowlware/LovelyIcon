@@ -1,44 +1,55 @@
+// React
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
-import { collection, getDocs, getFirestore, query } from 'firebase/firestore';
-import { app } from '../../firebase/config';
+// Firebase
+import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage';
 
+// Components
+import TextHighlight from '../common/TextHighlight';
 
-const db = getFirestore(app);
 
 //TODO:
-// 1. Get all icons from the database
-// 2. Display them in a grid
 // 3. When icon is clicked, take them to step-2 with the icon selected.
+// 4. If user has no icons, display a message saying "You have no icons yet. Click here to generate one."
+// 5. Add a button: 'Select Icons to Delete' -> When clicked, user can select icons to delete.
 const MyIcons = ({ UID }) => {
-    const [userIcons, setUserIcons] = useState([]);
+    const [imageUrls, setImageUrls] = useState([]);
+
+    const navigate = useNavigate();
 
     // Get all icons from the database
     const data = useLoaderData();
 
 
     useEffect(() => {
-        setUserIcons(data.flat());
-    }, [data])
+        setImageUrls(data);
+    }, [UID, data]);
 
 
-    console.log(userIcons)
-    // useEffect(() => {
-    //     console.log(window.innerWidth)
-    //     setUserIcons(data);
-    // }, [userIcons, data])
 
     return (
         <div className="page page-padding">
-            <h1 className="header-1">Your Icons</h1>
+            <div className="my-icons__header-container">
+                <div className="my-icons__text">
+                    <h1 className="header-1 my-icons__header">Generated Icons</h1>
+                    <p className="p my-icons__desc">
+                        Explore and manage your generated icons.
+                        <TextHighlight> Click on an icon to edit it. </TextHighlight> To
+                        <TextHighlight> delete</TextHighlight> icons, simply select the ones you wish to remove
+                        using the <TextHighlight>'Select Icons to Delete'</TextHighlight> button.
+                    </p>
+                </div>
+                <div className="my-icons__operations">
+                    <button className="btn btn-primary my-icons__operations-btn">Select Icons to Delete</button>
+                    <button onClick={() => navigate('/icon-generator/step-1/')} className="btn btn-primary my-icons__operations-btn">Generate More Icons</button>
+                </div>
+            </div>
             <div className="grid my-icons__container">
-                {userIcons.map((icon, index) => {
-                    const imageSrc = `data:image/jpeg;base64,${icon.image}`;
-
+                {imageUrls.map((url, index) => {
                     return (
                         <div className="my-icons__item" key={index}>
-                            <img className="my-icons__icon" src={imageSrc} alt="icon" />
+                            <img className="my-icons__icon" src={url} alt="icon" />
                         </div>
                     )
                 })}
@@ -50,10 +61,24 @@ const MyIcons = ({ UID }) => {
 export default MyIcons;
 
 const MyIconsLoader = async (UID) => {
-    let userIcons = [];
-    // Get all icons from the firebase storage and return them
-    return userIcons;
+    try {
+        const storage = getStorage();
+        const iconsRef = ref(storage, `users/${UID}/icons`);
 
+        const iconsSnapshot = await listAll(iconsRef);
+
+        const urls = await Promise.all(
+            iconsSnapshot.items.map(async (item) => {
+                return getDownloadURL(item);
+            })
+        );
+
+        return urls;
+    } catch (error) {
+        alert(error);
+        return [];
+    }
 };
+
 
 export { MyIconsLoader };

@@ -1,5 +1,5 @@
 // React
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // Firebase
@@ -14,12 +14,18 @@ import { validateProperty } from '../common/WebJoi';
  * Login page
  * @returns Login page
  */
-const Login = () => {
+const Login = ({ UID }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState();
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (UID) {
+            navigate('/icon-generator/step-1/');
+        }
+    }, [UID, navigate]);
 
     const handleEmailChange = ({ currentTarget: Input }) => {
         const error = validateProperty(Input);

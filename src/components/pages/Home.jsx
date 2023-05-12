@@ -21,6 +21,7 @@ import cactus2 from '../../assets/icons/cactus2.png';
 import bunkerIcon from '../../assets/icons/bunkerIcon.png';
 import sunsetIcon from '../../assets/icons/sunsetIcon.png';
 import suitIcon from '../../assets/icons/suitIcon.png';
+import heartIcon2 from '../../assets/icons/hearIcon2.png';
 
 // Components
 import Icon from '../common/Icon';
@@ -33,7 +34,7 @@ const iconList = [
         image: neonIcon,
     },
     {
-        image: gorillaIcon,
+        image: heartIcon2,
     },
     {
         image: swordIcon,

@@ -1,5 +1,5 @@
 // React
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // Firebase
@@ -17,7 +17,7 @@ const db = getFirestore(app);
  * Signup Page
  * @returns Signup Page
  */
-const Signup = () => {
+const Signup = ({ UID }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,8 +25,13 @@ const Signup = () => {
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (UID) {
+            navigate('/icon-generator/step-1/');
+        }
+    }, [UID, navigate]);
+
     const handleChange = ({ currentTarget: Input }) => {
-        console.log(password, confirmPassword)
         validateChange(Input, setErrors, false, password, confirmPassword);
     };
 
@@ -52,7 +57,6 @@ const Signup = () => {
         e.preventDefault();
         signInWithPopup(auth, provider).then((result) => {
             if (isNewUser(result.user.metadata.creationTime)) {
-                console.log("I AM NEW!")
                 addNewUserCredits(result.user.uid);
             }
 
