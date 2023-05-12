@@ -141,6 +141,22 @@ body {
   font-weight: 700;
 }
 
+.btn-secondary {
+  background: var(--var-light);
+  color: var(--var-text);
+  font-weight: 700;
+}
+
+.btn-secondary:disabled {
+  background: var(--var-light);
+  color: var(--var-text);
+}
+
+.btn-secondary:hover {
+  background: var(--var-light);
+  color: var(--var-text);
+}
+
 .loading-spinner {
   width: 1.5rem;
 }
