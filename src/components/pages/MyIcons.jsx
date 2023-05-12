@@ -1,6 +1,6 @@
 // React
 import React, { useEffect, useState } from 'react';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate, Link } from 'react-router-dom';
 
 // Firebase
 import { getStorage, ref, listAll, getDownloadURL, deleteObject } from 'firebase/storage';
@@ -14,9 +14,8 @@ const storage = getStorage();
 
 
 //TODO:
-// 3. When icon is clicked, take them to step-2 with the icon selected.
-// 4. If user has no icons, display a message saying "You have no icons yet. Click here to generate one."
-// 5. Add a button: 'Select Icons to Delete' -> When clicked, user can select icons to delete.
+// 1. Possibly an error when deleting icons is occuring. Check it out. It seems like deleted
+// icons are some-how popping up in the list of icons to map again.
 const MyIcons = ({ UID }) => {
     const [imageUrls, setImageUrls] = useState([]);
     const [imageRefs, setImageRefs] = useState([]);
@@ -80,6 +79,9 @@ const MyIcons = ({ UID }) => {
                             className="btn btn-secondary my-icons__operations-btn">Cancel Deletion</button>}
                 </div>
             </div>
+            {imageUrls.length === 0 && <h2 className="my-icons__no-icons">You have no icons yet.{' '}
+                <Link className="link text-highlight" to="/icon-generator/step-1/">Click here</Link>{' '}
+                to generate one.</h2>}
             <div className="grid my-icons__container">
                 {imageUrls.map((url, index) => {
                     const isSelected = selectedIconIndex === index;
