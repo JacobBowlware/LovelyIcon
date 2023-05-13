@@ -26,15 +26,17 @@ const generateImages = async (prompt, UID) => {
             for (let i = 0; i < images.data.length; i++) {
                 const base64Data = images.data[i].b64_json;
                 const blob = b64toBlob(base64Data, 'image/png'); // Convert base64 to Blob
-                const file = new File([blob], `${UID}_${i}.png`, { type: 'image/png' }); // Create File object
+                const fileName = `${UID}_${Date.now()}_${i}.png`; // Generate a unique file name
+                const file = new File([blob], fileName, { type: 'image/png' }); // Create File object
 
                 // Upload the file to Firebase Storage
-                const storageRef = ref(storage, `users/${UID}/icons/${file.name}`);
+                const storageRef = ref(storage, `users/${UID}/icons/${fileName}`);
                 const snapshot = await uploadString(storageRef, base64Data, 'base64');
 
                 // Get the download URL of the uploaded file
                 const downloadURL = await getDownloadURL(snapshot.ref);
 
+                console.log("Downloading doc to user's firebase storage: " + downloadURL);
                 // Save the download URL in the Firestore document
                 await addDoc(collection(db, 'users', UID, 'icons'), {
                     image: downloadURL,

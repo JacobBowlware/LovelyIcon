@@ -59,7 +59,7 @@ const MyIcons = ({ UID }) => {
     }
 
     return (
-        <div className="page page-padding">
+        <div className="container page page-padding">
             <div className="my-icons__header-container">
                 <div className="my-icons__text">
                     <h1 className="header-1 my-icons__header">Generated Icons</h1>
