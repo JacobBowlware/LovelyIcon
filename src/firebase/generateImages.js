@@ -70,4 +70,4 @@ const generateImages = async (prompt, UID) => {
 //     }
 // };
 
-// export { generateImages, editImages };
+export { generateImages };

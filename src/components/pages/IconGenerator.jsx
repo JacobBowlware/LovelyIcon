@@ -53,6 +53,68 @@ const testImages = (
     </>
 );
 
+const artStyleSelectOptions = [
+    { value: 'Select Icon Style' },
+    { value: 'Abstract' },
+    { value: 'Cartoon' },
+    { value: 'Doodle' },
+    { value: 'Gothic' },
+    { value: 'Impressionist' },
+    { value: 'Minimalist' },
+    { value: 'Pop Art' },
+    { value: 'Realistic' },
+    { value: 'Steampunk' },
+    { value: 'Surreal' },
+    { value: 'Vaporwave' },
+    { value: 'Custom' }
+];
+
+const framePositionSelectOptions = [
+    { value: 'Select Frame Position' },
+    { value: "Bird's Eye View" },
+    { value: 'Close-Up' },
+    { value: 'Crane Shot' },
+    { value: 'Dutch Angle Shot' },
+    { value: 'Extreme Close-Up' },
+    { value: 'Handheld Shot' },
+    { value: 'High Angle Shot' },
+    { value: 'Low Angle Shot' },
+    { value: 'Long Shot' },
+    { value: 'Medium Shot' },
+    { value: 'Over-the-Shoulder Shot' },
+    { value: 'Point-of-View Shot' },
+    { value: 'Tracking Shot' },
+    { value: 'Wide Angle Shot' },
+    { value: "Worm's Eye View" },
+    { value: 'Custom' }
+];
+
+const iconLightingSelectOptions = [
+    { value: 'Select Icon Lighting' },
+    { value: 'Bright' },
+    { value: 'Candlelit' },
+    { value: 'Dim' },
+    { value: 'Dusk' },
+    { value: 'Foggy' },
+    { value: 'Glowing' },
+    { value: 'Golden Hour' },
+    { value: 'Moonlit' },
+    { value: 'Neon' },
+    { value: 'Overcast' },
+    { value: 'Rainy' },
+    { value: 'Sunny' },
+    { value: 'Twilight' },
+    { value: 'Custom' }
+];
+
+const iconSizeSelectOptions = [
+    { value: 'Select Icon Size' },
+    { value: '256px x 256px' },
+    { value: '512px x 512px' },
+    { value: '1024px x 1024px' },
+];
+
+
 const IconGenerator = ({ UID, creditAmount }) => {
     const [iconDetails, setIconDetails] = useState();
     const [generatedIcons, setGeneratedIcons] = useState([]);
@@ -100,11 +162,28 @@ const IconGenerator = ({ UID, creditAmount }) => {
                         generateImage();
                     }}
                 >
-                    <input
+                    <div className="form__input-group__double-wide">
+                        <select id="style-dropdown" className="form__input icon-generator__container__form-input">
+                            {artStyleSelectOptions.map((option, index) => {
+                                return <option key={index} value={option.value}>{option.value}</option>
+                            })}
+                        </select>
+                        <select id="style-dropdown" className="form__input icon-generator__container__form-input">
+                            {framePositionSelectOptions.map((option, index) => {
+                                return <option key={index} value={option.value}>{option.value}</option>
+                            })}
+                        </select>
+                    </div>
+                    <select id="style-dropdown" className="form__input icon-generator__container__form-input">
+                        {iconLightingSelectOptions.map((option, index) => {
+                            return <option key={index} value={option.value}>{option.value}</option>
+                        })}
+                    </select>
+                    <textarea
                         maxLength={400}
-                        className='form__input icon-generator__container__form-input'
-                        type="text"
-                        placeholder="blue cactus in the shape of a square, 3D, white background"
+                        className='form__input icon-generator__container__form-input text-area'
+                        placeholder="Enter a description or prompt for generating the icon (e.g., Dalorean car parked outside an old gas-station).
+                        "
                         onChange={(e) => setIconDetails(e.target.value)}
                     />
                     <button

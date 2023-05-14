@@ -10,6 +10,7 @@
     width: 100%;
     text-align: left;
     font-size: 1.5rem;
+    margin: 0;
 }
 
 .icon-generator__container-p {
@@ -25,20 +26,21 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-top: 1rem;
 }
 
 .icon-generator__container__form-input {
     margin: .5rem 0 0 0;
     width: 100%;
+    font-weight: 600;
 }
 
 .icon-generator__container__form-btn {
     font-weight: 700;
     text-transform: uppercase;
-    width: 100%;
-    margin-left: 0;
+    width: 100% !important;
     border-radius: 9px;
-    margin: .5rem 0 .7rem 0;
+    margin: .5rem 0 0 0 !important;
 }
 
 .icon-generator__container__form-btn:hover {
@@ -94,12 +96,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .icon-generator__container__form {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
+    .icon-generator__container__form {}
 
     .icon-generator__container__form-btn {
         width: 12rem;
@@ -108,7 +105,7 @@
     }
 
     .icon-generator__container__form-input {
-        margin: 0;
+        margin: .3rem 0 0 0;
     }
 
     .icon-generator__header {

@@ -333,7 +333,32 @@ a {
   margin: 0 0 .6rem 0;
 }
 
+.form__input-group__double-wide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.text-area {
+  padding-top: .6rem;
+  height: 6rem !important;
+}
+
 @media screen and (min-width: 1000px) {
+  .form__input-group__double-wide {
+    flex-direction: row;
+  }
+
+  .form__input-group__double-wide select:first-child {
+    margin-right: .2rem;
+  }
+
+  .form__input-group__double-wide select:last-child {
+    margin-left: .2rem;
+  }
+
   .form__header {
     font-size: 2rem;
   }

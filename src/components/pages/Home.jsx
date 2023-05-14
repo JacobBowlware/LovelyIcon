@@ -15,12 +15,14 @@ import greenIcon from '../../assets/icons/greenIcon.png';
 import paintIcon from '../../assets/icons/paintIcon.png';
 import swordIcon from '../../assets/icons/swordIcon.png';
 import lionIcon from '../../assets/icons/lionIcon.png';
-import cactus1 from '../../assets/icons/cactus1.png';
 import cactus2 from '../../assets/icons/cactus2.png';
 import bunkerIcon from '../../assets/icons/bunkerIcon.png';
 import sunsetIcon from '../../assets/icons/sunsetIcon.png';
 import suitIcon from '../../assets/icons/suitIcon.png';
 import heartIcon2 from '../../assets/icons/hearIcon2.png';
+import astroIcon from '../../assets/icons/astroIcon.png';
+import mountIcon from '../../assets/icons/mountIcon.png';
+import penguinIcon from '../../assets/icons/penguinIcon.png';
 
 // Components
 import Icon from '../common/Icon';
@@ -48,7 +50,7 @@ const iconList = [
         image: paintIcon,
     },
     {
-        image: cactus1,
+        image: astroIcon,
     },
     {
         image: gorillaIcon,
@@ -57,7 +59,7 @@ const iconList = [
         image: lionIcon,
     },
     {
-        image: coolCarIcon,
+        image: mountIcon,
     },
     {
         image: bunkerIcon,
@@ -66,7 +68,7 @@ const iconList = [
         image: sunsetIcon,
     },
     {
-        image: cityIcon,
+        image: penguinIcon,
     },
     {
         image: cactus2,
