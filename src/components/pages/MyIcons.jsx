@@ -12,10 +12,6 @@ import { faTrash, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const storage = getStorage();
 
-
-//TODO:
-// 1. Possibly an error when deleting icons is occuring. Check it out. It seems like deleted
-// icons are some-how popping up in the list of icons to map again.
 const MyIcons = ({ UID }) => {
     const [imageUrls, setImageUrls] = useState([]);
     const [imageRefs, setImageRefs] = useState([]);
@@ -54,7 +50,7 @@ const MyIcons = ({ UID }) => {
             }
         }
         else {
-            navigate('/icon-download', { state: { icon: imageUrls[index] } });
+            navigate('/icon-download/', { state: { icon: imageUrls[index] } });
         }
     }
 
@@ -65,7 +61,7 @@ const MyIcons = ({ UID }) => {
                     <h1 className="header-1 my-icons__header">Generated Icons</h1>
                     <p className="p my-icons__desc">
                         Explore and manage your generated icons.
-                        <TextHighlight> Click on an icon to edit it. </TextHighlight> To
+                        <TextHighlight> Click on an icon to crop & download it. </TextHighlight> To
                         <TextHighlight> delete</TextHighlight> icons, simply press the <TextHighlight>'Delete Icons'</TextHighlight> button
                         and click on the icons you want to delete. Keep in mind that once you delete an icon, it cannot be recovered.
                     </p>

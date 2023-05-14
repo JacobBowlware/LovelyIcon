@@ -14,7 +14,6 @@ const ProtectedRoutes = () => {
 
     useEffect(() => {
         const auth = getAuth();
-
         const status = onAuthStateChanged(auth, (user) => {
             setUser(user);
         });

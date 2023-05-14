@@ -12,6 +12,7 @@ import Logout from '../common/Logout';
 
 //TODO:
 // 1. When user pressed 'Manage Payment Info' button, redirect to payment info page (not yet created) - Stripe
+// 2. Implement a better UI for the profile page
 const Profile = ({ email, UID, creditAmount }) => {
     const navigate = useNavigate();
 

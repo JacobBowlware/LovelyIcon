@@ -57,7 +57,6 @@ const IconGenerator = ({ UID, creditAmount }) => {
     const [iconDetails, setIconDetails] = useState();
     const [generatedIcons, setGeneratedIcons] = useState([]);
     const [userCreditAmount, setUserCreditAmount] = useState(0);
-
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
@@ -70,8 +69,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
         setLoading(true);
         setUserCreditAmount(userCreditAmount - 10);
 
-
-        // Cloud function will check if user has enough credits to generate image, if not, will return error.
+        // Firebase function will deduce 10 credits from user's account upon successful generation
         const imageData = await generateImages(iconDetails, UID);
 
         if (imageData.error) {
@@ -86,11 +84,9 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
     const handleIconSelect = (icon) => {
         console.log(icon);
-        navigate('/icon-generator/step-2', { state: { icon: icon } });
+        navigate('/icon-download/', { state: { icon: icon } });
     }
 
-    //TODO:
-    // 1. Allow user to select an image to proceed to step 2 -- Edit/Crop image
     return (
         <div className="container page page-padding">
             <h1 className="header-1 icon-generator__header">Generate Icons</h1>

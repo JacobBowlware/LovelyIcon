@@ -2,8 +2,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-
-//TODO: Add chevron icon to the right of the title
 const AccordianItem = ({ title, content, onPress, isOpen, onAdd }) => {
     return (
         <div className="accordian-item">

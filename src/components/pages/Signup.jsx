@@ -13,10 +13,6 @@ import { validateChange } from '../common/WebJoi';
 
 const db = getFirestore(app);
 
-/**
- * Signup Page
- * @returns Signup Page
- */
 const Signup = ({ UID }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -26,9 +22,8 @@ const Signup = ({ UID }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (UID) {
+        if (UID)
             navigate('/icon-generator/step-1/');
-        }
     }, [UID, navigate]);
 
     const handleChange = ({ currentTarget: Input }) => {
@@ -37,7 +32,6 @@ const Signup = ({ UID }) => {
 
     const handleSignup = (e) => {
         e.preventDefault();
-
         if (errors.email || errors.password || errors.confirmPassword) {
             return;
         }

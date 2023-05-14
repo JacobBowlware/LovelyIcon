@@ -10,7 +10,6 @@ import { app, auth } from './firebase/config.js';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
-
 // Pages
 import Home from './components/pages/Home.jsx';
 import Login from './components/pages/Login.jsx';
@@ -37,25 +36,12 @@ import './components/css/MyIcons.css';
 import './components/css/AddCredits.css';
 import './components/css/Icon.css';
 
-
-
-
-//TODO: 
-// 1. Implement the icon generator functionality
-//    - Look at Dalle API for generating images from user-input
-//    - When user clicks "Generate", send the user-input to the Dalle API
-//    - When the Dalle API returns the images, send them to the users firebase icon storage (and display them to the user)
-//    - When the user selects an image, allow them to edit it
-//    - When the user is done editing, allow them to download the image
-
-
 const db = getFirestore(app);
 
 function App() {
   const [email, setEmail] = useState("");
   const [UID, setUID] = useState("");
   const [creditAmount, setCreditAmount] = useState(0);
-
 
   onAuthStateChanged(auth, (user) => {
     if (user) {

@@ -6,7 +6,6 @@ const Icon = ({ image }) => {
             <img alt="" className="img icon__img" src={image} />
         </div>
     );
-
 }
 
 export default Icon;

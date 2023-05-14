@@ -25,9 +25,8 @@ const IconDownload = ({ image }) => {
 
     const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
         console.log(croppedArea, croppedAreaPixels)
-    }, [])
-
-
+        setCroppedImage(croppedAreaPixels);
+    }, []);
 
     return (
         <div className="container page page-padding">

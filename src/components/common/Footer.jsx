@@ -44,7 +44,6 @@ const Footer = ({ email }) => {
         );
     }
 
-
     return (
         <div className="container footer">
             {footerLinks}
@@ -53,6 +52,3 @@ const Footer = ({ email }) => {
 }
 
 export default Footer;
-<div>
-
-</div>
