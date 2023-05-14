@@ -32,7 +32,7 @@ const Profile = ({ email, UID, creditAmount }) => {
 
     const handleAddCredits = (e) => {
         e.preventDefault();
-        navigate('/add-credits');
+        navigate('/add-credits/');
     }
 
     return (
@@ -42,34 +42,36 @@ const Profile = ({ email, UID, creditAmount }) => {
                     Profile Details
                 </h1>
                 <div className="profile__card-group">
-                    <p className="p profile__card-text">
-                        <TextHighlight>Email:</TextHighlight> {email}
-                    </p>
-                    <button
-                        className="btn btn-primary profile__btn"
-                        onClick={(e) => handlePasswordChange(e)} >
-                        Change Password
-                    </button>
+                    <div className="profile__card-group__first-child">
+                        <p className="p profile__card-text">
+                            <span className="text-highlight text-semi-bold">Email:</span> {email}
+                        </p>
+                        <button
+                            className="btn btn-primary profile__btn"
+                            onClick={(e) => handlePasswordChange(e)} >
+                            Change Password
+                        </button>
+                    </div>
+                    <div className="profile__card-group__last-child">
+                        <p className="p profile__card-text">
+                            <span className="text-highlight text-semi-bold">Available Credits:</span> {creditAmount}
+                        </p>
+                        <button className="btn btn-primary profile__btn"
+                            onClick={(e) => handleAddCredits(e)}>
+                            Add Credits
+                        </button>
+                    </div>
                 </div>
-                <div className="profile__card-group">
-                    <p className="p profile__card-text">
-                        <TextHighlight>Available Credits:</TextHighlight> {creditAmount}
-                    </p>
-                    <button className="btn btn-primary profile__btn"
-                        onClick={(e) => handleAddCredits(e)}>
-                        Add Credits
-                    </button>
-                    <button
-                        className="btn btn-primary profile__btn"
-                        onClick={(e) => handleLogout(e)}>
-                        Manage Payment Info
-                    </button>
-                    <button
-                        className="btn btn-primary profile__btn"
-                        onClick={(e) => handleLogout(e)}>
-                        Logout
-                    </button>
-                </div>
+                <button
+                    className="btn btn-primary profile__btn"
+                    onClick={(e) => handleLogout(e)}>
+                    Manage Payment Info
+                </button>
+                <button
+                    className="btn btn-primary profile__btn"
+                    onClick={(e) => handleLogout(e)}>
+                    Logout
+                </button>
             </div>
         </div>
     );
