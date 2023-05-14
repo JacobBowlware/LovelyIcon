@@ -54,18 +54,30 @@ const testImages = (
 );
 
 const artStyleSelectOptions = [
-    { value: 'Select Icon Style' },
+    { value: 'Select Art Style' },
     { value: 'Abstract' },
+    { value: 'Art Nouveau' },
+    { value: 'Autochrome' },
     { value: 'Cartoon' },
+    { value: 'Cubism' },
     { value: 'Doodle' },
+    { value: 'Expressionism' },
+    { value: 'Fauvism' },
+    { value: 'Geometric' },
     { value: 'Gothic' },
+    { value: 'Hyperrealism' },
     { value: 'Impressionist' },
     { value: 'Minimalist' },
+    { value: 'Pointillism' },
     { value: 'Pop Art' },
     { value: 'Realistic' },
+    { value: 'Retro' },
+    { value: 'Rococo' },
     { value: 'Steampunk' },
     { value: 'Surreal' },
+    { value: 'Tribal' },
     { value: 'Vaporwave' },
+    { value: 'Watercolor' },
     { value: 'Custom' }
 ];
 
@@ -114,9 +126,12 @@ const iconSizeSelectOptions = [
     { value: '1024px x 1024px' },
 ];
 
-
 const IconGenerator = ({ UID, creditAmount }) => {
-    const [iconDetails, setIconDetails] = useState();
+    const [prompt, setPrompt] = useState();
+    const [iconStyle, setIconStyle] = useState(null);
+    const [framePosition, setFramePosition] = useState(null);
+    const [iconLighting, setIconLighting] = useState(null);
+
     const [generatedIcons, setGeneratedIcons] = useState([]);
     const [userCreditAmount, setUserCreditAmount] = useState(0);
     const [loading, setLoading] = useState(false);
@@ -131,8 +146,23 @@ const IconGenerator = ({ UID, creditAmount }) => {
         setLoading(true);
         setUserCreditAmount(userCreditAmount - 10);
 
+        let entirePrompt = prompt + ' ';
+
+        if (iconStyle) {
+            entirePrompt += `In the style of ${iconStyle}, `;
+        }
+
+        if (framePosition) {
+            entirePrompt += `with ${framePosition} framing, `;
+        }
+
+        if (iconLighting) {
+            entirePrompt += `in ${iconLighting} lighting, `;
+        }
+
+
         // Firebase function will deduce 10 credits from user's account upon successful generation
-        const imageData = await generateImages(iconDetails, UID);
+        const imageData = await generateImages(entirePrompt, UID);
 
         if (imageData.error) {
             alert(imageData.error);
@@ -184,10 +214,10 @@ const IconGenerator = ({ UID, creditAmount }) => {
                         className='form__input icon-generator__container__form-input text-area'
                         placeholder="Enter a description or prompt for generating the icon (e.g., Dalorean car parked outside an old gas-station).
                         "
-                        onChange={(e) => setIconDetails(e.target.value)}
+                        onChange={(e) => setPrompt(e.target.value)}
                     />
                     <button
-                        disabled={userCreditAmount < 10 || !iconDetails}
+                        disabled={userCreditAmount < 10 || !prompt}
                         className="btn btn-primary form__btn icon-generator__container__form-btn">
                         <LoadingSpinner title="GENERATE" loading={loading} color="light" />
                     </button>

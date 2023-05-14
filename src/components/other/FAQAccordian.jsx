@@ -12,7 +12,7 @@ const FAQAccordian = () => {
         <div className="faq-accordian__container">
             <AccordianItem
                 title="How many icons can I create?"
-                content="You can create as many icons as you want! Each icon you create will require 10 credits and your input for customizations."
+                content="You can create as many icons as you want! Each icon generation session costs 10 credits, and you'll receive a set of 6 unique icons."
                 onPress={() => setAcc1Open(!acc1Open)}
                 isOpen={acc1Open}
             />

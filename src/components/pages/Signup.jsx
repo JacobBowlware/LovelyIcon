@@ -23,7 +23,7 @@ const Signup = ({ UID }) => {
 
     useEffect(() => {
         if (UID)
-            navigate('/icon-generator/step-1/');
+            navigate('/icon-generator/');
     }, [UID, navigate]);
 
     const handleChange = ({ currentTarget: Input }) => {
@@ -39,7 +39,7 @@ const Signup = ({ UID }) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 addNewUserCredits(userCredential.user.uid);
-                navigate('/profile');
+                navigate('/icon-generator/');
             })
             .catch((error) => {
                 const errorMessage = error.message;

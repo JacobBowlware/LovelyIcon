@@ -162,7 +162,7 @@ const Home = () => {
                             price="$5"
                             listItems={
                                 [
-                                    "Generate up to 5 icons",
+                                    "Generate up to 30 icons",
                                     "Access to all customization options",
                                     "6 icon designs to choose from",
                                     "High quality PNG file downloads",
@@ -179,7 +179,7 @@ const Home = () => {
                             listItems={
                                 [
                                     "10% more credits",
-                                    "Generate up to 12 icons",
+                                    "Generate up to 66 icons",
                                     "Access to all customization options",
                                     "6 icon designs to choose from",
                                     "High quality PNG file downloads",
@@ -196,7 +196,7 @@ const Home = () => {
                             listItems={
                                 [
                                     "20% more credits",
-                                    "Generate up to 30 icons",
+                                    "Generate up to 144 icons",
                                     "Access to all customization options",
                                     "6 icon designs to choose from",
                                     "High quality PNG file downloads",

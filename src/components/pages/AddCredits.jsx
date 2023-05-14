@@ -24,7 +24,7 @@ const AddCredits = ({ creditAmount }) => {
                         price="$5"
                         listItems={
                             [
-                                "Generate up to 5 icons",
+                                "Generate up to 30 icons",
                                 "6 icon designs to choose from",
                                 "High quality PNG file downloads",
                                 "Commercial use"
@@ -42,7 +42,7 @@ const AddCredits = ({ creditAmount }) => {
                         listItems={
                             [
                                 "10% more credits",
-                                "Generate up to 11 icons",
+                                "Generate up to 66 icons",
                                 "6 icon designs to choose from",
                                 "High quality PNG file downloads",
                                 "Commercial use"
@@ -60,7 +60,7 @@ const AddCredits = ({ creditAmount }) => {
                         listItems={
                             [
                                 "20% more credits",
-                                "Generate up to 24 icons",
+                                "Generate up to 144 icons",
                                 "6 icon designs to choose from",
                                 "High quality PNG file downloads",
                                 "Commercial use"

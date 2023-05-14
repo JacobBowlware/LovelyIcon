@@ -67,15 +67,15 @@ const MyIcons = ({ UID }) => {
                     </p>
                 </div>
                 <div className="my-icons__operations">
-                    <button onClick={() => navigate('/icon-generator/step-1/')} className="btn btn-primary my-icons__operations-btn">Generate More Icons</button>
+                    <button onClick={() => navigate('/icon-generator/')} className="btn btn-primary my-icons__operations-btn">Generate More Icons</button>
                     {iconClassName === 'my-icons__icon' ?
                         <button onClick={() => setIconClassName('my-icons__icon my-icons__icon--shade')} className="btn btn-primary my-icons__operations-btn">
-                            Delete Icons
+                            Enable Deletion
                         </button> : <button onClick={() => {
                             setIconClassName('my-icons__icon');
                             setSelectedIconIndex(null);
                         }}
-                            className="btn btn-secondary my-icons__operations-btn">Cancel Deletion</button>}
+                            className="btn btn-secondary my-icons__operations-btn">Disable Deletion</button>}
                 </div>
             </div>
             {imageUrls.length === 0 && <h2 className="my-icons__no-icons">You have no icons yet.{' '}

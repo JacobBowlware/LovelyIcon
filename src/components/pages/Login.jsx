@@ -23,7 +23,7 @@ const Login = ({ UID }) => {
 
     useEffect(() => {
         if (UID) {
-            navigate('/icon-generator/step-1/');
+            navigate('/icon-generator/');
         }
     }, [UID, navigate]);
 
@@ -37,7 +37,7 @@ const Login = ({ UID }) => {
 
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                navigate('/profile');
+                navigate('/icon-generator/');
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -49,7 +49,7 @@ const Login = ({ UID }) => {
         e.preventDefault();
 
         signInWithPopup(auth, provider).then((result) => {
-            navigate('/profile');
+            navigate('/icon-generator/');
         }
         ).catch((error) => {
             const errorMessage = error.message;
