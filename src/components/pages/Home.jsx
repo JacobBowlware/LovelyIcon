@@ -115,13 +115,10 @@ const Home = () => {
                                 <FontAwesomeIcon icon={faCheckCircle} className="icon-primary" /> &nbsp;Generate multiple icons at once
                             </li>
                             <li className="list-item features__list-item">
-                                <FontAwesomeIcon icon={faCheckCircle} className="icon-primary" /> &nbsp;Select one to crop and preview.
+                                <FontAwesomeIcon icon={faCheckCircle} className="icon-primary" /> &nbsp;Select one to crop and preview
                             </li>
                             <li className="list-item features__list-item">
-                                <FontAwesomeIcon icon={faCheckCircle} className="icon-primary" /> &nbsp;Edit using AI
-                            </li>
-                            <li className="list-item features__list-item">
-                                <FontAwesomeIcon icon={faCheckCircle} className="icon-primary" /> &nbsp;Resize and download
+                                <FontAwesomeIcon icon={faCheckCircle} className="icon-primary" /> &nbsp;Download the icon
                             </li>
                         </ul>
                     </div>

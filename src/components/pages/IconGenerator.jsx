@@ -15,7 +15,6 @@ import greenIcon from '../../assets/icons/greenIcon.png';
 import paintIcon from '../../assets/icons/paintIcon.png';
 
 // Components
-import ProgressBar from '../other/ProgressBar';
 import { generateImages } from '../../firebase/generateImages';
 import LoadingSpinner from '../common/LoadingSpinner';
 
@@ -90,16 +89,14 @@ const IconGenerator = ({ UID, creditAmount }) => {
         navigate('/icon-generator/step-2', { state: { icon: icon } });
     }
 
-
     //TODO:
     // 1. Allow user to select an image to proceed to step 2 -- Edit/Crop image
     return (
         <div className="container page page-padding">
-            <ProgressBar />
             <h1 className="header-1 icon-generator__header">Generate Icons</h1>
             <div className="icon-generator__container">
                 <p className="p icon-generator__container-p">
-                    Enter details on your desired icon design, style, and colors. See our <a href="/icon-generator/step-1/#tips" className="text-highlight text-link">tips for writing clear icon descriptions</a>.
+                    Enter details on your desired icon design, style, and colors. See our <a href="/icon-generator/#tips" className="text-highlight text-link">tips for writing clear icon descriptions</a>.
                 </p>
                 <form className="icon-generator__container__form"
                     onSubmit={(e) => {

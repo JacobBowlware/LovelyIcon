@@ -69,7 +69,7 @@ const Header = ({ email }) => {
             <li className="nav-item">
                 <Link
                     className="nav-link nav-link-important"
-                    to="/icon-generator/step-1/"
+                    to="/icon-generator/"
                     onClick={closeNavBar}>
                     Icon Generator
                 </Link>

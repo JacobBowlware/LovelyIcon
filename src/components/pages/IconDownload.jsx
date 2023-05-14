@@ -1,19 +1,22 @@
 // React
-import React, { useState, useCallback } from 'react';
-
+import React, { useState, useCallback, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 // React Easy Crop
 import Cropper from 'react-easy-crop';
 
-// Components
-import ProgressBar from '../other/ProgressBar';
-
 //TODO:
-// 1. Render the selected/edited icon from step 2.
+// 1. Render the selected icon
 // 2. Allow the user to download the icon.
 
-const IconGeneratorStep3 = ({ image }) => {
+const IconDownload = ({ image }) => {
     const [cropActive, setCropActive] = useState(false);
     const [selectedIcon, setSelectedIcon] = useState(null);
+
+    const location = useLocation();
+
+    useEffect(() => {
+        setSelectedIcon(location.state.icon);
+    }, [location.state.icon]);
 
     // React Easy Crop State
     const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -28,8 +31,11 @@ const IconGeneratorStep3 = ({ image }) => {
 
     return (
         <div className="container page page-padding">
-            <ProgressBar step1Complete={true} step2Complete={true} />
-            <h1 className="header-1 icon-generator__header">Download</h1>
+            <h1 className="header-1 icon-generator__header">Crop & Download Your Icon</h1>
+            <p className="p icon-generator__container-p">
+                Crop your icon to your liking, then download it!
+            </p>
+            <img src={selectedIcon} />
             {cropActive && <div className="icon-generator__icon-display__crop">
                 <div className="icon-generator__icon-display__cropper">
                     <Cropper
@@ -61,4 +67,4 @@ const IconGeneratorStep3 = ({ image }) => {
     );
 }
 
-export default IconGeneratorStep3;
+export default IconDownload;

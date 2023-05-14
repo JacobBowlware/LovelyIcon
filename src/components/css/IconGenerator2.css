@@ -1,12 +1,13 @@
 .icon-generator__icon-display__main {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     width: 100%;
-    align-items: center;
 }
 
 .icon-generator__icon-display__main-img {
     border-radius: 9px;
+    width: 100%;
 }
 
 .icon-generator__icon-display__main-example {
@@ -28,5 +29,10 @@
 @media screen and (min-width: 1000px) {
     .icon-generator__icon-display__main-helper {
         font-size: 1.8rem;
+    }
+
+    .icon-generator__icon-display__main {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
     }
 }

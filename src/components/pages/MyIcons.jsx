@@ -54,7 +54,7 @@ const MyIcons = ({ UID }) => {
             }
         }
         else {
-            navigate('/icon-generator/step-2/', { state: { icon: imageUrls[index] } });
+            navigate('/icon-download', { state: { icon: imageUrls[index] } });
         }
     }
 
