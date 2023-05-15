@@ -17,7 +17,7 @@
     width: 100%;
     text-align: left;
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .icon-generator__container__form {
@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: .5rem;
 }
 
 .icon-generator__container__form-input {
@@ -51,6 +51,7 @@
     width: 100%;
     text-align: left;
     font-size: .95rem;
+    margin-top: .3rem;
 }
 
 /* Rules */
@@ -96,7 +97,6 @@
 }
 
 @media screen and (min-width: 768px) {
-    .icon-generator__container__form {}
 
     .icon-generator__container__form-btn {
         width: 12rem;
@@ -110,10 +110,6 @@
 
     .icon-generator__header {
         font-size: 1.8rem;
-    }
-
-    .icon-generator__container-p {
-        font-size: 1.2rem;
     }
 
     .icon-generator__container-info {
@@ -155,5 +151,9 @@
 @media screen and (min-width: 1000px) {
     .icon-generator__icon-display {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .icon-generator__container-p {
+        font-size: 1.3rem;
     }
 }

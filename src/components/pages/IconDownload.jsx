@@ -1,67 +1,51 @@
 // React
-import React, { useState, useCallback, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-// React Easy Crop
-import Cropper from 'react-easy-crop';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-//TODO:
-// 1. Render the selected icon
-// 2. Allow the user to download the icon.
+// Components
+import TextHighlight from '../common/TextHighlight';
 
 const IconDownload = ({ image }) => {
-    const [cropActive, setCropActive] = useState(false);
     const [selectedIcon, setSelectedIcon] = useState(null);
 
+    const navigate = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
-        setSelectedIcon(location.state.icon);
+        try {
+            setSelectedIcon(location.state.icon);
+        }
+        catch (err) {
+            navigate('/icon-generator/');
+        }
     }, [location.state.icon]);
 
-    // React Easy Crop State
-    const [crop, setCrop] = useState({ x: 0, y: 0 });
-    const [zoom, setZoom] = useState(1);
-    const [croppedImage, setCroppedImage] = useState(null);
-
-    const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-        console.log(croppedArea, croppedAreaPixels)
-        setCroppedImage(croppedAreaPixels);
-    }, []);
+    const handleDownload = () => {
+        if (selectedIcon) {
+            const link = document.createElement('a');
+            link.href = selectedIcon;
+            link.download = 'icon.png';
+            link.click();
+        }
+    }
 
     return (
         <div className="container page page-padding">
-            <h1 className="header-1 icon-generator__header">Crop & Download Your Icon</h1>
-            <p className="p icon-generator__container-p">
-                Crop your icon to your liking, then download it!
-            </p>
-            <img src={selectedIcon} />
-            {cropActive && <div className="icon-generator__icon-display__crop">
-                <div className="icon-generator__icon-display__cropper">
-                    <Cropper
-                        image={selectedIcon}
-                        crop={crop}
-                        zoom={zoom}
-                        aspect={4 / 3}
-                        onCropChange={setCrop}
-                        onZoomChange={setZoom}
-                        onCropComplete={onCropComplete}
-                    />
-                    <div className="controls">
-                        <input
-                            type="range"
-                            value={zoom}
-                            min={1}
-                            max={3}
-                            step={0.1}
-                            aria-labelledby="Zoom"
-                            onChange={(e) => {
-                                setZoom(e.target.value)
-                            }}
-                            className="zoom-range"
-                        />
-                    </div>
+            <div className="icon-download__container">
+                <div className="icon-download__container-item">
+                    <h1 className="header-1 icon-download__header">Download Your Icon</h1>
+                    <p className="p icon-generator__container-p">
+                        Click the <TextHighlight>'Download Icon'</TextHighlight> button to
+                        download your icon as a 512px by 512px PNG file.
+                    </p>
+                    <button className="btn btn-primary icon-download__btn" onClick={() => handleDownload()}>
+                        Download Icon
+                    </button>
                 </div>
-            </div>}
+                <div className="icon-download__container-item">
+                    <img className="icon-download__img" src={selectedIcon} />
+                </div>
+            </div>
         </div>
     );
 }

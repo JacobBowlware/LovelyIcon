@@ -108,6 +108,7 @@
     margin-top: 5rem;
     text-align: left;
     font-size: 1.6rem;
+    width: 100%;
 }
 
 .pricing__container {
@@ -212,10 +213,6 @@
     .pricing-card__body {
         width: auto;
     }
-
-    .pricing__header {
-        text-align: center;
-    }
 }
 
 
@@ -230,6 +227,7 @@
 
     .pricing__header {
         font-size: 1.8rem;
+        text-align: center;
     }
 
     .pricing__container {

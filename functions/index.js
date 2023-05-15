@@ -30,7 +30,7 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        prompt: "Generate a high-quality vector art with clean lines, precise details, and a professional look. Ensure it's visually appealing, scalable, and versatile. Create an easily recognizable and timeless design; " + prompt,
+                        prompt: "Generate high-quality square vector art with clean lines, precise details, and a professional look. The artwork should fill the entire image canvas without leaving any white spaces. " + prompt,
                         n: 1,
                         size: "512x512",
                         model: "image-alpha-001",

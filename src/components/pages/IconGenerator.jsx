@@ -146,10 +146,10 @@ const IconGenerator = ({ UID, creditAmount }) => {
         setLoading(true);
         setUserCreditAmount(userCreditAmount - 10);
 
-        let entirePrompt = prompt + ' ';
+        let entirePrompt = `${prompt}. Emphasize these next styles when generating the image:`;
 
         if (iconStyle) {
-            entirePrompt += `In the style of ${iconStyle}, `;
+            entirePrompt += `${iconStyle} style, `;
         }
 
         if (framePosition) {
@@ -160,7 +160,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
             entirePrompt += `in ${iconLighting} lighting, `;
         }
 
-
+        console.log(entirePrompt);
         // Firebase function will deduce 10 credits from user's account upon successful generation
         const imageData = await generateImages(entirePrompt, UID);
 
@@ -179,6 +179,8 @@ const IconGenerator = ({ UID, creditAmount }) => {
         navigate('/icon-download/', { state: { icon: icon } });
     }
 
+    console.log(iconStyle, framePosition, iconLighting);
+
     return (
         <div className="container page page-padding">
             <h1 className="header-1 icon-generator__header">Generate Icons</h1>
@@ -193,18 +195,18 @@ const IconGenerator = ({ UID, creditAmount }) => {
                     }}
                 >
                     <div className="form__input-group__double-wide">
-                        <select id="style-dropdown" className="form__input icon-generator__container__form-input">
+                        <select onChange={(e) => setIconStyle(e.target.value)} id="style-dropdown" className="form__input icon-generator__container__form-input">
                             {artStyleSelectOptions.map((option, index) => {
                                 return <option key={index} value={option.value}>{option.value}</option>
                             })}
                         </select>
-                        <select id="style-dropdown" className="form__input icon-generator__container__form-input">
+                        <select onChange={(e) => setFramePosition(e.target.value)} id="style-dropdown" className="form__input icon-generator__container__form-input">
                             {framePositionSelectOptions.map((option, index) => {
                                 return <option key={index} value={option.value}>{option.value}</option>
                             })}
                         </select>
                     </div>
-                    <select id="style-dropdown" className="form__input icon-generator__container__form-input">
+                    <select onChange={(e) => setIconLighting(e.target.value)} id="style-dropdown" className="form__input icon-generator__container__form-input">
                         {iconLightingSelectOptions.map((option, index) => {
                             return <option key={index} value={option.value}>{option.value}</option>
                         })}
