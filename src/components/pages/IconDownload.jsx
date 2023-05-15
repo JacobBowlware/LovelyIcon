@@ -5,8 +5,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 // Components
 import TextHighlight from '../common/TextHighlight';
 
-const IconDownload = ({ image }) => {
+const IconDownload = ({ image, isB64 }) => {
     const [selectedIcon, setSelectedIcon] = useState(null);
+    const [isB64Image, setIsB64Image] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -14,20 +15,31 @@ const IconDownload = ({ image }) => {
     useEffect(() => {
         try {
             setSelectedIcon(location.state.icon);
+            setIsB64Image(location.state.isB64);
+            console.log(selectedIcon);
+            console.log(isB64Image);
         }
         catch (err) {
             navigate('/icon-generator/');
         }
-    }, [location.state.icon]);
+    }, [location.state.icon, location.state.isB64, navigate]);
 
     const handleDownload = () => {
-        if (selectedIcon) {
+        if (selectedIcon && !isB64Image) {
             const link = document.createElement('a');
             link.href = selectedIcon;
             link.download = 'icon.png';
             link.click();
         }
+        else if (selectedIcon && isB64Image) {
+            const link = document.createElement('a');
+            link.href = `data:image/png;base64,${selectedIcon.b64_json}`;
+            link.download = 'icon.png';
+            link.click();
+        }
     }
+
+    console.log(selectedIcon);
 
     return (
         <div className="container page page-padding">
@@ -43,7 +55,7 @@ const IconDownload = ({ image }) => {
                     </button>
                 </div>
                 <div className="icon-download__container-item">
-                    <img className="icon-download__img" src={selectedIcon} />
+                    <img alt="" className="icon-download__img" src={isB64Image ? `data:image/png;base64,${selectedIcon.b64_json}` : selectedIcon} />
                 </div>
             </div>
         </div>

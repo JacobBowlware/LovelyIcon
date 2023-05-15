@@ -119,13 +119,6 @@ const iconLightingSelectOptions = [
     { value: 'Custom' }
 ];
 
-const iconSizeSelectOptions = [
-    { value: 'Select Icon Size' },
-    { value: '256px x 256px' },
-    { value: '512px x 512px' },
-    { value: '1024px x 1024px' },
-];
-
 const IconGenerator = ({ UID, creditAmount }) => {
     const [prompt, setPrompt] = useState();
     const [iconStyle, setIconStyle] = useState(null);
@@ -160,7 +153,6 @@ const IconGenerator = ({ UID, creditAmount }) => {
             entirePrompt += `in ${iconLighting} lighting, `;
         }
 
-        console.log(entirePrompt);
         // Firebase function will deduce 10 credits from user's account upon successful generation
         const imageData = await generateImages(entirePrompt, UID);
 
@@ -176,10 +168,8 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
     const handleIconSelect = (icon) => {
         console.log(icon);
-        navigate('/icon-download/', { state: { icon: icon } });
+        navigate('/icon-download/', { state: { icon: icon, isB64: true } });
     }
-
-    console.log(iconStyle, framePosition, iconLighting);
 
     return (
         <div className="container page page-padding">
@@ -232,7 +222,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
             </div>
             <div className="icon-generator__samples">
                 <h2 className="header-2 icon-generator__samples-header">
-                    {generatedIcons.length > 0 ? "Your Generated Icons; Click on an icon to edit" : "Sample of Generated Icons"}
+                    {generatedIcons.length > 0 ? "Your Generated Icons; Click on an icon to download it" : "Sample of Generated Icons"}
                 </h2>
                 <div className="icon-generator__icon-display">
                     {generatedIcons.length > 0 ? (

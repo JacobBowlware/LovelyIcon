@@ -12,10 +12,8 @@ import cityIcon from '../../assets/icons/cityIcon.png';
 import coolCarIcon from '../../assets/icons/coolCarIcon.png';
 import gorillaIcon from '../../assets/icons/gorillaIcon.png';
 import greenIcon from '../../assets/icons/greenIcon.png';
-import paintIcon from '../../assets/icons/paintIcon.png';
 import swordIcon from '../../assets/icons/swordIcon.png';
 import lionIcon from '../../assets/icons/lionIcon.png';
-import cactus2 from '../../assets/icons/cactus2.png';
 import bunkerIcon from '../../assets/icons/bunkerIcon.png';
 import sunsetIcon from '../../assets/icons/sunsetIcon.png';
 import suitIcon from '../../assets/icons/suitIcon.png';
@@ -23,6 +21,9 @@ import heartIcon2 from '../../assets/icons/hearIcon2.png';
 import astroIcon from '../../assets/icons/astroIcon.png';
 import mountIcon from '../../assets/icons/mountIcon.png';
 import penguinIcon from '../../assets/icons/penguinIcon.png';
+import oldManIcon from '../../assets/icons/oldManIcon.png';
+import towerIcon from '../../assets/icons/towerIcon.png';
+import iconProcess from '../../assets/iconProcess.gif';
 
 // Components
 import Icon from '../common/Icon';
@@ -47,7 +48,7 @@ const iconList = [
         image: suitIcon,
     },
     {
-        image: paintIcon,
+        image: oldManIcon,
     },
     {
         image: astroIcon,
@@ -71,13 +72,15 @@ const iconList = [
         image: penguinIcon,
     },
     {
-        image: cactus2,
+        image: towerIcon,
     },
     {
         image: cityIcon,
     },
 ]
 
+//TODO:
+// - Add steps as to how this works with images
 const Home = () => {
     return (
         <div className="page home">
@@ -97,9 +100,9 @@ const Home = () => {
             </div>
             <div className="features" id="features">
                 <div className="container grid-2">
-                    <div className="img-wrapper">
+                    <div className="img-wrapper ">
                         {/* TODO: Change this image to layers of three images of our product working */}
-                        <img className="img home__hero-img" src={gorillaIcon} alt="Icon created by OpenAI API" />
+                        <img className="img home__hero-img icon-process__gif" src={iconProcess} alt="Icon created by OpenAI API" />
                     </div>
                     <div className="grid-item grid-reverse">
                         <h2 className="header-2 text-secondary-c features__header">Customizable Icons for Any Purpose</h2>

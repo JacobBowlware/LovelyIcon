@@ -58,7 +58,7 @@ const MyIcons = ({ UID }) => {
         <div className="container page page-padding">
             <div className="my-icons__header-container">
                 <div className="my-icons__text">
-                    <h1 className="header-1 my-icons__header">Generated Icons</h1>
+                    <h1 className="header-1 my-icons__header">Your Generated Icons</h1>
                     <p className="p my-icons__desc">
                         Explore and manage your generated icons.
                         <TextHighlight> Click on an icon to crop & download it. </TextHighlight> To
