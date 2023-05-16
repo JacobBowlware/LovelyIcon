@@ -1,6 +1,8 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 
+const stripe = require('stripe')(functions.config().stripe.secret_key);
+
 admin.initializeApp();
 
 exports.generateImage = functions.https.onRequest(async (req, res) => {
@@ -58,90 +60,67 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
     }
 });
 
-// Commented out because this edditing method does not really work as intended
-// exports.editImages = functions.https.onRequest(async (req, res) => {
-//     res.set('Access-Control-Allow-Origin', 'https://lovelyicon-f3ad1.web.app');
-//     res.set('Access-Control-Allow-Methods', 'GET, POST');
-//     res.set('Access-Control-Allow-Headers', 'Content-Type');
+exports.createCheckoutSession = functions.https.onRequest(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', 'https://lovelyicon-f3ad1.web.app');
+    res.set('Access-Control-Allow-Methods', 'GET, POST');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
 
-//     if (req.method === 'OPTIONS') {
-//         res.status(204).send('');
-//         return;
-//     }
+    // Verify the user is authenticated
+    if (req.method === 'OPTIONS') {
+        res.status(204).send('');
+        return;
+    }
 
-//     const userId = req.body.userId;
-//     const prompt = req.body.prompt;
-//     const image = req.body.image;
-//     const mask = req.body.mask;
+    const userId = req.body.userId;
+    const priceId = req.body.priceId;
 
-//     console.log("Mask -> " + mask);
-//     try {
-//         const userDocRef = admin.firestore().doc(`users/${userId}`);
-//         const userDoc = await userDocRef.get();
+    console.log(functions.config().stripe.secret_key);
 
-//         if (userDoc.exists) {
-//             const userData = userDoc.data();
-//             if (userData.hasOwnProperty('credits') && userData.credits >= 10) {
-//                 const credits = userData.credits;
-//                 const fetch = await import('node-fetch');
+    console.log("I am here now");
 
-//                 const response = await fetch.default(image);
-//                 const imageData = await response.arrayBuffer();
+    try {
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: [
+                {
+                    // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+                    price: priceId,
+                    quantity: 1,
+                    test: true
+                },
+            ],
+            mode: 'payment',
+            success_url: 'https://lovelyicon-f3ad1.web.app/profile/', // Replace with your success URL
+            cancel_url: 'https://lovelyicon-f3ad1.web.app/icons/', // Replace with your cancel URL
+            automatic_tax: { enabled: true },
+        });
 
-//                 const rgbaImageData = await sharp(imageData)
-//                     .ensureAlpha() // Ensure the image has an alpha channel (RGBA)
-//                     .toFormat('png')
-//                     .toBuffer();
+        res.status(200).send({ sessionId: session.id });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Internal server error');
+    }
+});
 
-//                 const maskResponse = await fetch.default(mask);
-//                 const maskData = await maskResponse.arrayBuffer();
+exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', 'https://lovelyicon-f3ad1.web.app');
+    res.set('Access-Control-Allow-Methods', 'GET, POST');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
 
-//                 const resizedMaskData = await sharp(maskData)
-//                     .resize(512, 512)
-//                     .toFormat('png')
-//                     .toBuffer();
-
-//                 const form = new FormData();
-//                 const bufferStream = new Readable();
-//                 bufferStream.push(rgbaImageData);
-//                 bufferStream.push(null);
-
-//                 const bufferStream2 = new Readable();
-//                 bufferStream2.push(resizedMaskData);
-//                 bufferStream2.push(null);
-
-
-//                 form.append('prompt', "Keep the exact same style and look of the icon we are editing, ONLY make the changes to this icon as stated next;" + prompt);
-//                 form.append('image', bufferStream, { filename: 'image.png', contentType: 'image/png' });
-//                 form.append('mask', bufferStream2, { filename: 'mask.png', contentType: 'image/png' });
-//                 form.append('n', '1');
-//                 form.append('size', '512x512');
-//                 form.append('response_format', 'b64_json');
-
-
-//                 const options = {
-//                     method: 'POST',
-//                     headers: {
-//                         'Authorization': `Bearer ${functions.config().openai.key}`,
-//                         ...form.getHeaders(),
-//                     },
-//                     body: form,
-//                 };
-
-//                 const openAIResponse = await fetch.default('https://api.openai.com/v1/images/edits', options);
-//                 const data = await openAIResponse.json();
-
-//                 await userDocRef.update({ credits: credits - 10 });
-
-//                 res.status(200).send(data);
-//             } else {
-//                 res.status(403).send('Insufficient credits');
-//             }
-//         } else {
-//             res.status(404).send('User not found');
-//         }
-//     } catch (error) {
-//         console.error('Error:', error);
-//         res.status(500).send('Internal server error');
-//     }
-// });
+    switch (req.body.type) {
+        case 'checkout.session.async_payment_failed':
+            // Handle payment failed event
+            console.log("Payment failed")
+            break;
+        case 'checkout.session.async_payment_succeeded':
+            // Handle payment succeeded event
+            console.log("Payment succeeded")
+            break;
+        case 'checkout.session.completed':
+            // Handle checkout session completed event
+            console.log("Checkout session completed")
+            break;
+        default:
+            console.log(`Unhandled event type: ${req.body.type}`);
+    }
+});

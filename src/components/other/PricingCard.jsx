@@ -17,11 +17,8 @@ const PricingCard = ({ price, title, listItems, purchasable, creditAmount, badge
     const purchasableHandler = (e) => {
         e.preventDefault();
         setLoading(true);
-
-        setTimeout(() => {
-            setLoading(false);
-        }
-            , 2000);
+        purchasable();
+        setLoading(false);
     }
 
     return (

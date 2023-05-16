@@ -89,7 +89,7 @@ const Signup = ({ UID }) => {
                 <button
                     className="btn btn-primary form__btn-google"
                     onClick={(e) => handleSignupWthGoogle(e)} >
-                    Signup with <TextHighlight>Google</TextHighlight>
+                    Signup with&nbsp;<TextHighlight>Google</TextHighlight>
                 </button>
                 <p className="form__splitter">OR</p>
                 <input

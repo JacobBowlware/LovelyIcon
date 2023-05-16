@@ -5,9 +5,6 @@ import axios from 'axios';
 import { getStorage, ref, uploadString } from 'firebase/storage';
 import { app } from '../firebase/config.js';
 
-// Mask
-import mask from '../assets/mask.png';
-
 const storage = getStorage(app);
 
 const generateImages = async (prompt, UID) => {

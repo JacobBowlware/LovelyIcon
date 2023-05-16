@@ -1,0 +1,14 @@
+[debug] [2023-05-16T23:30:27.998Z] ----------------------------------------------------------------------
+[debug] [2023-05-16T23:30:27.999Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-05-16T23:30:27.999Z] CLI Version:   11.20.0
+[debug] [2023-05-16T23:30:27.999Z] Platform:      darwin
+[debug] [2023-05-16T23:30:27.999Z] Node Version:  v18.9.0
+[debug] [2023-05-16T23:30:28.000Z] Time:          Tue May 16 2023 18:30:27 GMT-0500 (Central Daylight Time)
+[debug] [2023-05-16T23:30:28.000Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-16T23:30:28.031Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-16T23:30:28.031Z] > authorizing via signed-in user (jacobbowlware@gmail.com)
+[debug] [2023-05-16T23:30:28.031Z] [iam] checking project lovelyicon-f3ad1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-16T23:30:28.032Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/lovelyicon-f3ad1:testIamPermissions [none]
+[debug] [2023-05-16T23:30:28.032Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/lovelyicon-f3ad1:testIamPermissions x-goog-quota-user=projects/lovelyicon-f3ad1
+[debug] [2023-05-16T23:30:28.033Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/lovelyicon-f3ad1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}

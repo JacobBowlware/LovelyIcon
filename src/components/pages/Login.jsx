@@ -68,7 +68,7 @@ const Login = ({ UID }) => {
                     className="btn btn-primary form__btn-google"
                     onClick={(e) => handleLoginWithGoogle(e)}
                 >
-                    Login with <TextHighlight>Google</TextHighlight>
+                    Login with&nbsp;<TextHighlight>Google</TextHighlight>
                 </button>
                 <p className="form__splitter">OR</p>
                 <input

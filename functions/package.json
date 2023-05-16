@@ -14,13 +14,15 @@
   },
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.0",
     "form-data": "^4.0.0",
     "node-fetch": "^3.3.1",
     "openai": "^3.2.1",
     "sharp": "^0.32.1",
-    "streamifier": "^0.1.1"
+    "streamifier": "^0.1.1",
+    "stripe": "^12.5.0"
   },
   "devDependencies": {
     "firebase-functions-test": "^0.2.0"

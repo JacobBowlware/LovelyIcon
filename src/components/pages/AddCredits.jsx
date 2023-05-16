@@ -1,5 +1,5 @@
 // React
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Components
 import PricingCard from '../other/PricingCard';
@@ -10,7 +10,55 @@ import neonIcon from '../../assets/icons/neonIcon.jpg';
 import gorillaIcon from '../../assets/icons/gorillaIcon.png';
 import swordIcon from '../../assets/icons/swordIcon.png';
 
-const AddCredits = ({ creditAmount }) => {
+// Stripe
+import { loadStripe } from '@stripe/stripe-js';
+import axios from 'axios';
+
+const stripePromise = loadStripe('pk_live_51N83F6CqwoHDTnquXxKM7dOFeAfkurvKRYYpvScwQXgWFvufj5RbXj46wPHv2I2N3rjtQCiW1iGDsm6grPafTULZ00DlS86zvY');
+
+const AddCredits = ({ creditAmount, UID }) => {
+    const credit50TestPrice_id = 'prod_NuLyYx1K1t7ISj';
+    const credit50Price_id = 'price_1N83TACqwoHDTnquZo9sZgB6';
+    const credit110Price_id = 'price_1N83Y8CqwoHDTnquCtMvvqrF';
+    const credit240Price_id = 'price_1N83bFCqwoHDTnquI1Xu3JJ0';
+
+
+    const handlePurchase = async (price_id) => {
+        try {
+            const response = await axios.post(
+                'https://us-central1-lovelyicon-f3ad1.cloudfunctions.net/createCheckoutSession',
+                {
+                    userId: UID,
+                    priceId: price_id,
+                }
+            );
+            console.log(response);
+
+            const data = response.data;
+
+            if (data.sessionId) {
+                const stripe = await stripePromise;
+                const { error } = await stripe.redirectToCheckout({
+                    sessionId: data.sessionId,
+                });
+
+                if (error) {
+                    console.error('Redirect to checkout failed:', error);
+                    return;
+                }
+
+                // Listen for the redirect event
+                window.addEventListener('popstate', () => {
+
+                    console.log('Payment complete!');
+                });
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+
     return (
         <div className="container page">
             <h1 className="header-1 add-credits__header">
@@ -30,7 +78,7 @@ const AddCredits = ({ creditAmount }) => {
                                 "Commercial use"
                             ]
                         }
-                        purchasable={() => console.log("Add 50 credits")}
+                        purchasable={() => handlePurchase(credit50TestPrice_id)}
                         badge={neonIcon}
                     />
                 </div>
@@ -48,7 +96,7 @@ const AddCredits = ({ creditAmount }) => {
                                 "Commercial use"
                             ]
                         }
-                        purchasable={() => console.log("Add 120 credits")}
+                        purchasable={() => handlePurchase(credit110Price_id)}
                         badge={gorillaIcon}
                     />
                 </div>
@@ -66,7 +114,7 @@ const AddCredits = ({ creditAmount }) => {
                                 "Commercial use"
                             ]
                         }
-                        purchasable={() => console.log("Add 250 credits")}
+                        purchasable={() => handlePurchase(credit240Price_id)}
                         badge={swordIcon}
                     />
                 </div>
