@@ -12,7 +12,7 @@ const endpointSecret = functions.config().stripe.endpoint_secret;
 admin.initializeApp();
 
 exports.generateImage = functions.https.onRequest(async (req, res) => {
-    res.set('Access-Control-Allow-Origin', 'https://lovelyicon-f3ad1.web.app');
+    res.set('Access-Control-Allow-Origin', 'https://lovelyicon.com');
     res.set('Access-Control-Allow-Methods', 'GET, POST');
     res.set('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -67,7 +67,7 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
 });
 
 exports.createCheckoutSession = functions.https.onRequest(async (req, res) => {
-    res.set('Access-Control-Allow-Origin', 'https://lovelyicon-f3ad1.web.app');
+    res.set('Access-Control-Allow-Origin', 'https://lovelyicon.com');
     res.set('Access-Control-Allow-Methods', 'GET, POST');
     res.set('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -91,8 +91,8 @@ exports.createCheckoutSession = functions.https.onRequest(async (req, res) => {
                 },
             ],
             mode: 'payment',
-            success_url: 'https://lovelyicon-f3ad1.web.app/profile/', // Replace with your success URL
-            cancel_url: 'https://lovelyicon-f3ad1.web.app/icons/', // Replace with your cancel URL
+            success_url: 'https://lovelyicon.com/payment-success/', // Replace with your success URL
+            cancel_url: 'https://lovelyicon.com/payment-failure/', // Replace with your cancel URL
             automatic_tax: { enabled: true },
             metadata: {
                 userId: userId,

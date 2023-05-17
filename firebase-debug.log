@@ -1,0 +1,142 @@
+[debug] [2023-05-17T23:39:08.571Z] ----------------------------------------------------------------------
+[debug] [2023-05-17T23:39:08.572Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-05-17T23:39:08.572Z] CLI Version:   11.20.0
+[debug] [2023-05-17T23:39:08.572Z] Platform:      darwin
+[debug] [2023-05-17T23:39:08.572Z] Node Version:  v18.9.0
+[debug] [2023-05-17T23:39:08.573Z] Time:          Wed May 17 2023 18:39:08 GMT-0500 (Central Daylight Time)
+[debug] [2023-05-17T23:39:08.573Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-17T23:39:08.607Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-17T23:39:08.607Z] > authorizing via signed-in user (jacobbowlware@gmail.com)
+[debug] [2023-05-17T23:39:08.607Z] [iam] checking project lovelyicon-f3ad1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-17T23:39:08.608Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/lovelyicon-f3ad1:testIamPermissions [none]
+[debug] [2023-05-17T23:39:08.609Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/lovelyicon-f3ad1:testIamPermissions x-goog-quota-user=projects/lovelyicon-f3ad1
+[debug] [2023-05-17T23:39:08.609Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/lovelyicon-f3ad1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-17T23:39:08.865Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/lovelyicon-f3ad1:testIamPermissions 200
+[debug] [2023-05-17T23:39:08.865Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/lovelyicon-f3ad1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-17T23:39:08.866Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/lovelyicon-f3ad1/serviceAccounts/lovelyicon-f3ad1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-05-17T23:39:08.866Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/lovelyicon-f3ad1/serviceAccounts/lovelyicon-f3ad1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-05-17T23:39:09.020Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/lovelyicon-f3ad1/serviceAccounts/lovelyicon-f3ad1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-05-17T23:39:09.020Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/lovelyicon-f3ad1/serviceAccounts/lovelyicon-f3ad1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-05-17T23:39:09.021Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 [none]
+[debug] [2023-05-17T23:39:09.201Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 200
+[debug] [2023-05-17T23:39:09.201Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 {"projectId":"lovelyicon-f3ad1","projectNumber":"437050328354","displayName":"LovelyIcon","name":"projects/lovelyicon-f3ad1","resources":{"hostingSite":"lovelyicon-f3ad1","storageBucket":"lovelyicon-f3ad1.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_c222fef4-cac8-4a32-8bcf-7101302ce036"}
+[info] 
+[info] === Deploying to 'lovelyicon-f3ad1'...
+[info] 
+[info] i  deploying firestore, functions, hosting 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2023-05-17T23:39:09.503Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/lovelyicon-f3ad1:test [none]
+[debug] [2023-05-17T23:39:09.503Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/lovelyicon-f3ad1:test [omitted]
+[debug] [2023-05-17T23:39:09.805Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/lovelyicon-f3ad1:test 200
+[debug] [2023-05-17T23:39:09.805Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/lovelyicon-f3ad1:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2023-05-17T23:39:09.806Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 [none]
+[debug] [2023-05-17T23:39:10.052Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 200
+[debug] [2023-05-17T23:39:10.052Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 {"projectId":"lovelyicon-f3ad1","projectNumber":"437050328354","displayName":"LovelyIcon","name":"projects/lovelyicon-f3ad1","resources":{"hostingSite":"lovelyicon-f3ad1","storageBucket":"lovelyicon-f3ad1.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_c222fef4-cac8-4a32-8bcf-7101302ce036"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-05-17T23:39:10.053Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-05-17T23:39:10.053Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/lovelyicon-f3ad1
+[debug] [2023-05-17T23:39:10.054Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-05-17T23:39:10.054Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/lovelyicon-f3ad1
+[debug] [2023-05-17T23:39:10.054Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/cloudbuild.googleapis.com [none]
+[debug] [2023-05-17T23:39:10.054Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/cloudbuild.googleapis.com x-goog-quota-user=projects/lovelyicon-f3ad1
+[debug] [2023-05-17T23:39:10.055Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/artifactregistry.googleapis.com [none]
+[debug] [2023-05-17T23:39:10.055Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/artifactregistry.googleapis.com x-goog-quota-user=projects/lovelyicon-f3ad1
+[debug] [2023-05-17T23:39:10.312Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/runtimeconfig.googleapis.com 200
+[debug] [2023-05-17T23:39:10.312Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-05-17T23:39:10.332Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/artifactregistry.googleapis.com 200
+[debug] [2023-05-17T23:39:10.332Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-05-17T23:39:10.366Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/cloudbuild.googleapis.com 200
+[debug] [2023-05-17T23:39:10.366Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-05-17T23:39:10.423Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/cloudfunctions.googleapis.com 200
+[debug] [2023-05-17T23:39:10.423Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/lovelyicon-f3ad1/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-05-17T23:39:10.424Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/adminSdkConfig [none]
+[debug] [2023-05-17T23:39:10.592Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/adminSdkConfig 200
+[debug] [2023-05-17T23:39:10.592Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/adminSdkConfig {"projectId":"lovelyicon-f3ad1","storageBucket":"lovelyicon-f3ad1.appspot.com","locationId":"us-central"}
+[debug] [2023-05-17T23:39:10.592Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs [none]
+[debug] [2023-05-17T23:39:10.735Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs 200
+[debug] [2023-05-17T23:39:10.735Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs {"configs":[{"name":"projects/lovelyicon-f3ad1/configs/stripe"},{"name":"projects/lovelyicon-f3ad1/configs/openai"}]}
+[debug] [2023-05-17T23:39:10.735Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/stripe/variables [none]
+[debug] [2023-05-17T23:39:10.737Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/openai/variables [none]
+[debug] [2023-05-17T23:39:10.856Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/openai/variables 200
+[debug] [2023-05-17T23:39:10.857Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/openai/variables {"variables":[{"name":"projects/lovelyicon-f3ad1/configs/openai/variables/api_key","updateTime":"2023-05-09T13:24:38.999900784Z"},{"name":"projects/lovelyicon-f3ad1/configs/openai/variables/key","updateTime":"2023-05-09T17:20:46.531497699Z"}]}
+[debug] [2023-05-17T23:39:10.857Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/openai/variables/api_key [none]
+[debug] [2023-05-17T23:39:10.859Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/openai/variables/key [none]
+[debug] [2023-05-17T23:39:10.895Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/stripe/variables 200
+[debug] [2023-05-17T23:39:10.895Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/stripe/variables {"variables":[{"name":"projects/lovelyicon-f3ad1/configs/stripe/variables/endpoint_secret","updateTime":"2023-05-17T03:59:36.412621112Z"},{"name":"projects/lovelyicon-f3ad1/configs/stripe/variables/secret_key","updateTime":"2023-05-16T02:58:10.498130383Z"}]}
+[debug] [2023-05-17T23:39:10.895Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/stripe/variables/endpoint_secret [none]
+[debug] [2023-05-17T23:39:10.897Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/stripe/variables/secret_key [none]
+[debug] [2023-05-17T23:39:10.967Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/openai/variables/key 200
+[debug] [2023-05-17T23:39:10.968Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/openai/variables/key {"name":"projects/lovelyicon-f3ad1/configs/openai/variables/key","updateTime":"2023-05-09T17:20:46.531497699Z","text":"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"}
+[debug] [2023-05-17T23:39:11.011Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/stripe/variables/endpoint_secret 200
+[debug] [2023-05-17T23:39:11.012Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/stripe/variables/endpoint_secret {"name":"projects/lovelyicon-f3ad1/configs/stripe/variables/endpoint_secret","updateTime":"2023-05-17T03:59:36.412621112Z","text":"whsec_zkyprpw5bJgXgOJkELcvArYU5UtOSjsK"}
+[debug] [2023-05-17T23:39:11.041Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/openai/variables/api_key 200
+[debug] [2023-05-17T23:39:11.041Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/openai/variables/api_key {"name":"projects/lovelyicon-f3ad1/configs/openai/variables/api_key","updateTime":"2023-05-09T13:24:38.999900784Z","text":"your_openai_api_key"}
+[debug] [2023-05-17T23:39:11.290Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/stripe/variables/secret_key 200
+[debug] [2023-05-17T23:39:11.290Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/lovelyicon-f3ad1/configs/stripe/variables/secret_key {"name":"projects/lovelyicon-f3ad1/configs/stripe/variables/secret_key","updateTime":"2023-05-16T02:58:10.498130383Z","text":"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"}
+[debug] [2023-05-17T23:39:11.292Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2023-05-17T23:39:11.685Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "lint": ""
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "form-data": "^4.0.0",
+    "node-fetch": "^3.3.1",
+    "openai": "^3.2.1",
+    "sharp": "^0.32.1",
+    "streamifier": "^0.1.1",
+    "stripe": "^12.5.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-05-17T23:39:11.685Z] Building nodejs source
+[debug] [2023-05-17T23:39:11.686Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-05-17T23:39:11.922Z] Serving at port 9005
+
+[debug] [2023-05-17T23:39:11.980Z] Got response from /__/functions.yaml {"endpoints":{"generateImage":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"generateImage"},"createCheckoutSession":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"createCheckoutSession"},"stripeWebhook":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"stripeWebhook"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-05-17T23:39:11.985Z] shutdown requested via /__/quitquitquit
+
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /Users/jacobbowlware/Documents/Code/lovely-icon/functions (71.25 KB) for uploading 
+[debug] [2023-05-17T23:39:12.008Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/lovelyicon-f3ad1/locations/-/functions [none]
+[debug] [2023-05-17T23:39:12.476Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/lovelyicon-f3ad1/locations/-/functions 200
+[debug] [2023-05-17T23:39:12.477Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/lovelyicon-f3ad1/locations/-/functions {"functions":[{"name":"projects/lovelyicon-f3ad1/locations/us-central1/functions/createCheckoutSession","httpsTrigger":{"url":"https://us-central1-lovelyicon-f3ad1.cloudfunctions.net/createCheckoutSession","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"createCheckoutSession","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"lovelyicon-f3ad1@appspot.gserviceaccount.com","updateTime":"2023-05-17T23:26:19.163Z","versionId":"38","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"60c388a6a10b337d07748533f4d65c11da76e695"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-629626289044.us-central1.cloudfunctions.appspot.com/de3ee5be-4094-44f6-b994-80024fd2328e.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"lovelyicon-f3ad1\",\"storageBucket\":\"lovelyicon-f3ad1.appspot.com\",\"locationId\":\"us-central\"}","GCLOUD_PROJECT":"lovelyicon-f3ad1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/lovelyicon-f3ad1/locations/us-central1/functions/stripeWebhook"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"4b43727c-bedc-4ff1-8231-95fd98f893e1","buildName":"projects/437050328354/locations/us-central1/builds/4b43727c-bedc-4ff1-8231-95fd98f893e1","dockerRegistry":"ARTIFACT_REGISTRY"},{"name":"projects/lovelyicon-f3ad1/locations/us-central1/functions/generateImage","httpsTrigger":{"url":"https://us-central1-lovelyicon-f3ad1.cloudfunctions.net/generateImage","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"generateImage","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"lovelyicon-f3ad1@appspot.gserviceaccount.com","updateTime":"2023-05-17T23:26:17.937Z","versionId":"180","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"60c388a6a10b337d07748533f4d65c11da76e695"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-629626289044.us-central1.cloudfunctions.appspot.com/de3ee5be-4094-44f6-b994-80024fd2328e.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"lovelyicon-f3ad1\",\"storageBucket\":\"lovelyicon-f3ad1.appspot.com\",\"locationId\":\"us-central\"}","GCLOUD_PROJECT":"lovelyicon-f3ad1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/lovelyicon-f3ad1/locations/us-central1/functions/stripeWebhook"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"4b43727c-bedc-4ff1-8231-95fd98f893e1","buildName":"projects/437050328354/locations/us-central1/builds/4b43727c-bedc-4ff1-8231-95fd98f893e1","dockerRegistry":"ARTIFACT_REGISTRY"},{"name":"projects/lovelyicon-f3ad1/locations/us-central1/functions/stripeWebhook","httpsTrigger":{"url":"https://us-central1-lovelyicon-f3ad1.cloudfunctions.net/stripeWebhook","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"stripeWebhook","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"lovelyicon-f3ad1@appspot.gserviceaccount.com","updateTime":"2023-05-17T23:26:20.069Z","versionId":"18","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"60c388a6a10b337d07748533f4d65c11da76e695"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-629626289044.us-central1.cloudfunctions.appspot.com/de3ee5be-4094-44f6-b994-80024fd2328e.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"lovelyicon-f3ad1\",\"storageBucket\":\"lovelyicon-f3ad1.appspot.com\",\"locationId\":\"us-central\"}","GCLOUD_PROJECT":"lovelyicon-f3ad1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/lovelyicon-f3ad1/locations/us-central1/functions/stripeWebhook"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"4b43727c-bedc-4ff1-8231-95fd98f893e1","buildName":"projects/437050328354/locations/us-central1/builds/4b43727c-bedc-4ff1-8231-95fd98f893e1","dockerRegistry":"ARTIFACT_REGISTRY"}]}
+[debug] [2023-05-17T23:39:12.479Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/lovelyicon-f3ad1/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2023-05-17T23:39:12.942Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/lovelyicon-f3ad1/locations/-/functions 200
+[debug] [2023-05-17T23:39:12.942Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/lovelyicon-f3ad1/locations/-/functions {}
+[debug] [2023-05-17T23:39:12.951Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 [none]
+[debug] [2023-05-17T23:39:13.109Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 200
+[debug] [2023-05-17T23:39:13.110Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 {"projectId":"lovelyicon-f3ad1","projectNumber":"437050328354","displayName":"LovelyIcon","name":"projects/lovelyicon-f3ad1","resources":{"hostingSite":"lovelyicon-f3ad1","storageBucket":"lovelyicon-f3ad1.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_c222fef4-cac8-4a32-8bcf-7101302ce036"}
+[debug] [2023-05-17T23:39:13.110Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 [none]
+[debug] [2023-05-17T23:39:13.281Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 200
+[debug] [2023-05-17T23:39:13.281Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 {"projectId":"lovelyicon-f3ad1","projectNumber":"437050328354","displayName":"LovelyIcon","name":"projects/lovelyicon-f3ad1","resources":{"hostingSite":"lovelyicon-f3ad1","storageBucket":"lovelyicon-f3ad1.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_c222fef4-cac8-4a32-8bcf-7101302ce036"}
+[debug] [2023-05-17T23:39:13.282Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/lovelyicon-f3ad1 [none]

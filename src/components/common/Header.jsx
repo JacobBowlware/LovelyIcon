@@ -57,7 +57,7 @@ const Header = ({ email }) => {
             <li className="nav-item">
                 <a
                     className="nav-link"
-                    href="mailto:Support@LovelyIcon.com"
+                    href="mailto:jacobbowlware@gmail.com?subject=Contact%20LovelyIcon"
                     onClick={closeNavBar}
                 >Contact</a>
             </li>

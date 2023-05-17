@@ -18,7 +18,6 @@ import Profile from './components/pages/Profile.jsx';
 import MyIcons, { MyIconsLoader } from './components/pages/MyIcons.jsx';
 import AddCredits from './components/pages/AddCredits.jsx';
 import IconGenerator from './components/pages/IconGenerator.jsx';
-import IconDownload from './components/pages/IconDownload.jsx';
 
 // Components
 import Footer from './components/common/Footer.jsx';
@@ -32,7 +31,6 @@ import './components/css/Header.css';
 import './components/css/Footer.css';
 import './components/css/Profile.css';
 import './components/css/IconGenerator.css';
-import './components/css/IconDownload.css';
 import './components/css/MyIcons.css';
 import './components/css/AddCredits.css';
 import './components/css/Icon.css';
@@ -84,7 +82,6 @@ function App() {
         <Route element={<ProtectedRoutes />}>
           <Route path="/profile" element={<Profile email={email} UID={UID} creditAmount={creditAmount} />} />
           <Route path="/icon-generator" element={<IconGenerator UID={UID} creditAmount={creditAmount} />} />
-          <Route path="/icon-download" element={<IconDownload creditAmount={creditAmount} UID={UID} />} />
           <Route path="/icons" element={<MyIcons email={email} UID={UID} />} loader={() => MyIconsLoader(UID)} />
           <Route path="/add-credits" element={<AddCredits creditAmount={creditAmount} UID={UID} />} />
         </Route>

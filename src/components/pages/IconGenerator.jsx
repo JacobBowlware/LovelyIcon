@@ -1,6 +1,6 @@
 // React
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Font Awesome 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -93,8 +93,6 @@ const IconGenerator = ({ UID, creditAmount }) => {
     const [userCreditAmount, setUserCreditAmount] = useState(0);
     const [loading, setLoading] = useState(false);
 
-    const navigate = useNavigate();
-
     useEffect(() => {
         setUserCreditAmount(creditAmount);
     }, [creditAmount]);
@@ -117,7 +115,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
             entirePrompt += `in ${iconLighting} lighting, `;
         }
 
-        // Firebase function will deduce 10 credits from user's account upon successful generation
+        // Firebase function will deduce 5 credits from user's account upon successful generation
         const imageData = await generateImages(entirePrompt, UID);
 
         if (imageData.error) {
@@ -131,8 +129,10 @@ const IconGenerator = ({ UID, creditAmount }) => {
     }
 
     const handleIconSelect = (icon) => {
-        console.log(icon);
-        navigate('/icon-download/', { state: { icon: icon, isB64: true } });
+        const link = document.createElement('a');
+        link.href = `data:image/png;base64,${icon.b64_json}`;
+        link.download = 'icon.png';
+        link.click();
     }
 
     return (

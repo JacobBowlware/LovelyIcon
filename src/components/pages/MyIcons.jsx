@@ -50,7 +50,11 @@ const MyIcons = ({ UID }) => {
             }
         }
         else {
-            navigate('/icon-download/', { state: { icon: imageUrls[index] } });
+            const link = document.createElement('a');
+            link.href = imageUrls[index];
+            link.download = 'icon.png';
+            link.click();
+
         }
     }
 

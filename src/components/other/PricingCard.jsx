@@ -4,20 +4,14 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LoadingSpinner from '../common/LoadingSpinner';
 
-//TODO:
-// Implement top right corner badge displaying the % discount
 const PricingCard = ({ price, title, listItems, purchasable, creditAmount, badge, loading = false }) => {
 
     let containerClassName = "pricing-card";
-
-    if (purchasable) {
+    if (purchasable)
         containerClassName += " pricing-card--add";
-    }
 
     const purchasableHandler = (e) => {
-        console.log(loading);
         purchasable();
-        console.log(loading);
     }
 
     return (

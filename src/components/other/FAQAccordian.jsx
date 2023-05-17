@@ -25,7 +25,7 @@ const FAQAccordian = () => {
             />
             <AccordianItem
                 title="How do I download the icons I create?"
-                content="After creating and customizing your icon, you can download it as a PNG file by going to Icons > * Select Icon * > Download Icon."
+                content="After creating your icon, you can download it as a PNG file by going to the 'Icons' page and clicking on the icon you want to download."
                 onPress={() => setAcc3Open(!acc3Open)}
                 isOpen={acc3Open}
             />
