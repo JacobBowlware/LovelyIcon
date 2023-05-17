@@ -3,7 +3,6 @@ const admin = require('firebase-admin');
 const { user } = require('firebase-functions/v1/auth');
 
 // const stripe = require('stripe')(functions.config().stripe.secret_key);
-
 // To set config variable 'firebase functions:config:set stripe.endpoint_secret="your_endpoint_secret_here"'
 
 // Test mode secret key
@@ -31,7 +30,7 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
 
         if (userDoc.exists) {
             const userData = userDoc.data();
-            if (userData.hasOwnProperty('credits') && userData.credits >= 10) {
+            if (userData.hasOwnProperty('credits') && userData.credits >= 5) {
                 const options = {
                     method: 'POST',
                     headers: {
@@ -39,7 +38,7 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        prompt: prompt + ". This image should be a high-quality, square, vector art piece with clean lines, precise details, and a professional look. The artwork should fill the entire image canvas without leaving any white spaces.",
+                        prompt: prompt + ". This image should be a high-quality, square, vector art piece with clean lines, precise details, and a professional look. The artwork should fill the entire image canvas without leaving any white spaces. Feel free to provide your own creative input to ensure this art piece is clean and professional. Remember, this is not a detailed realistic drawing, but rather a simple, clean, and professional-looking vector art piece.",
                         n: 3,
                         size: "512x512",
                         model: "image-alpha-001",
@@ -52,7 +51,7 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
                 const data = await response.json();
 
                 const credits = userData.credits;
-                await userDocRef.update({ credits: credits - 10 });
+                await userDocRef.update({ credits: credits - 5 });
 
                 res.status(200).send(data);
             } else {
@@ -133,14 +132,10 @@ const fulfillOrder = async (session) => {
     const userId = session.metadata.userId;
     const priceId = session.metadata.priceId;
 
-
-    console.log("USERID -> " + userId);
-    console.log("PRICEID -> " + priceId);
     // Update user's credits in the Firestore database
     const userDocRef = admin.firestore().doc(`users/${userId}`);
     const userDoc = await userDocRef.get();
 
-    console.log("Do we get stuck here?");
     try {
         const userData = userDoc.data();
         const currentCredits = userData.credits || 0;

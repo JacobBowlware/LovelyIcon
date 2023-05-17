@@ -61,8 +61,8 @@ const MyIcons = ({ UID }) => {
                     <h1 className="header-1 my-icons__header">Your Generated Icons</h1>
                     <p className="p my-icons__desc">
                         Explore and manage your generated icons.
-                        <TextHighlight> Click on an icon to crop & download it. </TextHighlight> To
-                        <TextHighlight> delete</TextHighlight> icons, simply press the <TextHighlight>'Delete Icons'</TextHighlight> button
+                        <TextHighlight> Click on an icon to download it. </TextHighlight> To
+                        <TextHighlight> delete</TextHighlight> icons, simply press the <TextHighlight>'Enable Deletion'</TextHighlight> button
                         and click on the icons you want to delete. Keep in mind that once you delete an icon, it cannot be recovered.
                     </p>
                 </div>

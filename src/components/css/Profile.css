@@ -44,11 +44,13 @@
 .profile__card-group__first-child {
     margin-right: 0;
     width: 100%;
+    margin-top: 1rem;
 }
 
 .profile__card-group__last-child {
     margin-left: 0;
     width: 100%;
+    margin-top: 1rem;
 }
 
 @media screen and (min-width: 1000px) {
@@ -64,5 +66,10 @@
 
     .profile__card-group__last-child {
         margin-left: .5rem;
+    }
+
+    .profile__card-group__first-child,
+    .profile__card-group__last-child {
+        margin-top: 0;
     }
 }

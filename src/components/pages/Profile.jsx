@@ -7,7 +7,6 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 
 // Components
-import TextHighlight from '../common/TextHighlight';
 import Logout from '../common/Logout';
 
 //TODO:
@@ -54,7 +53,7 @@ const Profile = ({ email, UID, creditAmount }) => {
                     </div>
                     <div className="profile__card-group__last-child">
                         <p className="p profile__card-text">
-                            <span className="text-highlight text-semi-bold">Available Credits:</span> {creditAmount}
+                            <span className="text-highlight text-semi-bold">Total Credits:</span> {creditAmount}
                         </p>
                         <button className="btn btn-primary profile__btn"
                             onClick={(e) => handleAddCredits(e)}>
@@ -62,11 +61,6 @@ const Profile = ({ email, UID, creditAmount }) => {
                         </button>
                     </div>
                 </div>
-                <button
-                    className="btn btn-primary profile__btn"
-                    onClick={(e) => handleLogout(e)}>
-                    Manage Payment Info
-                </button>
                 <button
                     className="btn btn-primary profile__btn"
                     onClick={(e) => handleLogout(e)}>

@@ -23,6 +23,7 @@ import mountIcon from '../../assets/icons/mountIcon.png';
 import penguinIcon from '../../assets/icons/penguinIcon.png';
 import oldManIcon from '../../assets/icons/oldManIcon.png';
 import towerIcon from '../../assets/icons/towerIcon.png';
+import startFighter from '../../assets/icons/starFighter.png';
 import iconProcess from '../../assets/iconProcess.gif';
 
 // Components
@@ -51,13 +52,13 @@ const iconList = [
         image: oldManIcon,
     },
     {
-        image: astroIcon,
+        image: towerIcon,
     },
     {
         image: gorillaIcon,
     },
     {
-        image: lionIcon,
+        image: startFighter,
     },
     {
         image: mountIcon,
@@ -72,7 +73,7 @@ const iconList = [
         image: penguinIcon,
     },
     {
-        image: towerIcon,
+        image: lionIcon,
     },
     {
         image: cityIcon,
@@ -101,8 +102,7 @@ const Home = () => {
             <div className="features" id="features">
                 <div className="container grid-2">
                     <div className="img-wrapper ">
-                        {/* TODO: Change this image to layers of three images of our product working */}
-                        <img className="img home__hero-img icon-process__gif" src={iconProcess} alt="Icon created by OpenAI API" />
+                        <img className="img home__hero-img icon-process__gif" src={iconProcess} alt="Generate Icons, View them in your icon storage, download them for your own use." />
                     </div>
                     <div className="grid-item grid-reverse">
                         <h2 className="header-2 text-secondary-c features__header">Customizable Icons for Any Purpose</h2>
@@ -165,9 +165,8 @@ const Home = () => {
                             price="$5"
                             listItems={
                                 [
-                                    "Generate up to 30 icons",
+                                    "Generate up to 60 icons",
                                     "Access to all customization options",
-                                    "6 icon designs to choose from",
                                     "High quality PNG file downloads",
                                     "Commercial use"
                                 ]
@@ -182,9 +181,8 @@ const Home = () => {
                             listItems={
                                 [
                                     "10% more credits",
-                                    "Generate up to 66 icons",
+                                    "Generate up to 132 icons",
                                     "Access to all customization options",
-                                    "6 icon designs to choose from",
                                     "High quality PNG file downloads",
                                     "Commercial use"
                                 ]
@@ -199,9 +197,8 @@ const Home = () => {
                             listItems={
                                 [
                                     "20% more credits",
-                                    "Generate up to 144 icons",
+                                    "Generate up to 288 icons",
                                     "Access to all customization options",
-                                    "6 icon designs to choose from",
                                     "High quality PNG file downloads",
                                     "Commercial use"
                                 ]

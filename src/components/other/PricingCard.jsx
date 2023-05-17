@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,8 +6,8 @@ import LoadingSpinner from '../common/LoadingSpinner';
 
 //TODO:
 // Implement top right corner badge displaying the % discount
-const PricingCard = ({ price, title, listItems, purchasable, creditAmount, badge }) => {
-    const [loading, setLoading] = useState(false);
+const PricingCard = ({ price, title, listItems, purchasable, creditAmount, badge, loading = false }) => {
+
     let containerClassName = "pricing-card";
 
     if (purchasable) {
@@ -15,10 +15,9 @@ const PricingCard = ({ price, title, listItems, purchasable, creditAmount, badge
     }
 
     const purchasableHandler = (e) => {
-        e.preventDefault();
-        setLoading(true);
+        console.log(loading);
         purchasable();
-        setLoading(false);
+        console.log(loading);
     }
 
     return (
@@ -38,7 +37,7 @@ const PricingCard = ({ price, title, listItems, purchasable, creditAmount, badge
                         })}
                     </ul>
                 </div>
-                {purchasable ? <button className="btn btn--primary pricing-card__add-btn" onClick={(e) => purchasableHandler(e)}>
+                {purchasable ? <button className="btn btn--primary pricing-card__add-btn" onClick={() => purchasableHandler()}>
                     <LoadingSpinner title={"Add " + creditAmount + " Credits"} loading={loading} color="light" />
                 </button> : null}
             </div>

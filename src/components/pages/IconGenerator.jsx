@@ -8,75 +8,39 @@ import { faCheckCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 //  Images & Icons
 import neonIcon from '../../assets/icons/neonIcon.jpg';
-import heartIcon from '../../assets/icons/heartIcon.png';
 import coolCarIcon from '../../assets/icons/coolCarIcon.png';
 import gorillaIcon from '../../assets/icons/gorillaIcon.png';
 import greenIcon from '../../assets/icons/greenIcon.png';
-import paintIcon from '../../assets/icons/paintIcon.png';
+import starFighter from '../../assets/icons/starFighter.png';
+import towerIcon from '../../assets/icons/towerIcon.png';
 
 // Components
 import { generateImages } from '../../firebase/generateImages';
 import LoadingSpinner from '../common/LoadingSpinner';
 
-const testImages = (
-    <>
-        <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={neonIcon}
-                alt="Icon created by OpenAI API"
-            />
-        </div>
-        <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={gorillaIcon}
-                alt="Icon created by OpenAI API"
-            />
-        </div>
-        <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={heartIcon}
-                alt="Icon created by OpenAI API"
-            />
-        </div>
-        <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={paintIcon}
-                alt="Icon created by OpenAI API"
-            />
-        </div>
-        <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={coolCarIcon}
-                alt="Icon created by OpenAI API"
-            />
-        </div>
-        <div className="icon-generator__icon-display__icon">
-            <img className="icon-generator__icon-display__icon-img" src={greenIcon}
-                alt="Icon created by OpenAI API"
-            />
-        </div>
-    </>
-);
+const sampleImages = [
+    starFighter,
+    neonIcon,
+    greenIcon,
+    coolCarIcon,
+    gorillaIcon,
+    towerIcon
+];
+
 
 const artStyleSelectOptions = [
     { value: 'Select Art Style' },
     { value: 'Abstract' },
-    { value: 'Art Nouveau' },
-    { value: 'Autochrome' },
     { value: 'Cartoon' },
-    { value: 'Cubism' },
-    { value: 'Doodle' },
-    { value: 'Expressionism' },
-    { value: 'Fauvism' },
+    { value: 'Digital Art' },
     { value: 'Geometric' },
-    { value: 'Gothic' },
-    { value: 'Hyperrealism' },
     { value: 'Impressionist' },
     { value: 'Minimalist' },
-    { value: 'Pointillism' },
     { value: 'Pop Art' },
     { value: 'Realistic' },
     { value: 'Retro' },
-    { value: 'Rococo' },
-    { value: 'Steampunk' },
     { value: 'Surreal' },
-    { value: 'Tribal' },
-    { value: 'Vaporwave' },
+    { value: 'Vector Art' },
     { value: 'Watercolor' },
     { value: 'Custom' }
 ];
@@ -137,7 +101,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
     const generateImage = async () => {
         setLoading(true);
-        setUserCreditAmount(userCreditAmount - 10);
+        setUserCreditAmount(userCreditAmount - 5);
 
         let entirePrompt = `${prompt}. Emphasize these next styles when generating the image:`;
 
@@ -216,7 +180,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
                 </form>
                 <p className="p icon-generator__container-info">
                     <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> You currently have <span className="text-highlight text-semi-bold">{userCreditAmount}</span> credits
-                    remaining. Each generate costs <span className="text-highlight text-semi-bold">10</span>. {userCreditAmount < 10 ? <span className="">Add more credits to your
+                    remaining. Each generate costs <span className="text-highlight text-semi-bold">5</span>. {userCreditAmount < 5 ? <span className="">Add more credits to your
                         account  <Link to="/add-credits" className="text-link text-highlight">here.</Link> </span> : null}
                 </p>
             </div>
@@ -236,7 +200,15 @@ const IconGenerator = ({ UID, creditAmount }) => {
                             </div>
                         ))
                     ) : (
-                        testImages
+                        sampleImages.map((image, index) => (
+                            <div className="icon-generator__icon-display__icon" key={index}>
+                                <img
+                                    className="icon-generator__icon-display__icon-img icon-generator__icon-display__icon-img--sample"
+                                    src={image}
+                                    alt="Icon created by OpenAI API"
+                                />
+                            </div>
+                        ))
                     )}
                 </div>
             </div>

@@ -7,6 +7,10 @@
     background: var(--var-light) !important;
 }
 
+.bg-body-tertiary {
+    background-color: var(--var-background) !important;
+}
+
 .nav-link {
     transition: all .3s;
 }

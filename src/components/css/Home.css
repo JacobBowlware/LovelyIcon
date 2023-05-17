@@ -182,6 +182,7 @@
 
 .pricing-card__add-btn {
     width: 100%;
+    font-weight: 600;
 }
 
 .pricing-card__add-btn:hover {

@@ -76,7 +76,7 @@ const Signup = ({ UID }) => {
 
     const addNewUserCredits = async (UID) => {
         await setDoc(doc(db, "users", UID), {
-            credits: 10
+            credits: 5
         });
     }
 

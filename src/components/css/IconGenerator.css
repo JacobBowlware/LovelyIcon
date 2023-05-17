@@ -55,7 +55,7 @@
     margin-top: .3rem;
 }
 
-/* Rules */
+/* Tips / Rules for users */
 .icon-generator__rules-container {
     width: 100%;
     display: flex;
@@ -147,6 +147,10 @@
 
 .icon-generator__icon-display__icon-img:hover {
     cursor: pointer;
+}
+
+.icon-generator__icon-display__icon-img--sample:hover {
+    cursor: default;
 }
 
 @media screen and (min-width: 1000px) {
