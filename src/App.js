@@ -4,6 +4,7 @@ import {
   Route, RouterProvider, createBrowserRouter,
   createRoutesFromElements, Outlet
 } from 'react-router-dom';
+import ScrollToTop from './components/common/ScrollToTop.js';
 
 // Firebase
 import { app, auth } from './firebase/config.js';
@@ -69,6 +70,7 @@ function App() {
   const Root = () => {
     return <>
       <Header email={email} />
+      <ScrollToTop />
       <div className="web-container">
         <Outlet />
       </div>
