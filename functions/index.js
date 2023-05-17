@@ -1,7 +1,14 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const { user } = require('firebase-functions/v1/auth');
 
-const stripe = require('stripe')(functions.config().stripe.secret_key);
+// const stripe = require('stripe')(functions.config().stripe.secret_key);
+
+// To set config variable 'firebase functions:config:set stripe.endpoint_secret="your_endpoint_secret_here"'
+
+// Test mode secret key
+const stripe = require('stripe')('sk_test_51N83F6CqwoHDTnqukpccKadzbxg9Cb2WDTnQbiKqcMdUvB9ZGEaKAFjF1AD4T71TF5Z4tHofanLSVRpaqiMF62XU00EsfaSWUk');
+const endpointSecret = functions.config().stripe.endpoint_secret;
 
 admin.initializeApp();
 
@@ -74,10 +81,6 @@ exports.createCheckoutSession = functions.https.onRequest(async (req, res) => {
     const userId = req.body.userId;
     const priceId = req.body.priceId;
 
-    console.log(functions.config().stripe.secret_key);
-
-    console.log("I am here now");
-
     try {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
@@ -86,15 +89,17 @@ exports.createCheckoutSession = functions.https.onRequest(async (req, res) => {
                     // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
                     price: priceId,
                     quantity: 1,
-                    test: true
                 },
             ],
             mode: 'payment',
             success_url: 'https://lovelyicon-f3ad1.web.app/profile/', // Replace with your success URL
             cancel_url: 'https://lovelyicon-f3ad1.web.app/icons/', // Replace with your cancel URL
             automatic_tax: { enabled: true },
+            metadata: {
+                userId: userId,
+                priceId: priceId,
+            },
         });
-
         res.status(200).send({ sessionId: session.id });
     } catch (error) {
         console.error('Error:', error);
@@ -103,24 +108,62 @@ exports.createCheckoutSession = functions.https.onRequest(async (req, res) => {
 });
 
 exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
-    res.set('Access-Control-Allow-Origin', 'https://lovelyicon-f3ad1.web.app');
-    res.set('Access-Control-Allow-Methods', 'GET, POST');
-    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    const sig = req.headers['stripe-signature'];
 
-    switch (req.body.type) {
-        case 'checkout.session.async_payment_failed':
-            // Handle payment failed event
-            console.log("Payment failed")
-            break;
-        case 'checkout.session.async_payment_succeeded':
-            // Handle payment succeeded event
-            console.log("Payment succeeded")
-            break;
-        case 'checkout.session.completed':
-            // Handle checkout session completed event
-            console.log("Checkout session completed")
-            break;
-        default:
-            console.log(`Unhandled event type: ${req.body.type}`);
+    let event;
+
+    try {
+        event = stripe.webhooks.constructEvent(req.rawBody, sig, endpointSecret);
+    } catch (err) {
+        console.error(`Webhook Error: ${err.message}`);
+        return res.status(400).send(`Webhook Error: ${err.message}`);
     }
+
+    // Handle the checkout.session.completed event
+    if (event.type === 'checkout.session.completed') {
+        // Fulfill the purchase...
+        await fulfillOrder(event.data.object);
+    }
+
+    res.status(200).end();
 });
+
+
+const fulfillOrder = async (session) => {
+    const userId = session.metadata.userId;
+    const priceId = session.metadata.priceId;
+
+
+    console.log("USERID -> " + userId);
+    console.log("PRICEID -> " + priceId);
+    // Update user's credits in the Firestore database
+    const userDocRef = admin.firestore().doc(`users/${userId}`);
+    const userDoc = await userDocRef.get();
+
+    console.log("Do we get stuck here?");
+    try {
+        const userData = userDoc.data();
+        const currentCredits = userData.credits || 0;
+        const updatedCredits = currentCredits + getCreditAmountFromPriceId(priceId);
+        console.log("UPDATED CREDITS -> " + updatedCredits);
+
+        await userDocRef.update({ credits: updatedCredits });
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+const getCreditAmountFromPriceId = (priceId) => {
+    switch (priceId) {
+        case 'price_1N8XGXCqwoHDTnquOssepIRu':
+            return 50;
+        case 'price_1N83TACqwoHDTnquZo9sZgB6':
+            return 50;
+        case 'price_1N83Y8CqwoHDTnquCtMvvqrF':
+            return 110;
+        case 'price_1N83bFCqwoHDTnquI1Xu3JJ0':
+            return 240;
+        default:
+            return 0;
+    }
+}

@@ -5,6 +5,11 @@ import React, { useEffect } from 'react';
 import PricingCard from '../other/PricingCard';
 import TextHighlight from '../common/TextHighlight';
 
+// Firebase
+import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { auth, provider, app } from '../../firebase/config';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
+
 // Images
 import neonIcon from '../../assets/icons/neonIcon.jpg';
 import gorillaIcon from '../../assets/icons/gorillaIcon.png';
@@ -14,16 +19,16 @@ import swordIcon from '../../assets/icons/swordIcon.png';
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 
-const stripePromise = loadStripe('pk_live_51N83F6CqwoHDTnquXxKM7dOFeAfkurvKRYYpvScwQXgWFvufj5RbXj46wPHv2I2N3rjtQCiW1iGDsm6grPafTULZ00DlS86zvY');
+const stripePromise = loadStripe('pk_test_51N83F6CqwoHDTnquo7Vzi3RtSQj3hhsHy6jSP7pCfh9xcDoF7I8TnLSxxofrgtTaAZU9Cfe1i1dtQrxAiT0wMzLQ00rd0Z7wQq');
 
 const AddCredits = ({ creditAmount, UID }) => {
-    const credit50TestPrice_id = 'prod_NuLyYx1K1t7ISj';
+    const credit50TestPrice_id = 'price_1N8XGXCqwoHDTnquOssepIRu';
     const credit50Price_id = 'price_1N83TACqwoHDTnquZo9sZgB6';
     const credit110Price_id = 'price_1N83Y8CqwoHDTnquCtMvvqrF';
     const credit240Price_id = 'price_1N83bFCqwoHDTnquI1Xu3JJ0';
 
 
-    const handlePurchase = async (price_id) => {
+    const handlePurchase = async (price_id, creditAmount) => {
         try {
             const response = await axios.post(
                 'https://us-central1-lovelyicon-f3ad1.cloudfunctions.net/createCheckoutSession',
@@ -46,18 +51,11 @@ const AddCredits = ({ creditAmount, UID }) => {
                     console.error('Redirect to checkout failed:', error);
                     return;
                 }
-
-                // Listen for the redirect event
-                window.addEventListener('popstate', () => {
-
-                    console.log('Payment complete!');
-                });
             }
         } catch (error) {
             console.error('Error:', error);
         }
     }
-
 
     return (
         <div className="container page">
@@ -78,7 +76,7 @@ const AddCredits = ({ creditAmount, UID }) => {
                                 "Commercial use"
                             ]
                         }
-                        purchasable={() => handlePurchase(credit50TestPrice_id)}
+                        purchasable={() => handlePurchase(credit50TestPrice_id, 50)}
                         badge={neonIcon}
                     />
                 </div>
@@ -96,7 +94,7 @@ const AddCredits = ({ creditAmount, UID }) => {
                                 "Commercial use"
                             ]
                         }
-                        purchasable={() => handlePurchase(credit110Price_id)}
+                        purchasable={() => handlePurchase(credit110Price_id, 110)}
                         badge={gorillaIcon}
                     />
                 </div>
@@ -114,7 +112,7 @@ const AddCredits = ({ creditAmount, UID }) => {
                                 "Commercial use"
                             ]
                         }
-                        purchasable={() => handlePurchase(credit240Price_id)}
+                        purchasable={() => handlePurchase(credit240Price_id, 240)}
                         badge={swordIcon}
                     />
                 </div>
