@@ -68,7 +68,7 @@ const Login = ({ UID }) => {
                     className="btn btn-primary form__btn-google"
                     onClick={(e) => handleLoginWithGoogle(e)}
                 >
-                    Login with&nbsp;<TextHighlight>Google</TextHighlight>
+                    Continue with&nbsp;<TextHighlight>Google</TextHighlight>
                 </button>
                 <p className="form__splitter">OR</p>
                 <input
@@ -81,6 +81,7 @@ const Login = ({ UID }) => {
                         setEmail(e.target.value);
                         handleEmailChange(e);
                     }}
+                    autoComplete='current-email'
                 />
                 {emailError && <p className="form__error">{emailError}</p>}
                 <input
@@ -91,6 +92,7 @@ const Login = ({ UID }) => {
                     onChange={(e) => {
                         setPassword(e.target.value);
                     }}
+                    autoComplete='current-password'
                 />
                 <button
                     type="submit"

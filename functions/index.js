@@ -85,14 +85,13 @@ exports.createCheckoutSession = functions.https.onRequest(async (req, res) => {
             payment_method_types: ['card'],
             line_items: [
                 {
-                    // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
                     price: priceId,
                     quantity: 1,
                 },
             ],
             mode: 'payment',
-            success_url: 'https://lovelyicon.com/payment-success/', // Replace with your success URL
-            cancel_url: 'https://lovelyicon.com/payment-failure/', // Replace with your cancel URL
+            success_url: 'https://lovelyicon.com/payment-success/',
+            cancel_url: 'https://lovelyicon.com/payment-fail/',
             automatic_tax: { enabled: true },
             metadata: {
                 userId: userId,

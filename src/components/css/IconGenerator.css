@@ -18,6 +18,7 @@
     text-align: left;
     margin: 0;
     font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .icon-generator__container__form {
@@ -83,6 +84,7 @@
     padding: 0;
     list-style: none;
     font-size: .95rem;
+    font-weight: 500;
 }
 
 .icon-generator__icon-display__icon-img {
@@ -118,7 +120,7 @@
     }
 
     .icon-generator__rules-item {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .icon-generator__rules-header {

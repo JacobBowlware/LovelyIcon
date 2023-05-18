@@ -19,6 +19,8 @@ import Profile from './components/pages/Profile.jsx';
 import MyIcons, { MyIconsLoader } from './components/pages/MyIcons.jsx';
 import AddCredits from './components/pages/AddCredits.jsx';
 import IconGenerator from './components/pages/IconGenerator.jsx';
+import PaymentFailure from './components/pages/PaymentFailure.jsx';
+import PaymentSuccess from './components/pages/PaymentSuccess.jsx';
 
 // Components
 import Footer from './components/common/Footer.jsx';
@@ -35,6 +37,7 @@ import './components/css/IconGenerator.css';
 import './components/css/MyIcons.css';
 import './components/css/AddCredits.css';
 import './components/css/Icon.css';
+import './components/css/PaymentPages.css';
 
 const db = getFirestore(app);
 
@@ -86,6 +89,8 @@ function App() {
           <Route path="/icon-generator" element={<IconGenerator UID={UID} creditAmount={creditAmount} />} />
           <Route path="/icons" element={<MyIcons email={email} UID={UID} />} loader={() => MyIconsLoader(UID)} />
           <Route path="/add-credits" element={<AddCredits creditAmount={creditAmount} UID={UID} />} />
+          <Route path="/payment-fail" element={<PaymentFailure />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
         </Route>
         <Route index element={<Home />} />
         <Route path="/*" element={<Home />} />

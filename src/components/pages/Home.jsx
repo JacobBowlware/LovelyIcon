@@ -18,7 +18,6 @@ import bunkerIcon from '../../assets/icons/bunkerIcon.png';
 import sunsetIcon from '../../assets/icons/sunsetIcon.png';
 import suitIcon from '../../assets/icons/suitIcon.png';
 import heartIcon2 from '../../assets/icons/hearIcon2.png';
-import astroIcon from '../../assets/icons/astroIcon.png';
 import mountIcon from '../../assets/icons/mountIcon.png';
 import penguinIcon from '../../assets/icons/penguinIcon.png';
 import oldManIcon from '../../assets/icons/oldManIcon.png';
@@ -80,8 +79,6 @@ const iconList = [
     },
 ]
 
-//TODO:
-// - Add steps as to how this works with images
 const Home = () => {
     return (
         <div className="page home">

@@ -101,7 +101,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
         setLoading(true);
         setUserCreditAmount(userCreditAmount - 5);
 
-        let entirePrompt = `${prompt}. Emphasize these next styles when generating the image:`;
+        let entirePrompt = `${prompt}. With these specifications: `;
 
         if (iconStyle) {
             entirePrompt += `${iconStyle} style, `;
