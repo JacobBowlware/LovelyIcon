@@ -139,7 +139,6 @@ const fulfillOrder = async (session) => {
         const userData = userDoc.data();
         const currentCredits = userData.credits || 0;
         const updatedCredits = currentCredits + getCreditAmountFromPriceId(priceId);
-        console.log("UPDATED CREDITS -> " + updatedCredits);
 
         await userDocRef.update({ credits: updatedCredits });
     } catch (error) {
