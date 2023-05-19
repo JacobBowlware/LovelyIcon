@@ -2,7 +2,7 @@ import Joi from 'joi-browser';
 
 const schema = {
     email: Joi.string().required().email().label('Email'),
-    password: Joi.string().required().min(8).alphanum().label('Password'),
+    password: Joi.string().required().min(8).label('Password'),
     confirmPassword: Joi.ref('password'),
 };
 

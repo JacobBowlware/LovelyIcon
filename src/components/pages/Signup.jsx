@@ -10,6 +10,7 @@ import { getFirestore, doc, setDoc } from 'firebase/firestore';
 // Components
 import TextHighlight from '../common/TextHighlight';
 import { validateChange } from '../common/WebJoi';
+import LoadingSpinner from '../common/LoadingSpinner';
 
 const db = getFirestore(app);
 
@@ -17,6 +18,8 @@ const Signup = ({ UID }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+
+    const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState({});
 
     const navigate = useNavigate();
@@ -30,36 +33,33 @@ const Signup = ({ UID }) => {
         validateChange(Input, setErrors, false, password, confirmPassword);
     };
 
-    const handleSignup = (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault();
-        if (errors.email || errors.password || errors.confirmPassword) {
-            return;
-        }
-
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                addNewUserCredits(userCredential.user.uid);
-                navigate('/icon-generator/');
-            })
-            .catch((error) => {
-                const errorMessage = error.message;
-                alert(errorMessage);
-            });
-    }
+        setLoading(true);
+        await createUserWithEmailAndPassword(auth, email, password).then((result) => {
+            // Redirect to the icon generator
+            navigate('/icon-generator/');
+        }).catch((error) => {
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+        setLoading(false);
+    };
 
     const handleSignupWthGoogle = async (e) => {
         e.preventDefault();
+        setLoading(true);
         signInWithPopup(auth, provider).then((result) => {
-            if (isNewUser(result.user.metadata.creationTime)) {
+            if (isNewUser(result.user.metadata.creationTime))
                 addNewUserCredits(result.user.uid);
-            }
 
-            navigate('/icon-generator/step-1');
+            navigate('/icon-generator/');
         }
         ).catch((error) => {
             const errorMessage = error.message;
             alert(errorMessage);
         });
+        setLoading(false);
     }
 
     const isNewUser = (creationTime) => {
@@ -101,6 +101,7 @@ const Signup = ({ UID }) => {
                         setEmail(e.target.value)
                         handleChange(e);
                     }}
+                    autoComplete='email'
                 />
                 {errors.email && <p className="form__error">{errors.email}</p>}
                 <input
@@ -112,6 +113,7 @@ const Signup = ({ UID }) => {
                         setPassword(e.target.value)
                         handleChange(e);
                     }}
+                    autoComplete='new-password'
                 />
                 {errors.password && <p className="form__error">{errors.password}</p>}
                 <input
@@ -123,6 +125,7 @@ const Signup = ({ UID }) => {
                         setConfirmPassword(e.target.value)
                         handleChange(e);
                     }}
+                    autoComplete='new-password'
                 />
                 {errors.confirmPassword && <p className="form__error">{errors.confirmPassword}</p>}
                 <button
@@ -132,7 +135,7 @@ const Signup = ({ UID }) => {
                         (errors.password || errors.email || errors.confirmPassword)
                         || (!email || !password || !confirmPassword)
                     } >
-                    Signup
+                    <LoadingSpinner color='light' title="Signup" loading={loading} />
                 </button>
                 <p>
                     Already have an account? <Link className="link login-form__link" to="/login">Login</Link>

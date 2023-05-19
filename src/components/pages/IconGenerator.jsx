@@ -90,7 +90,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
             entirePrompt += `in ${iconLighting} lighting, `;
         }
 
-        entirePrompt += ", digital art, icon, emphasis on the icon, and a simple background."
+        entirePrompt += ", high quality, detailed, digital art, icon, emphasis on the icon, and a simple background that fills the entire canvas."
 
         // Firebase function will deduce 5 credits from user's account upon successful generation
         const imageData = await generateImages(entirePrompt, UID);
