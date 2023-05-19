@@ -10,76 +10,51 @@ import { faCheckCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import neonIcon from '../../assets/icons/neonIcon.jpg';
 import coolCarIcon from '../../assets/icons/coolCarIcon.png';
 import gorillaIcon from '../../assets/icons/gorillaIcon.png';
-import greenIcon from '../../assets/icons/greenIcon.png';
 import starFighter from '../../assets/icons/starFighter.png';
-import towerIcon from '../../assets/icons/towerIcon.png';
+import colorfulMountainIcon from '../../assets/icons/colorfulMountainIcon.png';
+import planetIcon from '../../assets/icons/planetIcon.png';
 
 // Components
 import { generateImages } from '../../firebase/generateImages';
 import LoadingSpinner from '../common/LoadingSpinner';
 
 const sampleImages = [
-    starFighter,
+    planetIcon,
     neonIcon,
-    greenIcon,
+    starFighter,
     coolCarIcon,
     gorillaIcon,
-    towerIcon
+    colorfulMountainIcon
 ];
 
 
-const artStyleSelectOptions = [
-    { value: 'Select Art Style' },
-    { value: 'Abstract' },
-    { value: 'Cartoon' },
-    { value: 'Digital Art' },
-    { value: 'Geometric' },
-    { value: 'Impressionist' },
-    { value: 'Minimalist' },
-    { value: 'Pop Art' },
-    { value: 'Realistic' },
-    { value: 'Retro' },
-    { value: 'Surreal' },
-    { value: 'Vector Art' },
-    { value: 'Watercolor' },
-    { value: 'Custom' }
+const iconThemeSelectOptions = [
+    { value: 'Select Icon Theme' },
+    { value: 'Animals' },
+    { value: 'Nature' },
+    { value: 'Sports' },
+    { value: 'Technology' },
+    { value: 'Travel' },
+    { value: 'Custom' },
 ];
+
 
 const framePositionSelectOptions = [
     { value: 'Select Frame Position' },
-    { value: "Bird's Eye View" },
-    { value: 'Close-Up' },
-    { value: 'Crane Shot' },
-    { value: 'Dutch Angle Shot' },
-    { value: 'Extreme Close-Up' },
-    { value: 'Handheld Shot' },
-    { value: 'High Angle Shot' },
-    { value: 'Low Angle Shot' },
-    { value: 'Long Shot' },
-    { value: 'Medium Shot' },
-    { value: 'Over-the-Shoulder Shot' },
-    { value: 'Point-of-View Shot' },
-    { value: 'Tracking Shot' },
-    { value: 'Wide Angle Shot' },
-    { value: "Worm's Eye View" },
+    { value: 'Bottom' },
+    { value: 'Center' },
+    { value: 'Top' },
+    { value: 'Vertical' },
     { value: 'Custom' }
 ];
 
 const iconLightingSelectOptions = [
     { value: 'Select Icon Lighting' },
     { value: 'Bright' },
-    { value: 'Candlelit' },
     { value: 'Dim' },
-    { value: 'Dusk' },
-    { value: 'Foggy' },
-    { value: 'Glowing' },
-    { value: 'Golden Hour' },
-    { value: 'Moonlit' },
-    { value: 'Neon' },
-    { value: 'Overcast' },
-    { value: 'Rainy' },
     { value: 'Sunny' },
     { value: 'Twilight' },
+    { value: 'Night' },
     { value: 'Custom' }
 ];
 
@@ -101,19 +76,21 @@ const IconGenerator = ({ UID, creditAmount }) => {
         setLoading(true);
         setUserCreditAmount(userCreditAmount - 5);
 
-        let entirePrompt = `${prompt}. With these specifications: `;
+        let entirePrompt = `${prompt}. `;
 
-        if (iconStyle) {
-            entirePrompt += `${iconStyle} style, `;
+        if (iconStyle && iconStyle !== 'Select Icon Theme' && iconStyle !== 'Custom') {
+            entirePrompt += `${iconStyle} theme, `;
         }
 
-        if (framePosition) {
+        if (framePosition && framePosition !== 'Select Frame Position' && framePosition !== 'Custom') {
             entirePrompt += `with ${framePosition} framing, `;
         }
 
-        if (iconLighting) {
+        if (iconLighting && iconLighting !== 'Select Icon Lighting' && iconLighting !== 'Custom') {
             entirePrompt += `in ${iconLighting} lighting, `;
         }
+
+        entirePrompt += ", digital art, icon, emphasis on the icon, and a simple background."
 
         // Firebase function will deduce 5 credits from user's account upon successful generation
         const imageData = await generateImages(entirePrompt, UID);
@@ -150,7 +127,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
                 >
                     <div className="form__input-group__double-wide">
                         <select onChange={(e) => setIconStyle(e.target.value)} id="style-dropdown" className="form__input icon-generator__container__form-input">
-                            {artStyleSelectOptions.map((option, index) => {
+                            {iconThemeSelectOptions.map((option, index) => {
                                 return <option key={index} value={option.value}>{option.value}</option>
                             })}
                         </select>
@@ -166,7 +143,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
                         })}
                     </select>
                     <textarea
-                        maxLength={400}
+                        maxLength={200}
                         className='form__input icon-generator__container__form-input text-area'
                         placeholder="Enter a description or prompt for generating the icon (e.g., Dalorean car parked outside an old gas-station).
                         "

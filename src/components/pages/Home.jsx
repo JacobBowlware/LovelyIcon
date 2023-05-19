@@ -8,22 +8,23 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 // Images & Icons
 import neonIcon from '../../assets/icons/neonIcon.jpg';
-import cityIcon from '../../assets/icons/cityIcon.png';
 import coolCarIcon from '../../assets/icons/coolCarIcon.png';
 import gorillaIcon from '../../assets/icons/gorillaIcon.png';
 import greenIcon from '../../assets/icons/greenIcon.png';
 import swordIcon from '../../assets/icons/swordIcon.png';
 import lionIcon from '../../assets/icons/lionIcon.png';
-import bunkerIcon from '../../assets/icons/bunkerIcon.png';
-import sunsetIcon from '../../assets/icons/sunsetIcon.png';
 import suitIcon from '../../assets/icons/suitIcon.png';
-import heartIcon2 from '../../assets/icons/hearIcon2.png';
 import mountIcon from '../../assets/icons/mountIcon.png';
 import penguinIcon from '../../assets/icons/penguinIcon.png';
-import oldManIcon from '../../assets/icons/oldManIcon.png';
-import towerIcon from '../../assets/icons/towerIcon.png';
 import startFighter from '../../assets/icons/starFighter.png';
 import iconProcess from '../../assets/iconProcess.gif';
+import angIcon from '../../assets/icons/angIcon.png';
+import planetIcon from '../../assets/icons/planetIcon.png';
+import colorfulMountainIcon from '../../assets/icons/colorfulMountainIcon.png';
+import borderMountainIcon from '../../assets/icons/borderMountainIcon.png';
+import whiteGorillaIcon from '../../assets/icons/whiteGorillaIcon.png';
+import darkGorillaIcon from '../../assets/icons/darkGorillaIcon.png';
+import neonWarriorIcon from '../../assets/icons/neonWarriorIcon.png';
 
 // Components
 import Icon from '../common/Icon';
@@ -36,10 +37,10 @@ const iconList = [
         image: neonIcon,
     },
     {
-        image: heartIcon2,
+        image: angIcon,
     },
     {
-        image: swordIcon,
+        image: planetIcon,
     },
     {
         image: greenIcon,
@@ -48,10 +49,10 @@ const iconList = [
         image: suitIcon,
     },
     {
-        image: oldManIcon,
+        image: colorfulMountainIcon,
     },
     {
-        image: towerIcon,
+        image: borderMountainIcon,
     },
     {
         image: gorillaIcon,
@@ -63,10 +64,10 @@ const iconList = [
         image: mountIcon,
     },
     {
-        image: bunkerIcon,
+        image: whiteGorillaIcon,
     },
     {
-        image: sunsetIcon,
+        image: neonWarriorIcon,
     },
     {
         image: penguinIcon,
@@ -75,7 +76,7 @@ const iconList = [
         image: lionIcon,
     },
     {
-        image: cityIcon,
+        image: darkGorillaIcon,
     },
 ]
 

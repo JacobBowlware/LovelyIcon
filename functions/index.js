@@ -4,7 +4,6 @@ const { user } = require('firebase-functions/v1/auth');
 
 // const stripe = require('stripe')(functions.config().stripe.secret_key);
 // To set config variable 'firebase functions:config:set stripe.endpoint_secret="your_endpoint_secret_here"'
-
 // Test mode secret key
 const stripe = require('stripe')('sk_test_51N83F6CqwoHDTnqukpccKadzbxg9Cb2WDTnQbiKqcMdUvB9ZGEaKAFjF1AD4T71TF5Z4tHofanLSVRpaqiMF62XU00EsfaSWUk');
 const endpointSecret = functions.config().stripe.endpoint_secret;
@@ -38,7 +37,7 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        prompt: prompt + ". This image should be a high-quality, square, vector art piece with clean lines, precise details, and a professional look. The artwork should fill the entire image canvas without leaving any white spaces. Feel free to provide your own creative input to ensure this art piece is clean and professional. Remember, this is not a detailed realistic drawing, but rather a simple, clean, and professional-looking vector art piece.",
+                        prompt: prompt,
                         n: 3,
                         size: "512x512",
                         model: "image-alpha-001",
