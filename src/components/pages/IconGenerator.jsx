@@ -90,9 +90,9 @@ const IconGenerator = ({ UID, creditAmount }) => {
             entirePrompt += `in ${iconLighting} lighting, `;
         }
 
-        entirePrompt += ", high quality, detailed, digital art, icon, emphasis on the icon, and a simple background that fills the entire canvas."
+        entirePrompt += ". With an emphasis on these styles: simple, icon, minimalistic, svg, vector illustration, flat illustration, trending on Dribbble, Behance, and Artstation, dark gradient background. "
 
-        // Firebase function will deduce 5 credits from user's account upon successful generation
+        console.log(entirePrompt);
         const imageData = await generateImages(entirePrompt, UID);
 
         if (imageData.error) {
@@ -143,7 +143,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
                         })}
                     </select>
                     <textarea
-                        maxLength={200}
+                        maxLength={284}
                         className='form__input icon-generator__container__form-input text-area'
                         placeholder="Enter a description or prompt for generating the icon (e.g., Dalorean car parked outside an old gas-station).
                         "
