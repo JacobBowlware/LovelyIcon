@@ -2,10 +2,10 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const { user } = require('firebase-functions/v1/auth');
 
-// const stripe = require('stripe')(functions.config().stripe.secret_key);
+const stripe = require('stripe')(functions.config().stripe.secret_key);
 // To set config variable 'firebase functions:config:set stripe.endpoint_secret="your_endpoint_secret_here"'
 // Test mode secret key
-const stripe = require('stripe')('sk_test_51N83F6CqwoHDTnqukpccKadzbxg9Cb2WDTnQbiKqcMdUvB9ZGEaKAFjF1AD4T71TF5Z4tHofanLSVRpaqiMF62XU00EsfaSWUk');
+// const stripe = require('stripe')('sk_test_51N83F6CqwoHDTnqukpccKadzbxg9Cb2WDTnQbiKqcMdUvB9ZGEaKAFjF1AD4T71TF5Z4tHofanLSVRpaqiMF62XU00EsfaSWUk');
 const endpointSecret = functions.config().stripe.endpoint_secret;
 
 admin.initializeApp();

@@ -14,14 +14,14 @@ import credit3Icon from '../../assets/icons/credit3Icon.png';
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 
-const stripePromise = loadStripe('pk_test_51N83F6CqwoHDTnquo7Vzi3RtSQj3hhsHy6jSP7pCfh9xcDoF7I8TnLSxxofrgtTaAZU9Cfe1i1dtQrxAiT0wMzLQ00rd0Z7wQq');
+const stripePromise = loadStripe('pk_live_51N83F6CqwoHDTnquXxKM7dOFeAfkurvKRYYpvScwQXgWFvufj5RbXj46wPHv2I2N3rjtQCiW1iGDsm6grPafTULZ00DlS86zvY');
 
 const AddCredits = ({ creditAmount, UID }) => {
     const [credit50Loading, setCredit50Loading] = React.useState(false);
     const [credit110Loading, setCredit110Loading] = React.useState(false);
     const [credit240Loading, setCredit240Loading] = React.useState(false);
 
-    const credit50TestPrice_id = 'price_1N8XGXCqwoHDTnquOssepIRu';
+    // const credit50TestPrice_id = 'price_1N8XGXCqwoHDTnquOssepIRu';
     const credit50Price_id = 'price_1N83TACqwoHDTnquZo9sZgB6';
     const credit110Price_id = 'price_1N83Y8CqwoHDTnquCtMvvqrF';
     const credit240Price_id = 'price_1N83bFCqwoHDTnquI1Xu3JJ0';
@@ -76,7 +76,7 @@ const AddCredits = ({ creditAmount, UID }) => {
                         }
                         purchasable={() => {
                             setCredit50Loading(true);
-                            handlePurchase(credit50TestPrice_id);
+                            handlePurchase(credit50Price_id);
                             setTimeout(() => {
                                 setCredit50Loading(false);
                             }, 2000);

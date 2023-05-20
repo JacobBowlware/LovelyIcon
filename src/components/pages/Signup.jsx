@@ -37,6 +37,7 @@ const Signup = ({ UID }) => {
         e.preventDefault();
         setLoading(true);
         await createUserWithEmailAndPassword(auth, email, password).then((result) => {
+            addNewUserCredits(result.user.uid);
             // Redirect to the icon generator
             navigate('/icon-generator/');
         }).catch((error) => {

@@ -9,8 +9,7 @@
 .footer-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: left;
+    align-items: flex-start;
     padding: 0;
 }
 
