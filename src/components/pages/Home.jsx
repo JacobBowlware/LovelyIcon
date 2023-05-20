@@ -7,24 +7,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 // Images & Icons
-import neonIcon from '../../assets/icons/neonIcon.jpg';
 import coolCarIcon from '../../assets/icons/coolCarIcon.png';
-import gorillaIcon from '../../assets/icons/gorillaIcon.png';
-import greenIcon from '../../assets/icons/greenIcon.png';
-import swordIcon from '../../assets/icons/swordIcon.png';
-import lionIcon from '../../assets/icons/lionIcon.png';
-import suitIcon from '../../assets/icons/suitIcon.png';
-import mountIcon from '../../assets/icons/mountIcon.png';
 import penguinIcon from '../../assets/icons/penguinIcon.png';
 import startFighter from '../../assets/icons/starFighter.png';
 import iconProcess from '../../assets/iconProcess.gif';
 import angIcon from '../../assets/icons/angIcon.png';
 import planetIcon from '../../assets/icons/planetIcon.png';
 import colorfulMountainIcon from '../../assets/icons/colorfulMountainIcon.png';
-import borderMountainIcon from '../../assets/icons/borderMountainIcon.png';
-import whiteGorillaIcon from '../../assets/icons/whiteGorillaIcon.png';
-import darkGorillaIcon from '../../assets/icons/darkGorillaIcon.png';
 import neonWarriorIcon from '../../assets/icons/neonWarriorIcon.png';
+import abstractPlanetIcon from '../../assets/icons/abstractPlanetIcon.png';
+import footballIcon from '../../assets/icons/footballIcon.png';
+import neonCarBetterIcon from '../../assets/icons/neonCarBetterIcon.png';
+import tropicalNightIcon from '../../assets/icons/tropicalNightIcon.png';
+import hotAirBalloonIcon from '../../assets/icons/hotAirBalloonIcon.png';
+import retroStickerIcon from '../../assets/icons/retroStickerIcon.png';
+import lightGorillaIcon from '../../assets/icons/lightGorillaIcon.png';
+import basketballIcon from '../../assets/icons/basketballIcon.png';
+import egyptIcon from '../../assets/icons/egyptIcon.png';
+import credit1Icon from '../../assets/icons/credit1Icon.png';
+import credit2Icon from '../../assets/icons/credit2Icon.png';
+import credit3Icon from '../../assets/icons/credit3Icon.png';
+
+
 
 // Components
 import Icon from '../common/Icon';
@@ -34,7 +38,7 @@ import PricingCard from '../other/PricingCard';
 
 const iconList = [
     {
-        image: neonIcon,
+        image: neonCarBetterIcon,
     },
     {
         image: angIcon,
@@ -43,40 +47,40 @@ const iconList = [
         image: planetIcon,
     },
     {
-        image: greenIcon,
+        image: footballIcon,
     },
     {
-        image: suitIcon,
+        image: egyptIcon,
+    },
+    {
+        image: hotAirBalloonIcon,
     },
     {
         image: colorfulMountainIcon,
     },
     {
-        image: borderMountainIcon,
-    },
-    {
-        image: gorillaIcon,
+        image: retroStickerIcon,
     },
     {
         image: startFighter,
     },
     {
-        image: mountIcon,
-    },
-    {
-        image: whiteGorillaIcon,
-    },
-    {
         image: neonWarriorIcon,
+    },
+    {
+        image: basketballIcon,
+    },
+    {
+        image: abstractPlanetIcon,
     },
     {
         image: penguinIcon,
     },
     {
-        image: lionIcon,
+        image: tropicalNightIcon,
     },
     {
-        image: darkGorillaIcon,
+        image: lightGorillaIcon,
     },
 ]
 
@@ -169,7 +173,7 @@ const Home = () => {
                                     "Commercial use"
                                 ]
                             }
-                            badge={neonIcon}
+                            badge={credit1Icon}
                         />
                     </div>
                     <div className="grid-item">
@@ -185,7 +189,7 @@ const Home = () => {
                                     "Commercial use"
                                 ]
                             }
-                            badge={greenIcon}
+                            badge={credit2Icon}
                         />
                     </div>
                     <div className="grid-item">
@@ -201,7 +205,7 @@ const Home = () => {
                                     "Commercial use"
                                 ]
                             }
-                            badge={swordIcon}
+                            badge={credit3Icon}
                         />
                     </div>
                 </div>

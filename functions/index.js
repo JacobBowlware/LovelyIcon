@@ -38,7 +38,7 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
                     },
                     body: JSON.stringify({
                         prompt: prompt,
-                        n: 1,
+                        n: 3,
                         size: "512x512",
                         model: "image-alpha-001",
                         response_format: "b64_json"

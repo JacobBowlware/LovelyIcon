@@ -7,24 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 //  Images & Icons
-import neonIcon from '../../assets/icons/neonIcon.jpg';
-import coolCarIcon from '../../assets/icons/coolCarIcon.png';
 import gorillaIcon from '../../assets/icons/gorillaIcon.png';
-import starFighter from '../../assets/icons/starFighter.png';
-import colorfulMountainIcon from '../../assets/icons/colorfulMountainIcon.png';
-import planetIcon from '../../assets/icons/planetIcon.png';
+import childWarriorIcon from '../../assets/icons/childWarriorIcon.png';
+import mysticForestIcon from '../../assets/icons/mysticForestIcon.png';
+import solarSystemIcon from '../../assets/icons/solarSystemIcon.png';
+import mountIcon from '../../assets/icons/mountIcon.png';
+import purplePlanetIcon from '../../assets/icons/purplePlanetIcon.png';
 
 // Components
 import { generateImages } from '../../firebase/generateImages';
 import LoadingSpinner from '../common/LoadingSpinner';
 
 const sampleImages = [
-    planetIcon,
-    neonIcon,
-    starFighter,
-    coolCarIcon,
+    mountIcon,
+    childWarriorIcon,
+    mysticForestIcon,
+    solarSystemIcon,
     gorillaIcon,
-    colorfulMountainIcon
+    purplePlanetIcon
 ];
 
 
@@ -39,12 +39,12 @@ const iconThemeSelectOptions = [
 ];
 
 
-const framePositionSelectOptions = [
-    { value: 'Select Frame Position' },
-    { value: 'Bottom' },
-    { value: 'Center' },
-    { value: 'Top' },
-    { value: 'Vertical' },
+const cameraViewSelectOptions = [
+    { value: 'Select Camera View' },
+    { value: 'Birds Eye View' },
+    { value: 'Close-up' },
+    { value: 'Long Shot' },
+    { value: 'Wide Angle' },
     { value: 'Custom' }
 ];
 
@@ -90,7 +90,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
             entirePrompt += `in ${iconLighting} lighting, `;
         }
 
-        entirePrompt += ". With an emphasis on these styles: simple, icon, minimalistic, svg, vector illustration, flat illustration, trending on Dribbble, Behance, and Artstation, dark gradient background. "
+        entirePrompt += ". With an emphasis on these styles: simple, minimalistic, svg, vector illustration, flat illustration, trending on the icon section of Dribbble, Behance, and Artstation, dark gradient background that fills the entire left over canvas, borderless with no white space."
 
         console.log(entirePrompt);
         const imageData = await generateImages(entirePrompt, UID);
@@ -132,7 +132,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
                             })}
                         </select>
                         <select onChange={(e) => setFramePosition(e.target.value)} id="style-dropdown" className="form__input icon-generator__container__form-input">
-                            {framePositionSelectOptions.map((option, index) => {
+                            {cameraViewSelectOptions.map((option, index) => {
                                 return <option key={index} value={option.value}>{option.value}</option>
                             })}
                         </select>
@@ -143,10 +143,9 @@ const IconGenerator = ({ UID, creditAmount }) => {
                         })}
                     </select>
                     <textarea
-                        maxLength={284}
+                        maxLength={400}
                         className='form__input icon-generator__container__form-input text-area'
-                        placeholder="Enter a description or prompt for generating the icon (e.g., Dalorean car parked outside an old gas-station).
-                        "
+                        placeholder="Enter a description or prompt for generating the icon (e.g. Magical wizard sitting in a chair, vibrant colors, long shot)."
                         onChange={(e) => setPrompt(e.target.value)}
                     />
                     <button

@@ -6,9 +6,9 @@ import PricingCard from '../other/PricingCard';
 import TextHighlight from '../common/TextHighlight';
 
 // Images
-import neonIcon from '../../assets/icons/neonIcon.jpg';
-import gorillaIcon from '../../assets/icons/gorillaIcon.png';
-import swordIcon from '../../assets/icons/swordIcon.png';
+import credit1Icon from '../../assets/icons/credit1Icon.png';
+import credit2Icon from '../../assets/icons/credit2Icon.png';
+import credit3Icon from '../../assets/icons/credit3Icon.png';
 
 // Stripe
 import { loadStripe } from '@stripe/stripe-js';
@@ -81,7 +81,7 @@ const AddCredits = ({ creditAmount, UID }) => {
                                 setCredit50Loading(false);
                             }, 2000);
                         }}
-                        badge={neonIcon}
+                        badge={credit1Icon}
                         loading={credit50Loading}
                     />
                 </div>
@@ -106,7 +106,7 @@ const AddCredits = ({ creditAmount, UID }) => {
                             }, 2000);
                         }}
                         loading={credit110Loading}
-                        badge={gorillaIcon}
+                        badge={credit2Icon}
                     />
                 </div>
                 <div className="grid-item">
@@ -129,7 +129,7 @@ const AddCredits = ({ creditAmount, UID }) => {
                                 setCredit240Loading(false);
                             }, 2000);
                         }}
-                        badge={swordIcon}
+                        badge={credit3Icon}
                         loading={credit240Loading}
                     />
                 </div>
