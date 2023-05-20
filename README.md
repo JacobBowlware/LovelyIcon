@@ -5,7 +5,7 @@ Website built to provide anyone with an easy-to-use tool that produces beautiful
 - HTML/CSS
 - Javascript
 - ReactJS
-- DALLE API - openAI
 - Firebase
+- DALLE API - openAI
 - Stripe
 
