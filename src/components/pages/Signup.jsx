@@ -6,6 +6,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../firebase/config';
 
+// Toastify
+import { toast, ToastContainer } from 'react-toastify';
+
 // Components
 import TextHighlight from '../common/TextHighlight';
 import { validateChange } from '../common/WebJoi';
@@ -16,7 +19,6 @@ const actionCodeSettings = {
     url: 'https://lovelyicon.com/email-verification/',
     handleCodeInApp: true,
 };
-
 
 const Signup = ({ UID }) => {
     const [email, setEmail] = useState("");
@@ -49,8 +51,7 @@ const Signup = ({ UID }) => {
             window.location.reload();
         }
         catch (error) {
-            const errorMessage = error.message;
-            alert(errorMessage);
+            toast.error("Email already in use");
         }
 
         setLoading(false);
@@ -67,14 +68,14 @@ const Signup = ({ UID }) => {
             window.location.reload();
         }
         ).catch((error) => {
-            const errorMessage = error.message;
-            alert(errorMessage);
+            toast.error("An error occurred while signing in with Google");
         });
         setLoading(false);
     }
 
     return (
         <div className="container form-container">
+            <ToastContainer />
             <form className="form" onSubmit={(e) => handleSignup(e)}>
                 <h1 className="header-1 form__header">
                     Signup for Lovely<TextHighlight>Icon</TextHighlight>

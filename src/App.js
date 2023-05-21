@@ -29,6 +29,7 @@ import Header from './components/common/Header.jsx';
 import ProtectedRoutes from './components/common/ProtectedRoutes.js';
 
 // CSS
+import 'react-toastify/dist/ReactToastify.css';
 import './components/css/App.css';
 import './components/css/Home.css';
 import './components/css/Header.css';

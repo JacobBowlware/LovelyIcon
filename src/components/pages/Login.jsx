@@ -6,6 +6,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider } from '../../firebase/config';
 
+// Toastify
+import { toast, ToastContainer } from 'react-toastify';
+
 // Components
 import TextHighlight from '../common/TextHighlight';
 import { validateProperty } from '../common/WebJoi';
@@ -41,8 +44,7 @@ const Login = ({ UID }) => {
                 navigate('/icon-generator/');
             })
             .catch((error) => {
-                const errorMessage = error.message;
-                alert(errorMessage);
+                toast.error("Invalid email or password");
             });
     }
 
@@ -57,13 +59,13 @@ const Login = ({ UID }) => {
             window.location.reload();
         }
         ).catch((error) => {
-            const errorMessage = error.message;
-            alert(errorMessage);
+            toast.error("An error occured while trying to login with Google");
         });
     }
 
     return (
         <div className="container form-container">
+            <ToastContainer />
             <form
                 className="form"
                 onSubmit={(e) => handleLogin(e)}

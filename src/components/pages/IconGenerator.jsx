@@ -14,6 +14,9 @@ import solarSystemIcon from '../../assets/icons/solarSystemIcon.png';
 import mountIcon from '../../assets/icons/mountIcon.png';
 import purplePlanetIcon from '../../assets/icons/purplePlanetIcon.png';
 
+// Toastify
+import { toast, ToastContainer } from 'react-toastify';
+
 // Components
 import { generateImages } from '../../firebase/generateImages';
 import LoadingSpinner from '../common/LoadingSpinner';
@@ -92,11 +95,10 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
         entirePrompt += ". With an emphasis on these styles: simple, minimalistic, svg, vector illustration, flat illustration, trending on the icon section of Dribbble, Behance, and Artstation, dark gradient background that fills the entire left over canvas, borderless with no white space."
 
-        console.log(entirePrompt);
         const imageData = await generateImages(entirePrompt, UID);
 
         if (imageData.error) {
-            alert(imageData.error);
+            toast.error("An error occurred while generating your icon. Please try again later.");
             setLoading(false);
             return;
         }
@@ -114,6 +116,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
     return (
         <div className="container page page-padding">
+            <ToastContainer />
             <h1 className="header-1 icon-generator__header">Generate Icons</h1>
             <div className="icon-generator__container">
                 <p className="p icon-generator__container-p">
@@ -149,9 +152,10 @@ const IconGenerator = ({ UID, creditAmount }) => {
                         onChange={(e) => setPrompt(e.target.value)}
                     />
                     <button
-                        disabled={userCreditAmount < 10 || !prompt}
+                        // disabled={userCreditAmount < 10 || !prompt}
+                        disabled={true}
                         className="btn btn-primary form__btn icon-generator__container__form-btn">
-                        <LoadingSpinner title="GENERATE" loading={loading} color="light" />
+                        <LoadingSpinner title="UNDER MAINTENANCE" loading={loading} color="light" />
                     </button>
                 </form>
                 <p className="p icon-generator__container-info">
