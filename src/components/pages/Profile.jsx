@@ -3,15 +3,17 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Firebase
-import { sendPasswordResetEmail } from 'firebase/auth';
+import { sendPasswordResetEmail, sendEmailVerification } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 
 // Components
 import Logout from '../common/Logout';
 
-//TODO:
-// 1. When user pressed 'Manage Payment Info' button, redirect to payment info page (not yet created) - Stripe
-// 2. Implement a better UI for the profile page
+const actionCodeSettings = {
+    url: 'https://lovelyicon.com/email-verification/',
+    handleCodeInApp: true,
+};
+
 const Profile = ({ email, UID, creditAmount }) => {
     const navigate = useNavigate();
 
@@ -33,6 +35,16 @@ const Profile = ({ email, UID, creditAmount }) => {
         e.preventDefault();
         navigate('/add-credits/');
     }
+
+    const handleEmailVerification = async (e) => {
+        e.preventDefault();
+        await sendEmailVerification(auth.currentUser, actionCodeSettings);
+
+        // Redirect to email verification page
+        navigate('/email-verification/');
+        window.location.reload();
+    }
+
 
     return (
         <div className="container page">
@@ -61,6 +73,13 @@ const Profile = ({ email, UID, creditAmount }) => {
                         </button>
                     </div>
                 </div>
+                <button
+                    className="btn btn-primary profile__btn"
+                    onClick={(e) => handleEmailVerification(e)}
+                    disabled={auth.currentUser.emailVerified}
+                >
+                    {auth.currentUser.emailVerified ? 'Email Verified' : 'Verify Email'}
+                </button>
                 <button
                     className="btn btn-primary profile__btn"
                     onClick={(e) => handleLogout(e)}>

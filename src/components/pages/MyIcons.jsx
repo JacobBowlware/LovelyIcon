@@ -83,7 +83,7 @@ const MyIcons = ({ UID }) => {
                 </div>
             </div>
             {imageUrls.length === 0 && <h2 className="my-icons__no-icons">You have no icons yet.{' '}
-                <Link className="link text-highlight" to="/icon-generator/step-1/">Click here</Link>{' '}
+                <Link className="link text-highlight" to="/icon-generator/">Click here</Link>{' '}
                 to generate one.</h2>}
             <div className="grid my-icons__container">
                 {imageUrls.map((url, index) => {

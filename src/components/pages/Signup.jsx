@@ -3,16 +3,20 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // Firebase
-import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { auth, provider, app } from '../../firebase/config';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup } from 'firebase/auth';
+import { auth, provider } from '../../firebase/config';
 
 // Components
 import TextHighlight from '../common/TextHighlight';
 import { validateChange } from '../common/WebJoi';
 import LoadingSpinner from '../common/LoadingSpinner';
+import { addNewUserCredits, creditsAdded } from '../../firebase/HandleNewUser.js';
 
-const db = getFirestore(app);
+const actionCodeSettings = {
+    url: 'https://lovelyicon.com/email-verification/',
+    handleCodeInApp: true,
+};
+
 
 const Signup = ({ UID }) => {
     const [email, setEmail] = useState("");
@@ -25,7 +29,7 @@ const Signup = ({ UID }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (UID)
+        if (UID && auth.currentUser.emailVerified)
             navigate('/icon-generator/');
     }, [UID, navigate]);
 
@@ -36,14 +40,19 @@ const Signup = ({ UID }) => {
     const handleSignup = async (e) => {
         e.preventDefault();
         setLoading(true);
-        await createUserWithEmailAndPassword(auth, email, password).then((result) => {
-            addNewUserCredits(result.user.uid);
-            // Redirect to the icon generator
-            navigate('/icon-generator/');
-        }).catch((error) => {
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            await sendEmailVerification(userCredential.user, actionCodeSettings);
+
+            // Redirect to email verification page
+            navigate('/email-verification/');
+            window.location.reload();
+        }
+        catch (error) {
             const errorMessage = error.message;
             alert(errorMessage);
-        });
+        }
+
         setLoading(false);
     };
 
@@ -51,34 +60,17 @@ const Signup = ({ UID }) => {
         e.preventDefault();
         setLoading(true);
         signInWithPopup(auth, provider).then((result) => {
-            if (isNewUser(result.user.metadata.creationTime))
+            if (!creditsAdded())
                 addNewUserCredits(result.user.uid);
 
             navigate('/icon-generator/');
+            window.location.reload();
         }
         ).catch((error) => {
             const errorMessage = error.message;
             alert(errorMessage);
         });
         setLoading(false);
-    }
-
-    const isNewUser = (creationTime) => {
-        const now = new Date();
-        const creationDate = new Date(creationTime);
-        const diff = now - creationDate;
-
-        // If the user was created less than 1 minute ago, they are a new user
-        if (diff < 60000) {
-            return true;
-        }
-        return false;
-    }
-
-    const addNewUserCredits = async (UID) => {
-        await setDoc(doc(db, "users", UID), {
-            credits: 5
-        });
     }
 
     return (

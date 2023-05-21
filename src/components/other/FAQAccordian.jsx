@@ -8,6 +8,7 @@ const FAQAccordian = () => {
     const [acc2Open, setAcc2Open] = useState(false);
     const [acc3Open, setAcc3Open] = useState(false);
     const [acc4Open, setAcc4Open] = useState(false);
+    const [acc5Open, setAcc5Open] = useState(false);
     return (
         <div className="faq-accordian__container">
             <AccordianItem
@@ -34,6 +35,12 @@ const FAQAccordian = () => {
                 content="Yes! You can use the icons for commercial, personal, or any other purpose."
                 onPress={() => setAcc4Open(!acc4Open)}
                 isOpen={acc4Open}
+            />
+            <AccordianItem
+                title="How do I claim my free credits?"
+                content="In order to claim your free credits, you must verify your email address. You can do this by going to the 'Account' page and clicking on the 'Verify Email' button."
+                onPress={() => setAcc5Open(!acc5Open)}
+                isOpen={acc5Open}
             />
         </div>
     );

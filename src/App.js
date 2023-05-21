@@ -21,6 +21,7 @@ import AddCredits from './components/pages/AddCredits.jsx';
 import IconGenerator from './components/pages/IconGenerator.jsx';
 import PaymentFailure from './components/pages/PaymentFailure.jsx';
 import PaymentSuccess from './components/pages/PaymentSuccess.jsx';
+import EmailVerification from './components/pages/EmailVerification.jsx';
 
 // Components
 import Footer from './components/common/Footer.jsx';
@@ -66,7 +67,6 @@ function App() {
     }
     else {
       // doc.data() will be undefined in this case
-      console.log("No such document!");
     }
   }
 
@@ -91,6 +91,7 @@ function App() {
           <Route path="/add-credits" element={<AddCredits creditAmount={creditAmount} UID={UID} />} />
           <Route path="/payment-fail" element={<PaymentFailure />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/email-verification" element={<EmailVerification UID={UID} getCreditAmount={() => getCreditAmount()} />} />
         </Route>
         <Route index element={<Home />} />
         <Route path="/*" element={<Home />} />

@@ -95,7 +95,7 @@ const Home = () => {
                     <p className="text-secondary-c p">
                         Create beautiful, customized icons that look professional and lovely for any purpose with our easy-to-use icon generator.
                     </p>
-                    <Link to="/login" className="btn btn-primary home__hero-link">Get Started</Link>
+                    <Link to="/login" className="btn btn-primary home__hero-link">Get Started for Free</Link>
                 </div>
                 <div className="img-wrapper">
                     <img className="img home__hero-img" src={coolCarIcon} alt="Icon created by OpenAI API" />
@@ -153,7 +153,7 @@ const Home = () => {
                         generator. <TextHighlight>No graphic design experience required.
                         </TextHighlight> Start designing beautiful icons effortlessly <TextHighlight>today!</TextHighlight>
                     </h3>
-                    <Link to="/login" className="btn btn-primary cta__btn">Get Started Now</Link>
+                    <Link to="/login" className="btn btn-primary cta__btn">Get Started for Free</Link>
                 </div>
             </div>
             <div className="container pricing" id="pricing">

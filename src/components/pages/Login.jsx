@@ -9,6 +9,7 @@ import { auth, provider } from '../../firebase/config';
 // Components
 import TextHighlight from '../common/TextHighlight';
 import { validateProperty } from '../common/WebJoi';
+import { addNewUserCredits, creditsAdded } from '../../firebase/HandleNewUser.js';
 
 /**
  * Login page
@@ -49,7 +50,11 @@ const Login = ({ UID }) => {
         e.preventDefault();
 
         signInWithPopup(auth, provider).then((result) => {
+            if (!creditsAdded())
+                addNewUserCredits(result.user.uid);
+
             navigate('/icon-generator/');
+            window.location.reload();
         }
         ).catch((error) => {
             const errorMessage = error.message;
