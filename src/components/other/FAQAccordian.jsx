@@ -38,7 +38,7 @@ const FAQAccordian = () => {
             />
             <AccordianItem
                 title="How do I claim my free credits?"
-                content="In order to claim your free credits, you must verify your email address. You can do this by going to the 'Account' page and clicking on the 'Verify Email' button."
+                content="In order to claim your free credits, you must verify your email address. You can do this by going to the 'Profile' page and clicking on the 'Verify Email' button."
                 onPress={() => setAcc5Open(!acc5Open)}
                 isOpen={acc5Open}
             />

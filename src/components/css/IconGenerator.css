@@ -35,6 +35,7 @@
     width: 100%;
     font-weight: 600;
     color: var(--color-text);
+    background: var(--var-background);
 }
 
 .icon-generator__container__form-btn {

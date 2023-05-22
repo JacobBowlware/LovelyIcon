@@ -7,28 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 // Images & Icons
-import coolCarIcon from '../../assets/icons/coolCarIcon.png';
-import penguinIcon from '../../assets/icons/penguinIcon.png';
-import startFighter from '../../assets/icons/starFighter.png';
-import iconProcess from '../../assets/iconProcess.gif';
-import angIcon from '../../assets/icons/angIcon.png';
-import planetIcon from '../../assets/icons/planetIcon.png';
-import colorfulMountainIcon from '../../assets/icons/colorfulMountainIcon.png';
-import neonWarriorIcon from '../../assets/icons/neonWarriorIcon.png';
-import abstractPlanetIcon from '../../assets/icons/abstractPlanetIcon.png';
-import footballIcon from '../../assets/icons/footballIcon.png';
-import neonCarBetterIcon from '../../assets/icons/neonCarBetterIcon.png';
-import tropicalNightIcon from '../../assets/icons/tropicalNightIcon.png';
-import hotAirBalloonIcon from '../../assets/icons/hotAirBalloonIcon.png';
-import retroStickerIcon from '../../assets/icons/retroStickerIcon.png';
-import lightGorillaIcon from '../../assets/icons/lightGorillaIcon.png';
-import basketballIcon from '../../assets/icons/basketballIcon.png';
-import egyptIcon from '../../assets/icons/egyptIcon.png';
+import basketball1 from '../../assets/icons/basketball1.png';
+import coffee1 from '../../assets/icons/coffee1.png';
+import compass from '../../assets/icons/compass.png';
+import earth from '../../assets/icons/earth.png';
+import man1 from '../../assets/icons/man1.png';
+import mic from '../../assets/icons/mic.png';
+import music from '../../assets/icons/music.png';
+import neonCar from '../../assets/icons/neonCar.png';
+import penguin from '../../assets/icons/penguin.png';
+import rocket from '../../assets/icons/rocket.png';
+import time1 from '../../assets/icons/time1.png';
+import tree1 from '../../assets/icons/tree1.png';
+import wizard2 from '../../assets/icons/wizard2.png';
+import villain1 from '../../assets/icons/villain1.png';
+import gorillaSword from '../../assets/icons/gorillaSword.png';
 import credit1Icon from '../../assets/icons/credit1Icon.png';
 import credit2Icon from '../../assets/icons/credit2Icon.png';
 import credit3Icon from '../../assets/icons/credit3Icon.png';
-
-
 
 // Components
 import Icon from '../common/Icon';
@@ -38,49 +34,49 @@ import PricingCard from '../other/PricingCard';
 
 const iconList = [
     {
-        image: neonCarBetterIcon,
+        image: coffee1,
     },
     {
-        image: angIcon,
+        image: compass,
     },
     {
-        image: planetIcon,
+        image: earth,
     },
     {
-        image: footballIcon,
+        image: man1,
     },
     {
-        image: egyptIcon,
+        image: mic,
     },
     {
-        image: hotAirBalloonIcon,
+        image: music,
     },
     {
-        image: colorfulMountainIcon,
+        image: villain1,
     },
     {
-        image: retroStickerIcon,
+        image: penguin,
     },
     {
-        image: startFighter,
+        image: rocket,
     },
     {
-        image: neonWarriorIcon,
+        image: time1,
     },
     {
-        image: basketballIcon,
+        image: gorillaSword,
     },
     {
-        image: abstractPlanetIcon,
+        image: basketball1,
     },
     {
-        image: penguinIcon,
+        image: tree1,
     },
     {
-        image: tropicalNightIcon,
+        image: wizard2,
     },
     {
-        image: lightGorillaIcon,
+        image: neonCar,
     },
 ]
 
@@ -98,13 +94,13 @@ const Home = () => {
                     <Link to="/login" className="btn btn-primary home__hero-link">Get Started for Free</Link>
                 </div>
                 <div className="img-wrapper">
-                    <img className="img home__hero-img" src={coolCarIcon} alt="Icon created by OpenAI API" />
+                    <img className="img home__hero-img" src={time1} alt="Icon created by OpenAI API" />
                 </div>
             </div>
             <div className="features" id="features">
                 <div className="container grid-2">
                     <div className="img-wrapper ">
-                        <img className="img home__hero-img icon-process__gif" src={iconProcess} alt="Generate Icons, View them in your icon storage, download them for your own use." />
+                        {/* <img className="img home__hero-img icon-process__gif" src={iconProcess} alt="Generate Icons, View them in your icon storage, download them for your own use." /> */}
                     </div>
                     <div className="grid-item grid-reverse">
                         <h2 className="header-2 text-secondary-c features__header">Customizable Icons for Any Purpose</h2>

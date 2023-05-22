@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import starFighter from '../../assets/icons/starFighter.png';
+import wizard from '../../assets/icons/wizard.png';
 
 
 const PaymentFailure = () => {
@@ -18,7 +18,7 @@ const PaymentFailure = () => {
                     <Link to="/" className="btn btn-primary payment__container-link">Return Home</Link>
                 </div>
                 <div className="payment__container-item">
-                    <img alt="" className="payment__container-img" src={starFighter} />
+                    <img alt="" className="payment__container-img" src={wizard} />
                 </div>
             </div>
         </div>

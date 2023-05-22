@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 //  Images & Icons
-import gorillaIcon from '../../assets/icons/gorillaIcon.png';
-import childWarriorIcon from '../../assets/icons/childWarriorIcon.png';
-import mysticForestIcon from '../../assets/icons/mysticForestIcon.png';
-import solarSystemIcon from '../../assets/icons/solarSystemIcon.png';
-import mountIcon from '../../assets/icons/mountIcon.png';
-import purplePlanetIcon from '../../assets/icons/purplePlanetIcon.png';
+import basketball2 from '../../assets/icons/basketball2.png';
+import coffee2 from '../../assets/icons/coffee2.png';
+import tree2 from '../../assets/icons/tree2.png';
+import time2 from '../../assets/icons/time2.png';
+import turtle from '../../assets/icons/turtle.png';
+import wizard from '../../assets/icons/wizard.png';
 
 // Toastify
 import { toast, ToastContainer } from 'react-toastify';
@@ -22,42 +22,39 @@ import { generateImages } from '../../firebase/generateImages';
 import LoadingSpinner from '../common/LoadingSpinner';
 
 const sampleImages = [
-    mountIcon,
-    childWarriorIcon,
-    mysticForestIcon,
-    solarSystemIcon,
-    gorillaIcon,
-    purplePlanetIcon
+    basketball2,
+    coffee2,
+    tree2,
+    time2,
+    turtle,
+    wizard,
 ];
-
 
 const iconThemeSelectOptions = [
     { value: 'Select Icon Theme' },
-    { value: 'Animals' },
+    { value: 'Minimalistic' },
     { value: 'Nature' },
+    { value: 'Simple' },
     { value: 'Sports' },
     { value: 'Technology' },
     { value: 'Travel' },
     { value: 'Custom' },
 ];
 
-
 const cameraViewSelectOptions = [
     { value: 'Select Camera View' },
-    { value: 'Birds Eye View' },
-    { value: 'Close-up' },
-    { value: 'Long Shot' },
-    { value: 'Wide Angle' },
+    { value: 'Front View' },
+    { value: 'Side View' },
+    { value: 'Top View' },
     { value: 'Custom' }
 ];
 
 const iconLightingSelectOptions = [
     { value: 'Select Icon Lighting' },
     { value: 'Bright' },
-    { value: 'Dim' },
-    { value: 'Sunny' },
-    { value: 'Twilight' },
-    { value: 'Night' },
+    { value: 'Cool' },
+    { value: 'Soft' },
+    { value: 'Warm' },
     { value: 'Custom' }
 ];
 
@@ -93,8 +90,9 @@ const IconGenerator = ({ UID, creditAmount }) => {
             entirePrompt += `in ${iconLighting} lighting, `;
         }
 
-        entirePrompt += ". With an emphasis on these styles: simple, minimalistic, svg, vector illustration, flat illustration, trending on the icon section of Dribbble, Behance, and Artstation, dark gradient background that fills the entire left over canvas, borderless with no white space."
+        entirePrompt += ", sitting on a dark gradient background. Digital Art, Flat Design, Icon, square, centered, high quality, detailed, beautiful, visually appealing, Illustration, Minimalism, Modern, Simple, gradient background."
 
+        console.log(entirePrompt);
         const imageData = await generateImages(entirePrompt, UID);
 
         if (imageData.error) {
@@ -152,10 +150,9 @@ const IconGenerator = ({ UID, creditAmount }) => {
                         onChange={(e) => setPrompt(e.target.value)}
                     />
                     <button
-                        // disabled={userCreditAmount < 10 || !prompt}
-                        disabled={true}
+                        disabled={userCreditAmount < 10 || !prompt}
                         className="btn btn-primary form__btn icon-generator__container__form-btn">
-                        <LoadingSpinner title="UNDER MAINTENANCE" loading={loading} color="light" />
+                        <LoadingSpinner title="GENERATE" loading={loading} color="light" />
                     </button>
                 </form>
                 <p className="p icon-generator__container-info">

@@ -48,11 +48,12 @@ const Login = ({ UID }) => {
             });
     }
 
-    const handleLoginWithGoogle = (e) => {
+    const handleLoginWithGoogle = async (e) => {
         e.preventDefault();
 
-        signInWithPopup(auth, provider).then((result) => {
-            if (!creditsAdded())
+        signInWithPopup(auth, provider).then(async (result) => {
+            const credAdded = await creditsAdded(result.user.uid);
+            if (!credAdded)
                 addNewUserCredits(result.user.uid);
 
             navigate('/icon-generator/');
