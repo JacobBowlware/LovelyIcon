@@ -202,19 +202,18 @@ const IconGenerator = ({ UID, creditAmount }) => {
                     </li>
                     <li className="list__item icon-generator__rules-item">
                         <FontAwesomeIcon icon={faCheckCircle} className="icon-primary" /> <strong>Be Specific - </strong>
-                        Include specific details about the objects, colors, and textures you want in your image.
+                        Include specific details about the objects, colors, and textures you want in your icon.
                         <span className="text-semi-bold"> For example</span>,
                         "A brown horse with a white mane" instead of "A horse with some white on it"
                     </li>
                     <li className="list__item icon-generator__rules-item">
                         <FontAwesomeIcon icon={faCheckCircle} className="icon-primary" /> <strong>Stay on Topic - </strong>
-                        Stick to the theme or subject of your image. Avoid including unrelated or unnecessary information.
+                        Stick to the theme or subject of your icon. Avoid including unrelated or unnecessary information.
                         <span className="text-semi-bold"> For example</span> "A red rose with dew drops on its petals" instead of "A flower with water drops on it"
                     </li>
                     <li className="list__item icon-generator__rules-item">
                         <FontAwesomeIcon icon={faCheckCircle} className="icon-primary" /> <strong>Include Your Style - </strong>
-                        Feel free to express your unique style preferences for the image. Whether it's a specific artistic approach, a particular aesthetic, or a desired mood, let us know how you envision your ideal image.
-
+                        Feel free to express your unique style preferences for the icon. Whether it's a specific artistic approach, a particular aesthetic, or a desired mood, let us know how you envision your ideal icon.
                     </li>
                 </ul>
             </div>
