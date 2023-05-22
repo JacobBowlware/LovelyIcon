@@ -54,7 +54,7 @@ const Login = ({ UID }) => {
         signInWithPopup(auth, provider).then(async (result) => {
             const credAdded = await creditsAdded(result.user.uid);
             if (!credAdded)
-                addNewUserCredits(result.user.uid);
+                await addNewUserCredits(result.user.uid);
 
             navigate('/icon-generator/');
             window.location.reload();

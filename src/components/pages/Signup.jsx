@@ -46,7 +46,6 @@ const Signup = ({ UID }) => {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             await sendEmailVerification(userCredential.user, actionCodeSettings);
 
-            // Redirect to email verification page
             navigate('/email-verification/');
             window.location.reload();
         }
@@ -60,9 +59,10 @@ const Signup = ({ UID }) => {
     const handleSignupWthGoogle = async (e) => {
         e.preventDefault();
         setLoading(true);
-        signInWithPopup(auth, provider).then((result) => {
-            if (!creditsAdded())
-                addNewUserCredits(result.user.uid);
+        signInWithPopup(auth, provider).then(async (result) => {
+            const credAdded = await creditsAdded(result.user.uid);
+            if (!credAdded)
+                await addNewUserCredits(result.user.uid);
 
             navigate('/icon-generator/');
             window.location.reload();

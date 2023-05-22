@@ -24,7 +24,8 @@ const addNewUserCredits = async (UID) => {
         credits = docSnap.data().credits;
     }
     catch (err) {
-        console.log(err);
+        // console.log(err);
+        credits = 0;
     }
 
     await setDoc(doc(db, "users", UID), {
@@ -36,7 +37,11 @@ const addNewUserCredits = async (UID) => {
 const creditsAdded = async (UID) => {
     const docRef = doc(db, "users", UID);
     const docSnap = await getDoc(docRef);
-    if (docSnap.data.creditsAdded === undefined) {
+    try {
+        if (docSnap.data.creditsAdded === undefined)
+            return false;
+    }
+    catch (err) {
         return false;
     }
 
