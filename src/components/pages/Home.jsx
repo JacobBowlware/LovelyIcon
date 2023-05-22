@@ -18,6 +18,7 @@ import neonCar from '../../assets/icons/neonCar.png';
 import penguin from '../../assets/icons/penguin.png';
 import rocket from '../../assets/icons/rocket.png';
 import time1 from '../../assets/icons/time1.png';
+import time3 from '../../assets/icons/time3.png';
 import tree1 from '../../assets/icons/tree1.png';
 import wizard2 from '../../assets/icons/wizard2.png';
 import villain1 from '../../assets/icons/villain1.png';
@@ -25,6 +26,7 @@ import gorillaSword from '../../assets/icons/gorillaSword.png';
 import credit1Icon from '../../assets/icons/credit1Icon.png';
 import credit2Icon from '../../assets/icons/credit2Icon.png';
 import credit3Icon from '../../assets/icons/credit3Icon.png';
+import iconProcess from '../../assets/process.gif';
 
 // Components
 import Icon from '../common/Icon';
@@ -94,13 +96,13 @@ const Home = () => {
                     <Link to="/login" className="btn btn-primary home__hero-link">Get Started for Free</Link>
                 </div>
                 <div className="img-wrapper">
-                    <img className="img home__hero-img" src={time1} alt="Icon created by OpenAI API" />
+                    <img className="img home__hero-img" src={time3} alt="Icon created by OpenAI API" />
                 </div>
             </div>
             <div className="features" id="features">
                 <div className="container grid-2">
                     <div className="img-wrapper ">
-                        {/* <img className="img home__hero-img icon-process__gif" src={iconProcess} alt="Generate Icons, View them in your icon storage, download them for your own use." /> */}
+                        <img className="img home__hero-img icon-process__gif" src={iconProcess} alt="Generate Icons, View them in your icon storage, download them for your own use." />
                     </div>
                     <div className="grid-item grid-reverse">
                         <h2 className="header-2 text-secondary-c features__header">Customizable Icons for Any Purpose</h2>
