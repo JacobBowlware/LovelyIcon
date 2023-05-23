@@ -18,7 +18,6 @@ import neonCar from '../../assets/icons/neonCar.png';
 import penguin from '../../assets/icons/penguin.png';
 import rocket from '../../assets/icons/rocket.png';
 import time1 from '../../assets/icons/time1.png';
-import time3 from '../../assets/icons/time3.png';
 import tree1 from '../../assets/icons/tree1.png';
 import wizard2 from '../../assets/icons/wizard2.png';
 import villain1 from '../../assets/icons/villain1.png';
@@ -27,6 +26,7 @@ import credit1Icon from '../../assets/icons/credit1Icon.png';
 import credit2Icon from '../../assets/icons/credit2Icon.png';
 import credit3Icon from '../../assets/icons/credit3Icon.png';
 import iconProcess from '../../assets/process.gif';
+import wizard from '../../assets/icons/wizard.png';
 
 // Components
 import Icon from '../common/Icon';
@@ -96,7 +96,7 @@ const Home = () => {
                     <Link to="/login" className="btn btn-primary home__hero-link">Get Started for Free</Link>
                 </div>
                 <div className="img-wrapper">
-                    <img className="img home__hero-img" src={time3} alt="Icon created by OpenAI API" />
+                    <img className="img home__hero-img" src={wizard} alt="Icon created by OpenAI API" />
                 </div>
             </div>
             <div className="features" id="features">
