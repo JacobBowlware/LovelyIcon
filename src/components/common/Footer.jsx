@@ -38,7 +38,7 @@ const Footer = ({ email }) => {
                     <a className="link footer-item__link footer-item__link-main" href="/#home">Lovely<TextHighlight>Icon</TextHighlight></a>
                 </li>
                 <li className="footer-item">
-                    <a className="link footer-item__link" href="mailto:jacobbowlware@gmail.com?subject=Contact%20LovelyIcon">Contact</a>
+                    <a className="link footer-item__link" href="mailto:LovelyIconContact@gmail.com?subject=Contact%20LovelyIcon">Contact</a>
                 </li>
             </ul>
         );
