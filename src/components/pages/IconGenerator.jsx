@@ -92,7 +92,6 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
         entirePrompt += ", sitting on a dark gradient background. Digital Art, Flat Design, Icon, square, centered, high quality, detailed, beautiful, visually appealing, Illustration, Minimalism, Modern, Simple, gradient background."
 
-        console.log(entirePrompt);
         const imageData = await generateImages(entirePrompt, UID);
 
         if (imageData.error) {

@@ -1,8 +1,8 @@
 // React
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Route, RouterProvider, createBrowserRouter,
-  createRoutesFromElements, Outlet
+  createRoutesFromElements, Outlet,
 } from 'react-router-dom';
 import ScrollToTop from './components/common/ScrollToTop.js';
 
@@ -48,6 +48,7 @@ function App() {
   const [UID, setUID] = useState("");
   const [creditAmount, setCreditAmount] = useState(0);
 
+
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setUID(user.uid);
@@ -72,6 +73,18 @@ function App() {
   }
 
   const Root = () => {
+
+    useEffect(() => {
+      try {
+        if (window.location.hostname !== 'lovelyicon.com') {
+          window.location.href = 'https://lovelyicon.com';
+        }
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }, []);
+
     return <>
       <Header email={email} />
       <ScrollToTop />
