@@ -73,6 +73,7 @@ const Login = ({ UID }) => {
             >
                 <h1 className="header-1 form__header">Login to Lovely<TextHighlight>Icon</TextHighlight></h1>
                 <button
+                    name="Continue with Google"
                     className="btn btn-primary form__btn-google"
                     onClick={(e) => handleLoginWithGoogle(e)}
                 >
@@ -103,6 +104,7 @@ const Login = ({ UID }) => {
                     autoComplete='current-password'
                 />
                 <button
+                    name="Login"
                     type="submit"
                     className="btn btn-primary form__btn"
                     disabled={emailError || !password || !email}>

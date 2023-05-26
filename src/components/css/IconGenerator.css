@@ -94,6 +94,10 @@
     object-fit: fill;
 }
 
+.icon-generator__samples {
+    width: 100%;
+}
+
 .icon-generator__samples-header {
     margin: 2rem 0 0 0;
     font-size: 1.6rem;
@@ -141,6 +145,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .icon-generator__icon-display__icon-img {

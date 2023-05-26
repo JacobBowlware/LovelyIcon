@@ -155,9 +155,17 @@ const IconGenerator = ({ UID, creditAmount }) => {
                     </button>
                 </form>
                 <p className="p icon-generator__container-info">
-                    <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> You currently have <span className="text-highlight text-semi-bold">{userCreditAmount}</span> credits
-                    remaining. Each generate costs <span className="text-highlight text-semi-bold">5</span>. {userCreditAmount < 5 ? <span className="">Add more credits to your
-                        account  <Link to="/add-credits" className="text-link text-highlight">here.</Link> </span> : null}
+                    {loading ?
+                        <>
+                            <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> Your icons are being generated, this may take a
+                            moment. <span className="text-highlight text-semi-bold">Please do not refresh the page.</span>
+                        </>
+                        :
+                        <>
+                            <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> You currently have <span className="text-highlight text-semi-bold">{userCreditAmount}</span> credits
+                            remaining. Each generate costs <span className="text-highlight text-semi-bold">5</span>. {userCreditAmount < 5 ? <span className="">Add more credits to your
+                                account  <Link to="/add-credits" className="text-link text-highlight">here.</Link> </span> : null}
+                        </>}
                 </p>
             </div>
             <div className="icon-generator__samples">

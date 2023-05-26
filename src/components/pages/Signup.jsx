@@ -81,6 +81,7 @@ const Signup = ({ UID }) => {
                     Signup for Lovely<TextHighlight>Icon</TextHighlight>
                 </h1>
                 <button
+                    name="Continue with Google"
                     className="btn btn-primary form__btn-google"
                     onClick={(e) => handleSignupWthGoogle(e)} >
                     Continue with&nbsp;<TextHighlight>Google</TextHighlight>
@@ -123,6 +124,7 @@ const Signup = ({ UID }) => {
                 />
                 {errors.confirmPassword && <p className="form__error">{errors.confirmPassword}</p>}
                 <button
+                    name="Signup"
                     className="btn btn-primary form__btn"
                     type="submit"
                     disabled={
