@@ -21,6 +21,9 @@ const addNewUserCredits = async (UID) => {
 
     let credits = 0;
     try {
+        if (docSnap.data().creditsAdded === true)
+            return;
+
         credits = docSnap.data().credits;
     }
     catch (err) {
