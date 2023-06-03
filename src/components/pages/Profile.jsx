@@ -10,7 +10,7 @@ import { auth } from '../../firebase/config';
 import Logout from '../common/Logout';
 
 const actionCodeSettings = {
-    url: 'https://lovelyicon.com/profile/',
+    url: 'https://lovelyicon-f3ad1.firebaseapp.com/__/auth/action',
     handleCodeInApp: true,
 };
 

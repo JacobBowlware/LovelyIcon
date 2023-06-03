@@ -74,16 +74,16 @@ function App() {
 
   const Root = () => {
 
-    // useEffect(() => {
-    //   try {
-    //     if (window.location.hostname !== 'lovelyicon.com') {
-    //       window.location.href = 'https://lovelyicon.com';
-    //     }
-    //   }
-    //   catch (err) {
-    //     console.log(err);
-    //   }
-    // }, []);
+    useEffect(() => {
+      try {
+        if (window.location.hostname !== 'lovelyicon.com') {
+          window.location.href = 'https://lovelyicon.com';
+        }
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }, []);
 
     return <>
       <Header email={email} />
