@@ -10,7 +10,7 @@ import { auth } from '../../firebase/config';
 import Logout from '../common/Logout';
 
 const actionCodeSettings = {
-    url: 'https://lovelyicon.com/email-verification/',
+    url: 'https://lovelyicon.com/profile/',
     handleCodeInApp: true,
 };
 

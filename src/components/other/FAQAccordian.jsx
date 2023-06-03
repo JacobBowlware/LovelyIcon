@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import AccordianItem from '../common/AccordianItem';
+import AccordianItem from './AccordianItem';
 
 const FAQAccordian = () => {
 

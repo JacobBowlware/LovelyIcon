@@ -11,7 +11,9 @@ const EmailVerification = ({ UID }) => {
     useEffect(() => {
         const checkEmailVerificationStatus = async () => {
             const user = auth.currentUser;
+            console.log(user, "checking email verification status");
             if (user && user.emailVerified) {
+                console.log("User verified.");
                 const credsAdded = await creditsAdded(UID);
 
                 // Email is verified
