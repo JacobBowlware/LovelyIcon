@@ -67,6 +67,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
     const [generatedIcons, setGeneratedIcons] = useState([]);
     const [userCreditAmount, setUserCreditAmount] = useState(0);
     const [loading, setLoading] = useState(false);
+    const imageCost = 5;
 
     useEffect(() => {
         setUserCreditAmount(creditAmount);
@@ -74,6 +75,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
     const generateImage = async () => {
         setLoading(true);
+
         setUserCreditAmount(userCreditAmount - 5);
 
         let entirePrompt = `${prompt}. `;
@@ -92,9 +94,13 @@ const IconGenerator = ({ UID, creditAmount }) => {
 
         entirePrompt += ", sitting on a dark gradient background. Digital Art, Flat Design, Icon, square, centered, high quality, detailed, beautiful, visually appealing, Illustration, Minimalism, Modern, Simple, gradient background."
 
-        const imageData = await generateImages(entirePrompt, UID);
-
-        if (imageData.error) {
+        let imageData = null;
+        try {
+            imageData = await generateImages(entirePrompt, UID);
+            console.log(imageData);
+        }
+        catch (error) {
+            console.log(error);
             toast.error("An error occurred while generating your icon. Please try again later.");
             setLoading(false);
             return;
@@ -149,7 +155,7 @@ const IconGenerator = ({ UID, creditAmount }) => {
                         onChange={(e) => setPrompt(e.target.value)}
                     />
                     <button
-                        disabled={userCreditAmount < 10 || !prompt}
+                        disabled={userCreditAmount < imageCost || !prompt}
                         className="btn btn-primary form__btn icon-generator__container__form-btn">
                         <LoadingSpinner title="GENERATE" loading={loading} color="light" />
                     </button>
@@ -163,17 +169,17 @@ const IconGenerator = ({ UID, creditAmount }) => {
                         :
                         <>
                             <FontAwesomeIcon icon={faInfoCircle} className="icon-primary" /> You currently have <span className="text-highlight text-semi-bold">{userCreditAmount}</span> credits
-                            remaining. Each generate costs <span className="text-highlight text-semi-bold">5</span>. {userCreditAmount < 5 ? <span className="">Add more credits to your
+                            remaining. Each generate costs <span className="text-highlight text-semi-bold">{imageCost}</span>. {userCreditAmount < imageCost ? <span className="">Add more credits to your
                                 account  <Link to="/add-credits" className="text-link text-highlight">here.</Link> </span> : null}
                         </>}
                 </p>
             </div>
             <div className="icon-generator__samples">
                 <h2 className="header-2 icon-generator__samples-header">
-                    {generatedIcons.length > 0 ? "Your Generated Icons; Click on an icon to download it" : "Sample of Generated Icons"}
+                    {generatedIcons && generatedIcons.length > 0 ? "Your Generated Icons; Click on an icon to download it" : "Sample of Generated Icons"}
                 </h2>
                 <div className="icon-generator__icon-display">
-                    {generatedIcons.length > 0 ? (
+                    {generatedIcons && generatedIcons.length > 0 ? (
                         generatedIcons.map((image, index) => (
                             <div onClick={() => handleIconSelect(image)} className="icon-generator__icon-display__icon" key={index}>
                                 <img

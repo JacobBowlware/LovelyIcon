@@ -63,27 +63,23 @@ function App() {
   const getCreditAmount = async (UID) => {
     const docRef = doc(db, "users", UID);
     const docSnap = await getDoc(docRef);
-
     if (docSnap.exists()) {
       setCreditAmount(docSnap.data().credits);
-    }
-    else {
-      // doc.data() will be undefined in this case
     }
   }
 
   const Root = () => {
 
-    useEffect(() => {
-      try {
-        if (window.location.hostname !== 'lovelyicon.com') {
-          window.location.href = 'https://lovelyicon.com';
-        }
-      }
-      catch (err) {
-        console.log(err);
-      }
-    }, []);
+    // useEffect(() => {
+    //   try {
+    //     if (window.location.hostname !== 'lovelyicon.com') {
+    //       window.location.href = 'https://lovelyicon.com';
+    //     }
+    //   }
+    //   catch (err) {
+    //     console.log(err);
+    //   }
+    // }, []);
 
     return <>
       <Header email={email} />

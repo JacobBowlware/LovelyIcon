@@ -23,10 +23,10 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
     const userId = req.body.userId;
     const prompt = req.body.prompt;
 
+
     try {
         const userDocRef = admin.firestore().doc(`users/${userId}`);
         const userDoc = await userDocRef.get();
-
         if (userDoc.exists) {
             const userData = userDoc.data();
             if (userData.hasOwnProperty('credits') && userData.credits >= 5) {
@@ -38,10 +38,10 @@ exports.generateImage = functions.https.onRequest(async (req, res) => {
                     },
                     body: JSON.stringify({
                         prompt: prompt,
-                        n: 6,
+                        n: 3,
                         size: "512x512",
-                        model: "image-alpha-001",
-                        response_format: "b64_json"
+                        response_format: "b64_json",
+                        model: "dall-e-2"
                     })
                 };
 

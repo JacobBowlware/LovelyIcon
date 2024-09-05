@@ -28,12 +28,13 @@ const generateImages = async (prompt, UID) => {
                 await uploadString(storageRef, base64Data, 'base64');
             }
         } catch (e) {
-            return images;
+            console.log(e);
+            return e;
         }
 
         return images;
     } catch (e) {
-        return null;
+        return e;
     }
 };
 

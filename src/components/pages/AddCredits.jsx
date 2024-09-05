@@ -26,7 +26,6 @@ const AddCredits = ({ creditAmount, UID }) => {
     const credit110Price_id = 'price_1N83Y8CqwoHDTnquCtMvvqrF';
     const credit240Price_id = 'price_1N83bFCqwoHDTnquI1Xu3JJ0';
 
-
     const handlePurchase = async (price_id) => {
         try {
             const response = await axios.post(
